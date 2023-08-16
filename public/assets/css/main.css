@@ -1,0 +1,129 @@
+/* Accordion body */
+.accordion-body {
+    padding-bottom: 2px;
+}
+
+/* Accordion item */
+#liveCityAccordion .accordion-item {
+    margin-bottom: 3px;
+}
+
+/* Accordion button */
+.accordion-item .accordion-header .live-city-accordion-button {
+    background-color: #c4b825;
+    transform: translatex(0px) translatey(0px);
+    color: #000205;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    letter-spacing: 1.2px;
+    border: 0px;
+}
+
+/* Live cities heading */
+.live-cities-heading {
+    font-weight: 700;
+    font-size: 35px;
+    letter-spacing: 1.8px;
+    margin-left: 22px;
+}
+
+/* Paragraph */
+.live-city-heading {
+    font-weight: 600;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #c4b825;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    margin-left: 18px;
+    margin-right: 18px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.live-city-heading:hover {
+    background-color: #c4b825;
+    transition: background-color .7s;
+}
+
+/*Non Live Cities*/
+/* Accordion item */
+#non-liveCityAccordion .accordion-item {
+    margin-bottom: 3px;
+}
+
+/* Accordion button */
+.accordion-item .accordion-header .non-live-city-accordion-button {
+    background-color: #d0cdc8;
+    transform: translatex(0px) translatey(0px);
+    color: #000205;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    letter-spacing: 1.2px;
+    border: 0px;
+}
+
+/* Live cities heading */
+.non-live-cities-heading {
+    font-weight: 700;
+    font-size: 35px;
+    letter-spacing: 1.8px;
+    margin-left: 22px;
+}
+
+/* Paragraph */
+.non-live-city-heading {
+    font-weight: 600;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #d0cdc8;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    margin-left: 18px;
+    margin-right: 18px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.non-live-city-heading:hover {
+    background-color: #d0cdc8;
+    transition: background-color .7s;
+}
+
+/* Accordion item */
+#non-liveCityAccordion .accordion-item {
+    margin-bottom: 3px;
+}
+
+/* Accordion button */
+.accordion-item .accordion-header .non-live-city-accordion-button {
+    background-color: #d0cdc8;
+    transform: translatex(0px) translatey(0px);
+    color: #000205;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    letter-spacing: 1.2px;
+    border: 0px;
+}
+
+.comming-soon {
+    margin: 15px 15px 5px 18px;
+    font-weight: 400 !important;
+}
+
+.comming-soon span {
+    font-weight: 700;
+}
