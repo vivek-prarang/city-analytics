@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Rampur Static Page</title>
+    <title></title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0,  user-scalable=no" name="viewport">
     <meta property="og:title" title="">
@@ -21,7 +21,6 @@
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
 </head>
 
 <body>

@@ -1,5 +1,4 @@
 <x-layout.base>
-
     <section class="container">
         <h2 class="live-cities-heading">Live Cities</h2>
         <div class="accordion live-cities-accordion" id="liveCityAccordion">
@@ -18,7 +17,7 @@
                             <div class="row">
                                 @foreach ($liveCities as $city)
                                     <div class="col-sm-3  text-center">
-                                        <a href="/{{ $city['id'] }}/{{ Str::slug($city['city']) }}">
+                                        <a href="https://prarang.in/{{ Str::slug($city['city']) }}" target="_blanks">
                                             <p class="live-city-heading">{{ $loop->iteration }}. {{ $city['city'] }}
                                             </p>
                                         </a>
@@ -41,8 +40,6 @@
             comparison & identifying unique socio-economic as well as culture & nature metrics. <br> <span>- Coming
                 Soon -</span>
         </p>
-
-
         <div class="accordion non-live-cities-accordion" id="non-liveCityAccordion">
             @foreach ($cities as $state => $nonLiveCities)
                 <div class="accordion-item">
