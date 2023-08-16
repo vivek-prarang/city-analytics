@@ -136,3 +136,46 @@ body {
 .shadow {
     box-shadow: 0px 0px 12px 12px rgba(147, 168, 168, 0.15) !important;
 }
+
+.city-heading-section h2 {
+    padding-top: 8px;
+    padding-bottom: 19px;
+}
+
+@media (max-width:600px) {
+
+    /* Basic */
+    .static-top-section .basic-d {
+        margin-top: 10px;
+    }
+
+}
+
+/* Paragraph */
+.static-top-section .basic-d p {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: normal;
+    text-decoration: none;
+    text-shadow: rgb(255, 0, 0) -1px 0px 0px, rgb(0, 255, 255) 1px 0px 0px;
+    letter-spacing: 1.8px;
+    word-spacing: 3.2px;
+}
+
+/* Paragraph */
+.static-top-section .language p {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: rgb(255, 0, 0) -1px 0px 0px, rgb(0, 255, 255) 1px 0px 0px;
+    letter-spacing: 1.8px;
+    word-spacing: 3.2px;
+}
+
+.city-heading-section h2 {
+    font-weight: 700;
+    font-style: normal;
+    text-transform: none;
+    white-space: normal;
+    text-shadow: rgb(255, 255, 255) 1px 1px 0px, rgb(170, 170, 170) 2px 2px 0px;
+    font-size: 34px;
+}
