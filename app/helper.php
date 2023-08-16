@@ -39,3 +39,19 @@ if (!function_exists('httpPost')) {
         }
     }
 }
+
+if (!function_exists('vertical')) {
+    function vertical($table = null)
+    {
+        if ($table == null) {
+            $items = DB::table('verticalsname')->get()->toArray();
+        } else {
+            $items = DB::table('verticalsname')->whereIn('table_name', $table)->get()->toArray();
+        }
+        $data = array();
+        foreach ($items as $item) {
+            $data[$item->id] = $item;
+        }
+        return $data;
+    }
+}

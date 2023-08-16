@@ -19,6 +19,10 @@ class Home extends Controller
     public function staticCity(Request $request, $id, $city)
     {
         $cityInfo = httpGet('city-info', ['id' => $id])['data'];
-        return view('main.city', compact('cityInfo'));
+
+        $data = httpGet('district-info', ['id' => $id]);
+        $cityData = $data['data'];
+        $top3Languages = $data['language'];
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages'));
     }
 }
