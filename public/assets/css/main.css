@@ -171,6 +171,14 @@ body {
     word-spacing: 3.2px;
 }
 
+.live-heading {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: rgb(255, 0, 0) -1px 0px 0px, rgb(0, 255, 255) 1px 0px 0px;
+    letter-spacing: 1.8px;
+    word-spacing: 3.2px;
+}
+
 .city-heading-section h2 {
     font-weight: 700;
     font-style: normal;
@@ -199,7 +207,6 @@ body {
     margin-left: 30px;
 }
 
-}
 
 /* Paragraph */
 .container .static-top-section .row .col-sm-4 .language .lang-num {
@@ -213,4 +220,88 @@ body {
         font-size: 14px;
     }
 
+}
+
+.basic-d .col-sm-8 {
+    padding-left: 27px;
+}
+
+/* Table Data */
+.basic-d tr td {
+    margin-left: 0px;
+    width: 61px;
+    padding-left: 39px;
+    padding-right: 15px;
+}
+
+/* Span Tag */
+#mid-section .disrict-rank span {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-shadow: none;
+}
+
+
+/* live Cities */
+/* Link */
+.live-cities-list .live-state-name a {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* List */
+.live-cities-list ul ul {
+    padding-bottom: 15px;
+    transform: translatex(0px) translatey(0px);
+    padding-left: 24px;
+}
+
+/* Live cities name */
+.live-cities-list .live-cities-name {
+    padding-bottom: 2px;
+    padding-top: 2px;
+    margin-right: 29px;
+    margin-bottom: 7px;
+    transform: translatex(0px) translatey(0px);
+    padding-left: 13px;
+    background-color: #f49d6b;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+/* Live state name */
+.live-cities-list ul .live-state-name {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 6px;
+    font-style: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: none;
+}
+
+/* List Item */
+.live-cities-list ul ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* List */
+.live-cities-list div>ul {
+    padding-left: 2px;
+}
+
+/* Paragraph */
+#mid-section .live-cities-list p {
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
 }

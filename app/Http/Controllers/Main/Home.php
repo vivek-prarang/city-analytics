@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 class Home extends Controller
 {
+    // City ID : 675:Rampur,667:Meerut,651:Jaunpur, 661:Lucknow
     public function home(Request $request)
     {
         $cities = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereNotIn']);
@@ -23,6 +24,7 @@ class Home extends Controller
         $data = httpGet('district-info', ['id' => $id]);
         $cityData = $data['data'];
         $top3Languages = $data['language'];
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages'));
+        $liveCities  = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn'])['data'];
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities'));
     }
 }
