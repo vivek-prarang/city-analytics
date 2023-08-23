@@ -17,6 +17,7 @@ class Home extends Controller
         $liveCities = $liveCities['data'];
         return view('main.home', compact('liveCities', 'cities'));
     }
+
     public function staticCity(Request $request, $id, $city)
     {
         $cityInfo = httpGet('city-info', ['id' => $id])['data'];
@@ -24,7 +25,9 @@ class Home extends Controller
         $data = httpGet('district-info', ['id' => $id]);
         $cityData = $data['data'];
         $top3Languages = $data['language'];
+
         $liveCities  = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn'])['data'];
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities'));
+        $wpp = httpGet('get-wpp', ['city_id' => $id]);
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp'));
     }
 }

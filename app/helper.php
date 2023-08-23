@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -53,5 +54,94 @@ if (!function_exists('vertical')) {
             $data[$item->id] = $item;
         }
         return $data;
+    }
+}
+if (!function_exists('numFormat')) {
+    function numFormat($num, $rank = false)
+    {
+        $num = intval($num);
+        if (!$rank) {
+            return number_format($num, 0, '.', ',');
+        } else {
+            return getSuperScript($num);
+        }
+    }
+}
+
+if (!function_exists('getSuperScript')) {
+    function getSuperScript($number)
+    {
+        $lastDigit = $number % 10;
+        $lastTwoDigits = $number % 100;
+        if ($lastTwoDigits >= 11 && $lastTwoDigits <= 13) {
+            $ordinal = 'th';
+        } else {
+            switch ($lastDigit) {
+                case 1:
+                    $ordinal = 'st';
+                    break;
+                case 2:
+                    $ordinal = 'nd';
+                    break;
+                case 3:
+                    $ordinal = 'rd';
+                    break;
+                default:
+                    $ordinal = 'th';
+                    break;
+            }
+        }
+        echo number_format($number, 0, '.', ',') . '<sup>' . $ordinal . '</sup>';
+    }
+}
+
+if (!function_exists('realName')) {
+    function realName($name)
+    {
+        switch ($name) {
+            case 'e_demos':
+                return "Demography";
+                break;
+            case 'e_edus':
+                return "Education";
+                break;
+            case 'e_govs':
+                return "Government";
+                break;
+
+            case 'e_healths':
+                return "Health";
+                break;
+
+            case 'e_medias':
+                return "Media";
+                break;
+
+            case 'e_urbs':
+                return "Urbanization";
+                break;
+
+            case 'e_wealths':
+                return "Wealth";
+                break;
+
+            case 'e_works':
+                return "Work";
+                break;
+
+            case 'e_ints':
+                return "Internet";
+                break;
+            case 'e_langs':
+                return "Language";
+                break;
+            case 'city_masters':
+                return "Demography";
+                break;
+
+            default:
+                return "---";
+                break;
+        }
     }
 }
