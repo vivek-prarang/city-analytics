@@ -375,6 +375,18 @@ body {
 
 }
 
+.work-accordion-body {
+    background-color: rgba(250, 247, 233, 0.35);
+}
+
+.pls-accordion-body {
+    background-color: rgba(252, 242, 242, 0.35);
+}
+
+.pop-accordion-body {
+    background-color: rgba(225, 255, 238, 0.33);
+}
+
 #flush-headingOne .work-acc-btn {
     padding-bottom: 3px;
     padding-top: 8px;
@@ -398,8 +410,6 @@ body {
     margin-bottom: 8px;
 }
 
-/* City Hiegilight */
-/* Neg title */
 .ps-4 div .neg-title {
     font-weight: 700;
 }

@@ -64,7 +64,8 @@
                                     <tr>
                                         <th> Population (Rank)</th>
                                         <td>:</td>
-                                        <td>{{ numFormat($cityData['dist_pop_rank'], true) }}</td>
+                                        <td>{{ numFormat($cityData['dist_pop_rank'], true) }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th> Area (Rank)</th>
@@ -219,7 +220,7 @@
                                             <div id="flush-collapsep{{ $pkey }}"
                                                 class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                                                 data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
+                                                <div class="accordion-body pls-accordion-body">
                                                     <table class="table table-sm">
                                                         @foreach ($pvertical as $place)
                                                             <tr>
@@ -256,7 +257,7 @@
                                                     class="accordion-collapse collapse"
                                                     aria-labelledby="flush-headingOne"
                                                     data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body">
+                                                    <div class="accordion-body pop-accordion-body">
                                                         <table class="table table-sm">
                                                             @foreach ($overtical as $people)
                                                                 <tr>
