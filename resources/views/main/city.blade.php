@@ -106,17 +106,22 @@
                                 <table>
                                     <tr>
                                         <td>1. </td>
-                                        <td class="ps-2"> "{{ $cityInfo['city'] }}" is the " 123" highest ranked in "
-                                            i Header" out
+                                        <td class="ps-2"> "{{ $cityInfo['city'] }}" is the "{{ $posData[0]['rank'] }}"
+                                            highest ranked in "
+                                            <x-elements.socure :value="$vertical[$posData[0]['virtical']]" /> out
                                             of
                                             768
-                                            City/Districts of India</td>
+                                            City/Districts of India
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>2. </td>
-                                        <td class="ps-2">The Average " i Header" of Indian City(District
+                                        <td class="ps-2">The Average <x-elements.socure :value="$vertical[$posData[1]['virtical']]" /> of Indian
+                                            City(District
                                             Capitals)/Districts is "
-                                            ???" . " {{ $cityInfo['city'] }}" is the "123" highest ranked City out of
+                                            {{ $posData[1]['avg'] }} . " {{ $cityInfo['city'] }}" is the
+                                            {{ $posData[1]['rank'] }}
+                                            highest ranked City out of
                                             768
                                             City/Districts.</td>
                                     </tr>
@@ -124,8 +129,8 @@
                                         <td>3.</td>
                                         <td class="ps-2">Out of 768 District Capitals/Districts of India,
                                             "{{ $cityInfo['city'] }}"
-                                            is the " 123"
-                                            highest ranked in " i Header" .</td>
+                                            is the {{ $posData[2]['rank'] }}
+                                            highest ranked in "<x-elements.socure :value="$vertical[$posData[2]['virtical']]" /> .</td>
                                     </tr>
                                 </table>
                                 <p class="text-end"> <button class="btn btn-sm btn-info" href=""

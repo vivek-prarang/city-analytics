@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class Home extends Controller
 {
     // City ID : 675:Rampur,667:Meerut,651:Jaunpur, 661:Lucknow
@@ -28,6 +29,9 @@ class Home extends Controller
 
         $liveCities  = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn'])['data'];
         $wpp = httpGet('get-wpp', ['city_id' => $id]);
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp'));
+        $posNegData = httpGet('get-top-rank-data', ['city_id' => $id]);
+        $posData = $posNegData['posData'];
+        $negData = $posNegData['negData'];
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'posData', 'negData'));
     }
 }
