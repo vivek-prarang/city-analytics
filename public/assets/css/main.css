@@ -33,7 +33,12 @@ body {
 }
 
 #heiContentDiv {
-    transition: height 0.3s ease;
+    transition: height 0.5s ease;
+    overflow: hidden;
+}
+
+#heinContentDiv {
+    transition: height 0.5s ease;
     overflow: hidden;
 }
 
@@ -418,3 +423,56 @@ body {
 .ps-4 div .pos-title {
     font-weight: 700;
 }
+
+/* Disrict rank */
+#mid-section .disrict-rank {
+    padding-right: 16px !important;
+}
+
+/* Text end */
+.ps-4 div>.text-end {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #badfec;
+}
+
+/* Button */
+#heiToggleButton {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Button */
+#heinToggleButton {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Tamp CSS */
+/* Text center */
+.static-top-section .language .text-center {
+    margin-bottom: 20px;
+}
+
+/* List Item */
+.language ul li {
+    padding-top: 11px;
+    padding-bottom: 5px;
+}
+
+/* Paragraph */
+.static-top-section .language p {
+    padding-bottom: 6px;
+    padding-top: 11px !important;
+}
+
+/* List Item */
+.container .static-top-section .row .col-sm-4 .language ul li {
+    font-size: 16px !important;
+}
+
+/*  */

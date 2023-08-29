@@ -4,6 +4,17 @@
 <x-layout.base>
     @section('css')
         <style>
+            /* Import Google Fonts */
+            @import url("//fonts.googleapis.com/css2?family=Alike:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+            /* Table Data */
+            .ps-4 tr .ps-2 {
+                font-weight: 500;
+                font-family: 'Alike', serif;
+                letter-spacing: 0.2px;
+                word-spacing: 1px;
+            }
+
             .basic-d img {
                 width: 162px;
                 height: 154px;
@@ -29,6 +40,113 @@
                 text-transform: capitalize;
                 text-align: justify;
             }
+
+            tr td {
+                font-size: 13px;
+            }
+
+            /* List Item */
+            .container .static-top-section .row .col-sm-4 .language ul li {
+                font-size: 14px !important;
+            }
+
+            /* Th */
+            #heinContentDiv tr .stk {
+                position: sticky;
+                top: -1px;
+                z-index: 11;
+                background-color: #F7E3E3;
+            }
+
+            /* Th */
+            #heiContentDiv tr .stk {
+                position: sticky;
+                top: -1px;
+                z-index: 11;
+                background-color: #E6FCD4;
+            }
+
+            /* Hein content div */
+            #heinContentDiv {
+                overflow-y: scroll;
+                height: 68vh;
+            }
+
+            #heiContentDiv {
+                overflow-y: scroll;
+                height: 68vh;
+            }
+
+            /* Disrict rank */
+            #mid-section .disrict-rank {
+                padding-top: 15px !important;
+            }
+
+            /* Pos title */
+            .ps-4 div .pos-title {
+                padding-top: 3px;
+                padding-bottom: 3px;
+                background-color: #e6fcd4;
+                color: #0808b4;
+                padding-left: 12px;
+            }
+
+            /* Neg title */
+            .ps-4 div .neg-title {
+                background-color: #f7e3e3;
+                padding-left: 12px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+
+            @media (min-width:768px) {
+
+                /* Pos title */
+                .ps-4 div .pos-title {
+                    font-size: 18px;
+                }
+
+                /* Neg title */
+                .ps-4 div .neg-title {
+                    font-size: 18px;
+                }
+
+            }
+
+            /* Table Data */
+            .ps-4 tr .ps-2 {
+                padding-bottom: 7px;
+            }
+
+            /* Row */
+            #heiContentDiv .row {
+                position: sticky;
+                top: 0px;
+                padding-top: 3px;
+                background-color: #f4f4f4;
+                transform: translatex(0px) translatey(0px);
+                z-index: 5;
+            }
+
+            /* Th */
+            #heiContentDiv tbody .stk {
+                top: 26px;
+            }
+
+            /* Row */
+            #heinContentDiv .row {
+                position: sticky;
+                top: 0px;
+                padding-top: 3px;
+                background-color: #f4f4f4;
+                transform: translatex(0px) translatey(0px);
+                z-index: 5;
+            }
+
+            /* Th */
+            #heinContentDiv tbody .stk {
+                top: 26px;
+            }
         </style>
     @endsection
     <main class="container">
@@ -45,7 +163,8 @@
                         <ul>
                             @forelse ($top3Languages as $key=> $lang)
                                 <li class="lang-li">
-                                    {{ $loop->iteration }}. <x-elements.socure :value="$vertical[$key]" :showSource="false" />
+                                    {{ $loop->iteration }}. <x-elements.socure :value="$vertical[$key]" /> :
+                                    &nbsp; {{ numFormat($lang) }}
                                 </li>
                             @empty
                                 No Data Found!
@@ -62,10 +181,21 @@
                             <div class="col-sm-6">
                                 <table class="table table-sm">
                                     <tr>
-                                        <th> Population (Rank)</th>
+                                        <th> Population </th>
+                                        <td>:</td>
+                                        <td>{{ numFormat($cityData['city_population']) }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Population (Rank) </th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['dist_pop_rank'], true) }}
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Area (km<sup>2</sup>)</th>
+                                        <td>:</td>
+                                        <td>{{ numFormat($cityData['district_area']) }}</td>
                                     </tr>
                                     <tr>
                                         <th> Area (Rank)</th>
@@ -105,32 +235,34 @@
                                 </p>
                                 <table>
                                     <tr>
-                                        <td>1. </td>
-                                        <td class="ps-2"> "{{ $cityInfo['city'] }}" is the "{{ $posData[0]['rank'] }}"
-                                            highest ranked in "
-                                            <x-elements.socure :value="$vertical[$posData[0]['virtical']]" /> out
+                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
+                                        <td class="ps-2"> <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($posData[0]['rank'], true) }}</strong>
+                                            highest ranked in <strong>
+                                                <x-elements.socure :value="$vertical[$posData[0]['e_id']]" /></strong> out
                                             of
                                             768
-                                            City/Districts of India
+                                            City/Districts of India.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>2. </td>
-                                        <td class="ps-2">The Average <x-elements.socure :value="$vertical[$posData[1]['virtical']]" /> of Indian
-                                            City(District
-                                            Capitals)/Districts is "
-                                            {{ $posData[1]['avg'] }} . " {{ $cityInfo['city'] }}" is the
-                                            {{ $posData[1]['rank'] }}
-                                            highest ranked City out of
-                                            768
-                                            City/Districts.</td>
+                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
+                                        <td class="ps-2">The Average <strong> <x-elements.socure :value="$vertical[$posData[1]['e_id']]" />
+                                            </strong> of Indian City(District Capitals)/Districts is <strong>
+                                                {{ $posData[1]['avg'] }}.</strong> &nbsp;
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($posData[1]['rank'], true) }}</strong> highest ranked
+                                            City out of 768
+                                            City/Districts.
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>3.</td>
+                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i></td>
                                         <td class="ps-2">Out of 768 District Capitals/Districts of India,
-                                            "{{ $cityInfo['city'] }}"
-                                            is the {{ $posData[2]['rank'] }}
-                                            highest ranked in "<x-elements.socure :value="$vertical[$posData[2]['virtical']]" /> .</td>
+                                            <strong>{{ $cityInfo['city'] }}</strong>
+                                            is the <strong>{{ numFormat($posData[2]['rank'], true) }}</strong>
+                                            highest ranked in <strong><x-elements.socure :value="$vertical[$posData[2]['e_id']]" /></strong>.
+                                        </td>
                                     </tr>
                                 </table>
                                 <p class="text-end"> <button class="btn btn-sm btn-info" href=""
@@ -138,33 +270,105 @@
                                         <i class="fa fa-plus">
                                             More</i></button></p>
                                 <div class="mt-3" id="heiContentDiv" style="display: none;">
-                                    This is the content that will be shown or hidden.
+                                    <div class="row">
+                                        <div class="col-sm-6 text-center h6">Population:
+                                            {{ numFormat($cityData['city_population']) }}</div>
+                                        <div class="col-sm-6 text-center h6">Area (KM<sup>2</sup>) :
+                                            {{ numFormat($cityData['district_area']) }}</div>
+                                    </div>
+                                    <table class="table table-sm table-bordered">
+                                        <tr class="class="">
+                                            <th class="stk">Sr.</th>
+                                            <th class="stk">Fields</th>
+                                            <th class="stk">Category</th>
+                                            <th class="stk">India Average</th>
+                                            <th class="stk">Rank out of 768</th>
+                                        </tr>
+                                        @foreach ($posData as $pdata)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><x-elements.socure :value="$vertical[$pdata['e_id']]" /></td>
+                                                <td>{{ realName($pdata['e_table']) }}</td>
+                                                <td>{{ $pdata['avg'] }}</td>
+
+                                                <td class="text-end">{{ numFormat($pdata['rank'], true) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+
                                 </div>
+
                             </div>
+                            <br>
                             <div>
                                 <p class="neg-title">
-                                    Nagative:
+                                    Negative:
                                 </p>
-                                <table>
+                                <table class="">
                                     <tr>
-                                        <td>1. </td>
-                                        <td class="ps-2"> Out of 768 District Capitals/Districts of India, " XYZ -
-                                            Name" is the " 123" worst ranked in " i Header"</td>
+                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
+                                        <td class="ps-2"> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($negData[0]['rank'], true) }}</strong>
+                                            worst
+                                            ranked in<strong>
+                                                <x-elements.socure :value="$vertical[$negData[0]['e_id']]" /></strong>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>2. </td>
-                                        <td class="ps-2">" XYZ - Name" is the " 123" highest ranked in " i Header" out
-                                            of 768 City/Districts of India</td>
+                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
+                                        <td class="ps-2"><strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($negData[1]['rank'], true) }}</strong>
+                                            worst ranked in <strong><x-elements.socure :value="$vertical[$negData[1]['e_id']]" /></strong> out
+                                            of 768 City/Districts of India.
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>3.</td>
-                                        <td class="ps-2">The Average " i Header" of Indian City(District
-                                            Capitals)/Districts is " ???" . " XYZ - Name" is the "123" highest ranked
-                                            City out of 768 City/Districts.</td>
+                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i></td>
+                                        <td class="ps-2">The Average, <strong><x-elements.socure
+                                                    :value="$vertical[$negData[2]['e_id']]" /></strong>
+                                            of
+                                            Indian
+                                            City(District
+                                            Capitals)/Districts is <strong>{{ $negData[2]['avg'] }}.
+                                            </strong>
+                                            <strong>{{ $cityInfo['city'] }}</strong>
+                                            is the
+                                            <strong> {{ numFormat($negData[2]['rank'], true) }}</strong> worst ranked
+                                            City out of 768 City/Districts.
+                                        </td>
                                     </tr>
                                 </table>
-
-
+                                <p class="text-end"> <button class="btn btn-sm btn-info" href=""
+                                        id="heinToggleButton">
+                                        <i class="fa fa-plus">
+                                            More</i></button></p>
+                                <div class="mt-3" id="heinContentDiv" style="display:none ;">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-center h6">Population:
+                                            {{ numFormat($cityData['city_population']) }}</div>
+                                        <div class="col-sm-6 text-center h6">Area (KM<sup>2</sup>) :
+                                            {{ numFormat($cityData['district_area']) }}</div>
+                                    </div>
+                                    <table class="table table-sm table-bordered">
+                                        <tr>
+                                            <th class="stk">Sr.</th>
+                                            <th class="stk">Fields</th>
+                                            <th class="stk">Category</th>
+                                            <th class="stk">India Average</th>
+                                            <th class="stk">Rank out of 768</th>
+                                        </tr>
+                                        @foreach ($negData as $ndata)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><x-elements.socure :value="$vertical[$ndata['e_id']]" /></td>
+                                                <td>{{ realName($ndata['e_table']) }}</td>
+                                                <td>{{ $ndata['avg'] }}</td>
+                                                <td class="text-end">{{ numFormat($ndata['rank'], true) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
