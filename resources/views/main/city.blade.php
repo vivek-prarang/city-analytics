@@ -37,7 +37,7 @@
             .ps-4 tr .ps-2 {
                 font-weight: 500;
                 font-size: 14px;
-                text-transform: capitalize;
+                /* text-transform: capitalize; */
                 text-align: justify;
             }
 
@@ -63,7 +63,7 @@
                 position: sticky;
                 top: -1px;
                 z-index: 11;
-                background-color: #E6FCD4;
+                background-color: #b2daf9;
             }
 
             /* Hein content div */
@@ -86,8 +86,8 @@
             .ps-4 div .pos-title {
                 padding-top: 3px;
                 padding-bottom: 3px;
-                background-color: #e6fcd4;
-                color: #0808b4;
+                background-color: #b2daf9;
+                /* color: #0808b4; */
                 padding-left: 12px;
             }
 
@@ -147,12 +147,20 @@
             #heinContentDiv tbody .stk {
                 top: 26px;
             }
+
+            th {
+                font-size: 13px;
+            }
+
+            .list-heading {
+                font-size: 13px !important;
+            }
         </style>
     @endsection
     <main class="container">
         <section class="city-heading-section">
             <h2 class="city-heading text-center">
-                {{ $cityInfo['city'] }} - City/District Knowledge Webs.
+                {{ $cityInfo['city'] }} Analytics
             </h2>
         </section>
         <section class="static-top-section mt-3">
@@ -227,11 +235,13 @@
             <div class="row">
                 <div class="col-sm-9">
                     <div class="disrict-rank shadow p-2 rounded">
-                        <p class="text-center live-heading">Highlights: <span>City/Districts Comparison</span></p>
+                        <p class="text-center live-heading">{{ $cityInfo['city'] }} Highlights: <span>India
+                                City/Districts
+                                Comparison</span></p>
                         <div class="ps-4">
                             <div>
                                 <p class="pos-title">
-                                    Positive:
+                                    Positive Matrix:
                                 </p>
                                 <table>
                                     <tr>
@@ -242,23 +252,23 @@
                                                 <x-elements.socure :value="$vertical[$posData[0]['e_id']]" /></strong> out
                                             of
                                             768
-                                            City/Districts of India.
+                                            city/districts of India.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
                                         <td class="ps-2">The Average <strong> <x-elements.socure :value="$vertical[$posData[1]['e_id']]" />
-                                            </strong> of Indian City(District Capitals)/Districts is <strong>
+                                            </strong> of indian city(district capitals)/districts is <strong>
                                                 {{ $posData[1]['avg'] }}.</strong> &nbsp;
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($posData[1]['rank'], true) }}</strong> highest ranked
-                                            City out of 768
-                                            City/Districts.
+                                            city out of 768
+                                            city/districts.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i></td>
-                                        <td class="ps-2">Out of 768 District Capitals/Districts of India,
+                                        <td class="ps-2">Out of 768 district capitals/districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong>
                                             is the <strong>{{ numFormat($posData[2]['rank'], true) }}</strong>
                                             highest ranked in <strong><x-elements.socure :value="$vertical[$posData[2]['e_id']]" /></strong>.
@@ -271,10 +281,13 @@
                                             More</i></button></p>
                                 <div class="mt-3" id="heiContentDiv" style="display: none;">
                                     <div class="row">
-                                        <div class="col-sm-6 text-center h6">Population:
-                                            {{ numFormat($cityData['city_population']) }}</div>
-                                        <div class="col-sm-6 text-center h6">Area (KM<sup>2</sup>) :
-                                            {{ numFormat($cityData['district_area']) }}</div>
+                                        <div class="col-sm-6 text-center h6 list-heading">Population:
+                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
+                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                        </div>
+                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
+                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
+                                            {{ numFormat($cityData['area_rank'], true) }}</div>
                                     </div>
                                     <table class="table table-sm table-bordered">
                                         <tr class="class="">
@@ -291,7 +304,7 @@
                                                 <td>{{ realName($pdata['e_table']) }}</td>
                                                 <td>{{ $pdata['avg'] }}</td>
 
-                                                <td class="text-end">{{ numFormat($pdata['rank'], true) }}</td>
+                                                <td class="text-end pe-4">{{ numFormat($pdata['rank'], true) }}</td>
                                             </tr>
                                         @endforeach
                                     </table>
@@ -302,12 +315,12 @@
                             <br>
                             <div>
                                 <p class="neg-title">
-                                    Negative:
+                                    Negative Matrix:
                                 </p>
                                 <table class="">
                                     <tr>
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
-                                        <td class="ps-2"> Out of 768 District Capitals/Districts of India,
+                                        <td class="ps-2"> Out of 768 district capitals/districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($negData[0]['rank'], true) }}</strong>
                                             worst
@@ -320,7 +333,7 @@
                                         <td class="ps-2"><strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($negData[1]['rank'], true) }}</strong>
                                             worst ranked in <strong><x-elements.socure :value="$vertical[$negData[1]['e_id']]" /></strong> out
-                                            of 768 City/Districts of India.
+                                            of 768 city/districts of India.
                                         </td>
                                     </tr>
                                     <tr>
@@ -329,13 +342,13 @@
                                                     :value="$vertical[$negData[2]['e_id']]" /></strong>
                                             of
                                             Indian
-                                            City(District
-                                            Capitals)/Districts is <strong>{{ $negData[2]['avg'] }}.
+                                            city (district
+                                            capitals)/districts is <strong>{{ $negData[2]['avg'] }}.
                                             </strong>
                                             <strong>{{ $cityInfo['city'] }}</strong>
                                             is the
                                             <strong> {{ numFormat($negData[2]['rank'], true) }}</strong> worst ranked
-                                            City out of 768 City/Districts.
+                                            city out of 768 city/districts.
                                         </td>
                                     </tr>
                                 </table>
@@ -345,10 +358,13 @@
                                             More</i></button></p>
                                 <div class="mt-3" id="heinContentDiv" style="display:none ;">
                                     <div class="row">
-                                        <div class="col-sm-6 text-center h6">Population:
-                                            {{ numFormat($cityData['city_population']) }}</div>
-                                        <div class="col-sm-6 text-center h6">Area (KM<sup>2</sup>) :
-                                            {{ numFormat($cityData['district_area']) }}</div>
+                                        <div class="col-sm-6 text-center h6 list-heading">Population:
+                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
+                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                        </div>
+                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
+                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
+                                            {{ numFormat($cityData['area_rank'], true) }}</div>
                                     </div>
                                     <table class="table table-sm table-bordered">
                                         <tr>
@@ -356,7 +372,7 @@
                                             <th class="stk">Fields</th>
                                             <th class="stk">Category</th>
                                             <th class="stk">India Average</th>
-                                            <th class="stk">Rank out of 768</th>
+                                            <th class="stk">Rank, Worst from avg.</th>
                                         </tr>
                                         @foreach ($negData as $ndata)
                                             <tr>
@@ -364,7 +380,7 @@
                                                 <td><x-elements.socure :value="$vertical[$ndata['e_id']]" /></td>
                                                 <td>{{ realName($ndata['e_table']) }}</td>
                                                 <td>{{ $ndata['avg'] }}</td>
-                                                <td class="text-end">{{ numFormat($ndata['rank'], true) }}</td>
+                                                <td class="text-end pe-4">{{ numFormat($ndata['rank'], true) }}</td>
                                             </tr>
                                         @endforeach
                                     </table>
@@ -494,7 +510,7 @@
 
                     </div><br>
                     <div class="live-cities-list shadow p-2 rounded">
-                        <p class="text-center live-heading">live Cities</p>
+                        {{-- <p class="text-center live-heading">live Cities</p>
                         <div>
                             <ul>
                                 @foreach ($liveCities as $lkey => $lcity)
@@ -510,7 +526,7 @@
                                 @endforeach
 
                             </ul>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
