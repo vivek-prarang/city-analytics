@@ -1,5 +1,6 @@
 @php
     $vertical = vertical();
+    // dd($posData);
 @endphp
 <x-layout.base>
     @section('css')
