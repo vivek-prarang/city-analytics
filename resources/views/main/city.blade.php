@@ -190,19 +190,21 @@
                             <div class="col-sm-6">
                                 <table class="table table-sm">
                                     <tr>
-                                        <th> Population </th>
+                                        <th> Population:<x-elements.socure :value="$vertical['MSTR5']" :showTitle="false" /> :</th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['city_population']) }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th> Population (Rank) </th>
+                                        <th> Population (Rank) <x-elements.socure :value="$vertical['DEVL1']" :showTitle="false" />
+                                            :</th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['dist_pop_rank'], true) }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th> Area (km<sup>2</sup>)</th>
+                                        <th> Area (km<sup>2</sup>) <x-elements.socure :value="$vertical['MSTR23']"
+                                                :showTitle="false" />:</th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['district_area']) }}</td>
                                     </tr>
@@ -212,12 +214,13 @@
                                         <td>{{ numFormat($cityData['area_rank'], true) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>No.of Towns</th>
+                                        <th>No.of Towns <x-elements.socure :value="$vertical['DEVL10']" :showTitle="false" />:</th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['towns']) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>No. of Villages:</th>
+                                        <th>No. of Villages <x-elements.socure :value="$vertical['DEVL11']" :showTitle="false" />:
+                                        </th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['villages']) }}</td>
                                     </tr>
@@ -333,7 +336,8 @@
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
                                         <td class="ps-2"><strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($negData[1]['rank'], true) }}</strong>
-                                            worst ranked in <strong><x-elements.socure :value="$vertical[$negData[1]['e_id']]" /></strong> out
+                                            worst ranked in <strong><x-elements.socure :value="$vertical[$negData[1]['e_id']]" /></strong>
+                                            out
                                             of 768 city/districts of India.
                                         </td>
                                     </tr>
@@ -390,7 +394,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="disrict-rank shadow p-2 rounded">
+                    {{-- <div class="disrict-rank shadow p-2 rounded">
                         <p class="text-center live-heading ">City / District Ranks</p>
                         <div class="row">
                             <div class="col-sm-4 border-end">
@@ -503,7 +507,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-sm-3">
                     <div class="information shadow p-2 rounded">
