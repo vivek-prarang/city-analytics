@@ -476,3 +476,54 @@ body {
 }
 
 /*  */
+
+/* Pos sub title */
+.pos-sub-title {
+    font-weight: 700;
+    line-height: 0em;
+    padding-left: 11px;
+    color: #417ae4;
+
+
+}
+
+.neg-sub-title {
+    color: #e73d3a !important;
+}
+
+@media (min-width:768px) {
+    .ps-4 div .pos-sub-title {
+        font-size: 14px;
+    }
+}
+
+/* List */
+#mid-section div ul {
+    margin-bottom: 5px;
+}
+
+
+/* Pos data */
+.pos-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* List Item */
+.pos-data li {
+    padding-left: 5px;
+}
+
+/* List Item */
+.pos-data li {
+    line-height: 1.2em;
+    text-transform: none;
+    text-align: justify;
+    color: #00002c;
+}
+
+#mid-section li strong {
+    font-weight: 500;
+}

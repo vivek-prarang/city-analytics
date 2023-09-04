@@ -26,10 +26,12 @@ class Home extends Controller
         $cityData = $data['data'];
         $top3Languages = $data['language'];
         $liveCities  = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn'])['data'];
-        $wpp = [];#httpGet('get-wpp', ['city_id' => $id]);
+        $wpp = httpGet('get-wpp', ['city_id' => $id]);
         $posNegData = httpGet('get-top-rank-data', ['city_id' => $id]);
-        $posData = $posNegData['posData'];
-        $negData = $posNegData['negData'];
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'posData', 'negData'));
+        $abPosData = $posNegData['abPosData'];
+        $abNegData = $posNegData['abNegData'];
+        $bePosData = $posNegData['bePosData'];
+        $beNegData = $posNegData['beNegData'];
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData'));
     }
 }

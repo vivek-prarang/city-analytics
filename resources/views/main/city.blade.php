@@ -1,6 +1,10 @@
 @php
     $vertical = vertical();
-    // dd($posData);
+    // dd($abPosData);
+    $abPosDataCount = count($abPosData);
+    $abNegDataCount = count($abNegData);
+    $bePosDataCount = count($bePosData);
+    $beNegDataCount = count($beNegData);
 @endphp
 <x-layout.base>
     @section('css')
@@ -245,15 +249,197 @@
                         <div class="ps-4">
                             <div>
                                 <p class="pos-title">
-                                    Positive Matrix:
+                                    <i class="fa fa-area-chart"></i> Positive Matrix:
                                 </p>
-                                <table>
+                                <p class="pos-sub-title"> <i class="fa fa-arrow-circle-right"></i> Better than
+                                    India
+                                    Average-</p>
+                            </div>
+                            <div>
+                                @if ($abPosDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($abPosData[0]['rank'], true) }}</strong> highest
+                                            ranked in <strong> <x-elements.socure :value="$vertical[$abPosData[0]['e_id']]" /></strong> out of
+                                            768 city/districts of India.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($abPosDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li> The average <strong> <x-elements.socure :value="$vertical[$abPosData[1]['e_id']]" /></strong> of
+                                            Indian city(district capitals)/districts is
+                                            <strong> {{ $abPosData[1]['avg'] }}</strong>.
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            {{ numformat($abPosData[1]['rank'], true) }} highest ranked
+                                            city out of 768 city/districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($abPosDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li>Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong> is
+                                            the<strong>{{ numformat($abPosData[2]['rank'], true) }}</strong>
+                                            highest
+                                            ranked in <strong> <x-elements.socure :value="$vertical[$abPosData[2]['e_id']]" /></strong> .
+                                        </li>
+                                    </ul>
+                                @endif
+                            </div>
+
+                            <div class="mt-3">
+                                <p class="pos-sub-title"> <i class="fa fa-arrow-circle-right"></i> Worse than India
+                                    Average-</p>
+                            </div>
+                            <div>
+                                @if ($bePosDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[0]['rank'], true) }}</strong> worst ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$bePosData[0]['e_id']]" /></strong> out of 768
+                                            city/districts of
+                                            India.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($bePosDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[1]['e_id']]" /></strong> of
+                                            Indian City(District Capitals)/Districts is
+                                            {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[1]['rank'], true) }}</strong> worst ranked
+                                            City
+                                            out of 768
+                                            City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($bePosDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
+                                            worst ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong> .
+                                        </li>
+                                    </ul>
+                                @endif
+                            </div>
+                        </div> <br>
+                        <div class="ps-4">
+                            <div>
+                                <p class="neg-title">
+                                    <i class="fa fa-area-chart"></i> Negative Matrix:
+                                </p>
+                                <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i> Worse
+                                    than India
+                                    Average-</p>
+                            </div>
+                            <div>
+                                @if ($abNegDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong>is the
+                                            <strong>{{ numFormat($abNegData[0]['rank'], true) }}</strong>
+                                            worst ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$abNegData[0]['e_id']]" /></strong>.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($abNegDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li><strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($abNegData[1]['rank'], true) }}</strong> highest
+                                            ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$abNegData[1]['e_id']]" /></strong> out of 768
+                                            City/Districts of
+                                            India .
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($abNegDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li> The Average <strong> <x-elements.socure :value="$vertical[$abNegData[2]['e_id']]" /></strong> of
+                                            Indian City(District Capitals)/Districts is
+                                            <strong>{{ $abNegData[2]['avg'] }}</strong>.
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($abNegData[2]['rank'], true) }}</strong>
+                                            highest
+                                            ranked
+                                            City out of 768 City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                            </div>
+                            <div class="mt-3">
+
+                                <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i> Better
+                                    than India
+                                    Average-</p>
+                            </div>
+                            <div>
+
+                                @if ($beNegDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> Out of 768 District Capitals/Districts of India
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
+                                            best ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong>.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($beNegDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
+                                            <strong>{{ numFormat($beNegData[1]['rank'], true) }}</strong> best ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong> out of 768
+                                            City/Districts of
+                                            India
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($beNegDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong> of
+                                            Indian City(District Capitals)/Districts is "
+                                            <strong>{{ $beNegData[2]['avg'] }}</strong> .
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($beNegData[2]['rank'], true) }}</strong> best ranked
+                                            City out
+                                            of 768 City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{-- <table>
                                     <tr>
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
                                         <td class="ps-2"> <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($posData[0]['rank'], true) }}</strong>
+                                            <strong>{{ numFormat($abPosData[0]['rank'], true) }}</strong>
                                             highest ranked in <strong>
-                                                <x-elements.socure :value="$vertical[$posData[0]['e_id']]" /></strong> out
+                                                <x-elements.socure :value="$vertical[$abPosData[0]['e_id']]" /></strong> out
                                             of
                                             768
                                             city/districts of India.
@@ -261,11 +447,12 @@
                                     </tr>
                                     <tr>
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
-                                        <td class="ps-2">The Average <strong> <x-elements.socure :value="$vertical[$posData[1]['e_id']]" />
+                                        <td class="ps-2">The Average <strong> <x-elements.socure :value="$vertical[$abPosData[1]['e_id']]" />
                                             </strong> of indian city(district capitals)/districts is <strong>
-                                                {{ $posData[1]['avg'] }}.</strong> &nbsp;
+                                                {{ $abPosData[1]['avg'] }}.</strong> &nbsp;
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($posData[1]['rank'], true) }}</strong> highest ranked
+                                            <strong>{{ numFormat($abPosData[1]['rank'], true) }}</strong> highest
+                                            ranked
                                             city out of 768
                                             city/districts.
                                         </td>
@@ -274,8 +461,8 @@
                                         <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i></td>
                                         <td class="ps-2">Out of 768 district capitals/districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong>
-                                            is the <strong>{{ numFormat($posData[2]['rank'], true) }}</strong>
-                                            highest ranked in <strong><x-elements.socure :value="$vertical[$posData[2]['e_id']]" /></strong>.
+                                            is the <strong>{{ numFormat($abPosData[2]['rank'], true) }}</strong>
+                                            highest ranked in <strong><x-elements.socure :value="$vertical[$abPosData[2]['e_id']]" /></strong>.
                                         </td>
                                     </tr>
                                 </table>
@@ -301,7 +488,7 @@
                                             <th class="stk">India Average</th>
                                             <th class="stk">Rank out of 768</th>
                                         </tr>
-                                        @foreach ($posData as $pdata)
+                                        @foreach ($abPosData as $pdata)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><x-elements.socure :value="$vertical[$pdata['e_id']]" /></td>
@@ -392,9 +579,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <br>
-                    {{-- <div class="disrict-rank shadow p-2 rounded">
+
+                    <div class="disrict-rank shadow p-2 rounded">
                         <p class="text-center live-heading ">City / District Ranks</p>
                         <div class="row">
                             <div class="col-sm-4 border-end">
@@ -420,7 +608,8 @@
                                                         @foreach ($wvertical as $work)
                                                             <tr>
                                                                 <td> <small><x-elements.socure
-                                                                            :value="$vertical[$work['id']]" /></small></td>
+                                                                            :value="$vertical[$work['id']]" /></small>
+                                                                </td>
                                                                 <td><small>{{ numFormat($wpp['work'][$work['id']]) }}</small>
                                                                 </td>
                                                             </tr>
@@ -455,7 +644,8 @@
                                                         @foreach ($pvertical as $place)
                                                             <tr>
                                                                 <td> <small><x-elements.socure
-                                                                            :value="$vertical[$place['id']]" /></small></td>
+                                                                            :value="$vertical[$place['id']]" /></small>
+                                                                </td>
                                                                 <td><small>{{ numFormat($wpp['place'][$place['id']]) }}</small>
                                                                 </td>
                                                             </tr>
@@ -492,7 +682,8 @@
                                                             @foreach ($overtical as $people)
                                                                 <tr>
                                                                     <td> <small><x-elements.socure
-                                                                                :value="$vertical[$people['id']]" /></small></td>
+                                                                                :value="$vertical[$people['id']]" /></small>
+                                                                    </td>
                                                                     <td><small>{{ numFormat($wpp['people'][$people['id']]) }}</small>
                                                                     </td>
                                                                 </tr>
@@ -507,7 +698,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="information shadow p-2 rounded">
