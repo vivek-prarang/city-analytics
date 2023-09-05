@@ -129,32 +129,6 @@
             }
 
             /* Row */
-            #heiContentDiv .row {
-                position: sticky;
-                top: 0px;
-                padding-top: 3px;
-                background-color: #f4f4f4;
-                transform: translatex(0px) translatey(0px);
-                z-index: 5;
-            }
-
-            /* Th */
-
-
-            /* Row */
-            #heinContentDiv .row {
-                position: sticky;
-                top: 0px;
-                padding-top: 3px;
-                background-color: #f4f4f4;
-                transform: translatex(0px) translatey(0px);
-                z-index: 5;
-            }
-
-            /* Th */
-            #heinContentDiv tbody .stk {
-                top: 26px;
-            }
 
             th {
                 font-size: 13px;
@@ -296,7 +270,7 @@
                                         id="ab-pos-data-btn">
                                         <i class="fa fa-plus">
                                             More</i></button></p>
-                                <div class="mt-3" id="ab-pos-data-div" style="display: none;">
+                                <div class="mt-3 collapse data-table-div" id="ab-pos-data-div">
                                     <div class="row">
                                         <div class="col-sm-6 text-center h6 list-heading">Population:
                                             {{ numFormat($cityData['city_population']) }} | Population Rank:
@@ -326,235 +300,57 @@
                                         @endforeach
                                     </table>
                                 </div>
-
-                                <div class="mt-3">
-                                    <p class="pos-sub-title"> <i class="fa fa-arrow-circle-right"></i> Worse than India
-                                        Average-</p>
-                                </div>
-                                <div>
-                                    @if ($bePosDataCount >= 1)
-                                        <ul class="pos-data">
-                                            <li>1.</li>
-                                            <li> <strong>{{ $cityInfo['city'] }}</strong> is the
-                                                <strong>{{ numformat($bePosData[0]['rank'], true) }}</strong> worst
-                                                ranked
-                                                in
-                                                <strong> <x-elements.socure :value="$vertical[$bePosData[0]['e_id']]" /></strong> out of 768
-                                                city/districts of
-                                                India.
-                                            </li>
-                                        </ul>
-                                    @endif
-                                    @if ($bePosDataCount >= 2)
-                                        <ul class="pos-data">
-                                            <li>2.</li>
-                                            <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[1]['e_id']]" /></strong>
-                                                of
-                                                Indian City(District Capitals)/Districts is
-                                                {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
-                                                <strong>{{ $cityInfo['city'] }}</strong> is the
-                                                <strong>{{ numformat($bePosData[1]['rank'], true) }}</strong> worst
-                                                ranked
-                                                City
-                                                out of 768
-                                                City/Districts.
-                                            </li>
-                                        </ul>
-                                    @endif
-                                    @if ($bePosDataCount >= 3)
-                                        <ul class="pos-data">
-                                            <li>3.</li>
-                                            <li> Out of 768 District Capitals/Districts of India,
-                                                <strong>{{ $cityInfo['city'] }}</strong> is the
-                                                <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
-                                                worst ranked
-                                                in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong> .
-                                            </li>
-                                        </ul>
-                                    @endif
-                                    <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                            id="heiToggleButtonbe">
-                                            <i class="fa fa-plus">
-                                                More</i></button></p>
-                                    <div class="mt-3" id="heiContentDivbe" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-sm-6 text-center h6 list-heading">Population:
-                                                {{ numFormat($cityData['city_population']) }} | Population Rank:
-                                                {{ numFormat($cityData['dist_pop_rank'], true) }}
-                                            </div>
-                                            <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
-                                                {{ numFormat($cityData['district_area']) }} | Area Rank:
-                                                {{ numFormat($cityData['area_rank'], true) }}</div>
-                                        </div>
-                                        <table class="table table-sm table-bordered">
-                                            <tr class="class="">
-                                                <th class="stk">Sr.</th>
-                                                <th class="stk">Fields</th>
-                                                <th class="stk">Category</th>
-                                                <th class="stk">India Average</th>
-                                                <th class="stk">Rank out of 768</th>
-                                            </tr>
-                                            @foreach ($bePosData as $bpdata)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td><x-elements.socure :value="$vertical[$bpdata['e_id']]" /></td>
-                                                    <td>{{ realName($bpdata['e_table']) }}</td>
-                                                    <td>{{ $bpdata['avg'] }}</td>
-
-                                                    <td class="text-end pe-4">{{ numFormat($bpdata['rank'], true) }}
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </table>
-                                    </div>
-                                </div> <br>
-                                <div class="ps-4">
-                                    <div>
-                                        <p class="neg-title">
-                                            <i class="fa fa-area-chart"></i> Negative Matrix:
-                                        </p>
-                                        <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
-                                            Worse
-                                            than India
-                                            Average-</p>
-                                    </div>
-                                    <div>
-                                        @if ($abNegDataCount >= 1)
-                                            <ul class="pos-data">
-                                                <li>1.</li>
-                                                <li> Out of 768 District Capitals/Districts of India,
-                                                    <strong>{{ $cityInfo['city'] }}</strong>is the
-                                                    <strong>{{ numFormat($abNegData[0]['rank'], true) }}</strong>
-                                                    worst ranked
-                                                    in <strong> <x-elements.socure :value="$vertical[$abNegData[0]['e_id']]" /></strong>.
-                                                </li>
-                                            </ul>
-                                        @endif
-                                        @if ($abNegDataCount >= 2)
-                                            <ul class="pos-data">
-                                                <li>2.</li>
-                                                <li><strong>{{ $cityInfo['city'] }}</strong> is the
-                                                    <strong>{{ numFormat($abNegData[1]['rank'], true) }}</strong>
-                                                    highest
-                                                    ranked
-                                                    in
-                                                    <strong> <x-elements.socure :value="$vertical[$abNegData[1]['e_id']]" /></strong> out of
-                                                    768
-                                                    City/Districts of
-                                                    India .
-                                                </li>
-                                            </ul>
-                                        @endif
-                                        @if ($abNegDataCount >= 3)
-                                            <ul class="pos-data">
-                                                <li>3.</li>
-                                                <li> The Average <strong> <x-elements.socure
-                                                            :value="$vertical[$abNegData[2]['e_id']]" /></strong>
-                                                    of
-                                                    Indian City(District Capitals)/Districts is
-                                                    <strong>{{ $abNegData[2]['avg'] }}</strong>.
-                                                    <strong>{{ $cityInfo['city'] }}</strong> is the
-                                                    <strong>{{ numFormat($abNegData[2]['rank'], true) }}</strong>
-                                                    highest
-                                                    ranked
-                                                    City out of 768 City/Districts.
-                                                </li>
-                                            </ul>
-                                        @endif
-                                    </div>
-                                    <div class="mt-3">
-
-                                        <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
-                                            Better
-                                            than India
-                                            Average-</p>
-                                    </div>
-                                    <div>
-
-                                        @if ($beNegDataCount >= 1)
-                                            <ul class="pos-data">
-                                                <li>1.</li>
-                                                <li> Out of 768 District Capitals/Districts of India
-                                                    <strong>{{ $cityInfo['city'] }}</strong> is the
-                                                    <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
-                                                    best ranked
-                                                    in <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong>.
-                                                </li>
-                                            </ul>
-                                        @endif
-                                        @if ($beNegDataCount >= 2)
-                                            <ul class="pos-data">
-                                                <li>2.</li>
-                                                <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
-                                                    <strong>{{ numFormat($beNegData[1]['rank'], true) }}</strong> best
-                                                    ranked
-                                                    in
-                                                    <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong> out of
-                                                    768
-                                                    City/Districts of
-                                                    India
-                                                </li>
-                                            </ul>
-                                        @endif
-                                        @if ($beNegDataCount >= 3)
-                                            <ul class="pos-data">
-                                                <li>3.</li>
-                                                <li>The Average <strong> <x-elements.socure
-                                                            :value="$vertical[$beNegData[2]['e_id']]" /></strong>
-                                                    of
-                                                    Indian City(District Capitals)/Districts is "
-                                                    <strong>{{ $beNegData[2]['avg'] }}</strong> .
-                                                    <strong>{{ $cityInfo['city'] }}</strong> is the
-                                                    <strong>{{ numFormat($beNegData[2]['rank'], true) }}</strong> best
-                                                    ranked
-                                                    City out
-                                                    of 768 City/Districts.
-                                                </li>
-                                            </ul>
-                                        @endif
-                                    </div>
-                                </div>
                             </div>
-
-
-                            {{-- <table>
-                                    <tr>
-                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
-                                        <td class="ps-2"> <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($abPosData[0]['rank'], true) }}</strong>
-                                            highest ranked in <strong>
-                                                <x-elements.socure :value="$vertical[$abPosData[0]['e_id']]" /></strong> out
-                                            of
-                                            768
-                                            city/districts of India.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
-                                        <td class="ps-2">The Average <strong> <x-elements.socure :value="$vertical[$abPosData[1]['e_id']]" />
-                                            </strong> of indian city(district capitals)/districts is <strong>
-                                                {{ $abPosData[1]['avg'] }}.</strong> &nbsp;
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($abPosData[1]['rank'], true) }}</strong> highest
+                            <div class="mt-3">
+                                <p class="pos-sub-title"> <i class="fa fa-arrow-circle-right"></i> Worse than India
+                                    Average-</p>
+                            </div>
+                            <div>
+                                @if ($bePosDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[0]['rank'], true) }}</strong> worst
                                             ranked
-                                            city out of 768
-                                            city/districts.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i></td>
-                                        <td class="ps-2">Out of 768 district capitals/districts of India,
-                                            <strong>{{ $cityInfo['city'] }}</strong>
-                                            is the <strong>{{ numFormat($abPosData[2]['rank'], true) }}</strong>
-                                            highest ranked in <strong><x-elements.socure :value="$vertical[$abPosData[2]['e_id']]" /></strong>.
-                                        </td>
-                                    </tr>
-                                </table>
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$bePosData[0]['e_id']]" /></strong> out of 768
+                                            city/districts of
+                                            India.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($bePosDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[1]['e_id']]" /></strong>
+                                            of
+                                            Indian City(District Capitals)/Districts is
+                                            {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[1]['rank'], true) }}</strong> worst
+                                            ranked
+                                            City
+                                            out of 768
+                                            City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($bePosDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
+                                            worst ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong> .
+                                        </li>
+                                    </ul>
+                                @endif
                                 <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                        id="heiToggleButton">
+                                        id="be-pos-data-btn">
                                         <i class="fa fa-plus">
                                             More</i></button></p>
-                                <div class="mt-3" id="heiContentDiv" style="display: none;">
+                                <div class="mt-3 collapse data-table-div" id="be-pos-data-div">
                                     <div class="row">
                                         <div class="col-sm-6 text-center h6 list-heading">Population:
                                             {{ numFormat($cityData['city_population']) }} | Population Rank:
@@ -572,67 +368,78 @@
                                             <th class="stk">India Average</th>
                                             <th class="stk">Rank out of 768</th>
                                         </tr>
-                                        @foreach ($abPosData as $pdata)
+                                        @foreach ($bePosData as $bpdata)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><x-elements.socure :value="$vertical[$pdata['e_id']]" /></td>
-                                                <td>{{ realName($pdata['e_table']) }}</td>
-                                                <td>{{ $pdata['avg'] }}</td>
+                                                <td><x-elements.socure :value="$vertical[$bpdata['e_id']]" /></td>
+                                                <td>{{ realName($bpdata['e_table']) }}</td>
+                                                <td>{{ $bpdata['avg'] }}</td>
 
-                                                <td class="text-end pe-4">{{ numFormat($pdata['rank'], true) }}</td>
+                                                <td class="text-end pe-4">{{ numFormat($bpdata['rank'], true) }}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>
-
                                 </div>
-
                             </div>
-                            <br>
+                        </div> <br>
+                        <div class="ps-4">
                             <div>
                                 <p class="neg-title">
-                                    Negative Matrix:
+                                    <i class="fa fa-area-chart"></i> Negative Matrix:
                                 </p>
-                                <table class="">
-                                    <tr>
-                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
-                                        <td class="ps-2"> Out of 768 district capitals/districts of India,
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($negData[0]['rank'], true) }}</strong>
-                                            worst
-                                            ranked in<strong>
-                                                <x-elements.socure :value="$vertical[$negData[0]['e_id']]" /></strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i> </td>
-                                        <td class="ps-2"><strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($negData[1]['rank'], true) }}</strong>
-                                            worst ranked in <strong><x-elements.socure :value="$vertical[$negData[1]['e_id']]" /></strong>
-                                            out
-                                            of 768 city/districts of India.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fa fa-dot-circle-o" aria-hidden="true"></i></td>
-                                        <td class="ps-2">The Average, <strong><x-elements.socure
-                                                    :value="$vertical[$negData[2]['e_id']]" /></strong>
+                                <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
+                                    Worse
+                                    than India
+                                    Average-</p>
+                            </div>
+                            <div>
+                                @if ($abNegDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong>is the
+                                            <strong>{{ numFormat($abNegData[0]['rank'], true) }}</strong>
+                                            worst ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$abNegData[0]['e_id']]" /></strong>.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($abNegDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li><strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($abNegData[1]['rank'], true) }}</strong>
+                                            highest
+                                            ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$abNegData[1]['e_id']]" /></strong> out of
+                                            768
+                                            City/Districts of
+                                            India .
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($abNegDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li> The Average <strong> <x-elements.socure :value="$vertical[$abNegData[2]['e_id']]" /></strong>
                                             of
-                                            Indian
-                                            city (district
-                                            capitals)/districts is <strong>{{ $negData[2]['avg'] }}.
-                                            </strong>
-                                            <strong>{{ $cityInfo['city'] }}</strong>
-                                            is the
-                                            <strong> {{ numFormat($negData[2]['rank'], true) }}</strong> worst ranked
-                                            city out of 768 city/districts.
-                                        </td>
-                                    </tr>
-                                </table>
+                                            Indian City(District Capitals)/Districts is
+                                            <strong>{{ $abNegData[2]['avg'] }}</strong>.
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($abNegData[2]['rank'], true) }}</strong>
+                                            highest
+                                            ranked
+                                            City out of 768 City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
                                 <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                        id="heinToggleButton">
+                                        id="ab-neg-data-btn">
                                         <i class="fa fa-plus">
                                             More</i></button></p>
-                                <div class="mt-3" id="heinContentDiv" style="display:none ;">
+                                <div class="mt-3 collapse data-table-div" id="ab-neg-data-div">
                                     <div class="row">
                                         <div class="col-sm-6 text-center h6 list-heading">Population:
                                             {{ numFormat($cityData['city_population']) }} | Population Rank:
@@ -643,178 +450,245 @@
                                             {{ numFormat($cityData['area_rank'], true) }}</div>
                                     </div>
                                     <table class="table table-sm table-bordered">
-                                        <tr>
+                                        <tr class="class="">
                                             <th class="stk">Sr.</th>
                                             <th class="stk">Fields</th>
                                             <th class="stk">Category</th>
                                             <th class="stk">India Average</th>
-                                            <th class="stk">Rank, Worst from avg.</th>
+                                            <th class="stk">Rank out of 768</th>
                                         </tr>
-                                        @foreach ($negData as $ndata)
+                                        @foreach ($abNegData as $andata)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><x-elements.socure :value="$vertical[$ndata['e_id']]" /></td>
-                                                <td>{{ realName($ndata['e_table']) }}</td>
-                                                <td>{{ $ndata['avg'] }}</td>
-                                                <td class="text-end pe-4">{{ numFormat($ndata['rank'], true) }}</td>
+                                                <td><x-elements.socure :value="$vertical[$andata['e_id']]" /></td>
+                                                <td>{{ realName($andata['e_table']) }}</td>
+                                                <td>{{ $andata['avg'] }}</td>
+
+                                                <td class="text-end pe-4">{{ numFormat($andata['rank'], true) }}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </div>
                             </div>
-                        </div>
-                    </div> --}}
-                            <br>
+                            <div class="mt-3">
 
-                            <div class="disrict-rank shadow p-2 rounded">
-                                <p class="text-center live-heading ">City / District Ranks</p>
-                                <div class="row">
-                                    <div class="col-sm-4 border-end">
-                                        <h6 class="text-center border-bottom pb-1">Work</h6>
-
-                                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                                            @foreach ($wpp['wverticalData'] as $wkey => $wvertical)
-                                                <div class="accordion-item static-page-accordion-item ">
-                                                    <h2 class="accordion-header" id="flush-headingOne">
-                                                        <button class="accordion-button work-acc-btn collapsed"
-                                                            type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#flush-collapsew{{ $wkey }}"
-                                                            aria-expanded="false"
-                                                            aria-controls="flush-collapsew{{ $wkey }}">
-                                                            {{ realName($wkey) }}
-                                                        </button>
-                                                    </h2>
-                                                    <div id="flush-collapsew{{ $wkey }}"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="flush-headingOne"
-                                                        data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body work-accordion-body">
-                                                            <table class="table table-sm">
-                                                                @foreach ($wvertical as $work)
-                                                                    <tr>
-                                                                        <td> <small><x-elements.socure
-                                                                                    :value="$vertical[$work['id']]" /></small>
-                                                                        </td>
-                                                                        <td><small>{{ numFormat($wpp['work'][$work['id']]) }}</small>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endforeach
-                                                            </table>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 border-end">
-                                        <h6 class="text-center border-bottom pb-1">Place</h6>
-                                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                                            @foreach ($wpp['pverticalData'] as $pkey => $pvertical)
-                                                <div class="accordion-item static-page-accordion-item ">
-                                                    <h2 class="accordion-header" id="flush-headingOne">
-                                                        <button class="accordion-button pls-acc-btn collapsed"
-                                                            type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#flush-collapsep{{ $pkey }}"
-                                                            aria-expanded="false"
-                                                            aria-controls="flush-collapsep{{ $pkey }}">
-                                                            {{ realName($pkey) }}
-                                                        </button>
-                                                    </h2>
-                                                    <div id="flush-collapsep{{ $pkey }}"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="flush-headingOne"
-                                                        data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body pls-accordion-body">
-                                                            <table class="table table-sm">
-                                                                @foreach ($pvertical as $place)
-                                                                    <tr>
-                                                                        <td> <small><x-elements.socure
-                                                                                    :value="$vertical[$place['id']]" /></small>
-                                                                        </td>
-                                                                        <td><small>{{ numFormat($wpp['place'][$place['id']]) }}</small>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endforeach
-                                                            </table>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h6 class="text-center border-bottom pb-1">People</h6>
-                                        <div>
-                                            <div class="accordion accordion-flush" id="accordionFlushExample">
-                                                @foreach ($wpp['overticalData'] as $okey => $overtical)
-                                                    <div class="accordion-item static-page-accordion-item ">
-                                                        <h2 class="accordion-header" id="flush-headingOne">
-                                                            <button class="accordion-button pop-acc-btn collapsed"
-                                                                type="button" data-bs-toggle="collapse"
-                                                                data-bs-target="#flush-collapseo{{ $okey }}"
-                                                                aria-expanded="false"
-                                                                aria-controls="flush-collapseo{{ $okey }}">
-                                                                {{ realName($okey) }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="flush-collapseo{{ $okey }}"
-                                                            class="accordion-collapse collapse"
-                                                            aria-labelledby="flush-headingOne"
-                                                            data-bs-parent="#accordionFlushExample">
-                                                            <div class="accordion-body pop-accordion-body">
-                                                                <table class="table table-sm">
-                                                                    @foreach ($overtical as $people)
-                                                                        <tr>
-                                                                            <td> <small><x-elements.socure
-                                                                                        :value="$vertical[
-                                                                                            $people['id']
-                                                                                        ]" /></small>
-                                                                            </td>
-                                                                            <td><small>{{ numFormat($wpp['people'][$people['id']]) }}</small>
-                                                                            </td>
-                                                                        </tr>
-                                                                    @endforeach
-                                                                </table>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
+                                    Better
+                                    than India
+                                    Average-</p>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="information shadow p-2 rounded">
-                                <p class="text-center live-heading">Information</p>
 
-                            </div><br>
-                            <div class="live-cities-list shadow p-2 rounded">
-                                {{-- <p class="text-center live-heading">live Cities</p>
-                        <div>
-                            <ul>
-                                @foreach ($liveCities as $lkey => $lcity)
-                                    <li class="live-state-name"><a href=""> {{ $lkey }}</a></li>
-                                    <ul>
-                                        @foreach ($lcity as $cityx)
-                                            <li class="live-cities-name"><a
-                                                    href="https://prarang.in/{{ strtolower($cityx['city']) }}"
-                                                    target="_blanck">{{ $cityx['city'] }}</a>
-                                            </li>
-                                        @endforeach
+                            <div>
+
+                                @if ($beNegDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>1.</li>
+                                        <li> Out of 768 District Capitals/Districts of India
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
+                                            best ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong>.
+                                        </li>
                                     </ul>
-                                @endforeach
+                                @endif
+                                @if ($beNegDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>2.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
+                                            <strong>{{ numFormat($beNegData[1]['rank'], true) }}</strong> best
+                                            ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong> out of
+                                            768
+                                            City/Districts of
+                                            India
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($beNegDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>3.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong>
+                                            of
+                                            Indian City(District Capitals)/Districts is "
+                                            <strong>{{ $beNegData[2]['avg'] }}</strong> .
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($beNegData[2]['rank'], true) }}</strong> best
+                                            ranked
+                                            City out
+                                            of 768 City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                                <p class="text-end"> <button class="btn btn-sm btn-info" href=""
+                                        id="be-neg-data-btn">
+                                        <i class="fa fa-plus">
+                                            More</i></button></p>
+                                <div class="mt-3 collapse data-table-div" id="be-neg-data-div">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-center h6 list-heading">Population:
+                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
+                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                        </div>
+                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
+                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
+                                            {{ numFormat($cityData['area_rank'], true) }}</div>
+                                    </div>
+                                    <table class="table table-sm table-bordered">
+                                        <tr class="class="">
+                                            <th class="stk">Sr.</th>
+                                            <th class="stk">Fields</th>
+                                            <th class="stk">Category</th>
+                                            <th class="stk">India Average</th>
+                                            <th class="stk">Rank out of 768</th>
+                                        </tr>
+                                        @foreach ($beNegData as $bndata)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><x-elements.socure :value="$vertical[$bndata['e_id']]" /></td>
+                                                <td>{{ realName($bndata['e_table']) }}</td>
+                                                <td>{{ $bndata['avg'] }}</td>
 
-                            </ul>
-                        </div> --}}
-
+                                                <td class="text-end pe-4">{{ numFormat($bndata['rank'], true) }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <div class="disrict-rank shadow p-2 rounded">
+                        <p class="text-center live-heading ">City / District Ranks</p>
+                        <div class="row">
+                            <div class="col-sm-4 border-end">
+                                <h6 class="text-center border-bottom pb-1">Work</h6>
+
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    @foreach ($wpp['wverticalData'] as $wkey => $wvertical)
+                                        <div class="accordion-item static-page-accordion-item ">
+                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                <button class="accordion-button work-acc-btn collapsed" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapsew{{ $wkey }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapsew{{ $wkey }}">
+                                                    {{ realName($wkey) }}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapsew{{ $wkey }}"
+                                                class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body work-accordion-body">
+                                                    <table class="table table-sm">
+                                                        @foreach ($wvertical as $work)
+                                                            <tr>
+                                                                <td> <small><x-elements.socure
+                                                                            :value="$vertical[$work['id']]" /></small>
+                                                                </td>
+                                                                <td><small>{{ numFormat($wpp['work'][$work['id']]) }}</small>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-sm-4 border-end">
+                                <h6 class="text-center border-bottom pb-1">Place</h6>
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    @foreach ($wpp['pverticalData'] as $pkey => $pvertical)
+                                        <div class="accordion-item static-page-accordion-item ">
+                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                <button class="accordion-button pls-acc-btn collapsed" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapsep{{ $pkey }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapsep{{ $pkey }}">
+                                                    {{ realName($pkey) }}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapsep{{ $pkey }}"
+                                                class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body pls-accordion-body">
+                                                    <table class="table table-sm">
+                                                        @foreach ($pvertical as $place)
+                                                            <tr>
+                                                                <td> <small><x-elements.socure
+                                                                            :value="$vertical[$place['id']]" /></small>
+                                                                </td>
+                                                                <td><small>{{ numFormat($wpp['place'][$place['id']]) }}</small>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <h6 class="text-center border-bottom pb-1">People</h6>
+                                <div>
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        @foreach ($wpp['overticalData'] as $okey => $overtical)
+                                            <div class="accordion-item static-page-accordion-item ">
+                                                <h2 class="accordion-header" id="flush-headingOne">
+                                                    <button class="accordion-button pop-acc-btn collapsed"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseo{{ $okey }}"
+                                                        aria-expanded="false"
+                                                        aria-controls="flush-collapseo{{ $okey }}">
+                                                        {{ realName($okey) }}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseo{{ $okey }}"
+                                                    class="accordion-collapse collapse"
+                                                    aria-labelledby="flush-headingOne"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body pop-accordion-body">
+                                                        <table class="table table-sm">
+                                                            @foreach ($overtical as $people)
+                                                                <tr>
+                                                                    <td> <small><x-elements.socure
+                                                                                :value="$vertical[$people['id']]" /></small>
+                                                                    </td>
+                                                                    <td><small>{{ numFormat($wpp['people'][$people['id']]) }}</small>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="information shadow p-2 rounded">
+                        <p class="text-center live-heading">Information</p>
+
+                    </div><br>
+                    <div class="live-cities-list shadow p-2 rounded"> </div>
+                </div>
+            </div>
+
         </section>
     </main>
 </x-layout.base>
