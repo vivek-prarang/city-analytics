@@ -542,41 +542,76 @@ body {
     padding-bottom: 4px;
 }
 
-/* Data table div */
-#mid-section .data-table-div {
-    overflow-x: scroll;
-    overflow-x: hidden;
-    max-height: 68vh;
-}
-
-/* Row */
-.data-table-div .row {
-    position: sticky;
-    top: 1px;
-    z-index: 10;
-    background-color: #cbc1c1;
+/* Data table list */
+.data-table-list {
+    overflow: scroll;
+    max-height: 72vh;
 }
 
 /* Th */
-.data-table-div tbody .stk {
+#pills-home tbody .stk {
     position: sticky;
-    top: 23px;
     z-index: 11;
-    background-color: #f0eeee;
+    background-color: #e2dede;
+    top: -1px;
 }
 
-/* button border */
-/* Button */
-#mid-section button {
-    box-shadow: 2px 2px 0px 1px #b0d0ed;
-    transform: skewx(-14deg) !important;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+#pills-profile tbody .stk {
+    position: sticky;
+    z-index: 11;
+    background-color: #e2dede;
+    top: -1px;
 }
 
-/* Col 4 */
+
+
+.pos-neg-nav {
+    border-radius: 0px !important;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.3px;
+    padding-right: 18px;
+    padding-left: 18px;
+    /* margin-right: 22px; */
+    margin-left: 22px;
+    border: 5px solid grey;
+
+}
+
+/* Menu */
+#pills-tab {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pills profile tab */
+#pills-profile-tab {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #f6babb;
+}
+
+#pills-home-tab {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #68e38b;
+}
+
+#pills-profile-tab {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #f6babb;
+}
+
+#pills-home-tab :active {
+    background: #68e38b;
+}
+
+/* Pills home tab */
+#pills-home-tab {
+    transform: translatex(0px) translatey(0px);
+}
+
 #mid-section .disrict-rank .col-sm-4 {
     overflow: hidden;
 }
@@ -591,7 +626,34 @@ body {
 }
 
 
+/* Hig top line */
+#mid-section .disrict-rank .hig-top-line {
+    font-weight: 500;
+    padding-left: 33px;
+    text-align: left;
+}
 
+@media (max-width:575px) {
+
+    /* Hig top line */
+    #mid-section .disrict-rank .hig-top-line {
+        font-size: 12px;
+        padding-left: 4px;
+        transform: translatex(0px) translatey(0px);
+        text-align: left;
+        font-weight: 600;
+    }
+
+}
+
+@media (min-width:768px) {
+
+    /* Hig top line */
+    #mid-section .disrict-rank .hig-top-line {
+        font-size: 13px;
+    }
+
+}
 
 
 

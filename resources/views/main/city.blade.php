@@ -81,7 +81,19 @@
                 top: 26px;
             }
 
+            /* List Item */
+            #mid-section div li {
+                text-align: left;
+            }
 
+            @media (min-width:576px) {
+
+                /* List Item */
+                #mid-section div li {
+                    font-size: 14px;
+                }
+
+            }
 
 
 
@@ -223,11 +235,22 @@
                         <p class="text-center live-heading">{{ $cityInfo['city'] }} Highlights: <span>India
                                 City/Districts
                                 Comparison</span></p>
+                        <p class="hig-top-line">
+                            {{ $cityInfo['city'] }} is the {{ numFormat($cityData['city_population']) }} ranked in
+                            population, out of
+                            768
+                            District Capitals
+                            (DHQs) of India. It
+                            is the capital of XYZ District in KLM State. XYZ District is ### highest ranked in
+                            population & ### largest ranked in area, in India. Please keep the DHQ rank in perspective,
+                            for the highlights below.
+                        </p>
                         <div class="ps-4">
                             <div>
-                                <p class="pos-title">
+                                {{-- <p class="pos-title">
                                     <i class="fa fa-area-chart"></i> Positive Matrix:
-                                </p>
+                                    Better than India Average-
+                                </p> --}}
                                 <p class="pos-sub-title"> <i class="fa fa-arrow-circle-right"></i> Better than
                                     India
                                     Average-</p>
@@ -266,128 +289,56 @@
                                         </li>
                                     </ul>
                                 @endif
-                                <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                        id="ab-pos-data-btn">
-                                        <i class="fa fa-plus">
-                                            More</i></button></p>
-                                <div class="mt-3 collapse data-table-div" id="ab-pos-data-div">
-                                    <div class="row">
-                                        <div class="col-sm-6 text-center h6 list-heading">Population:
-                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
-                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
-                                        </div>
-                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
-                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
-                                            {{ numFormat($cityData['area_rank'], true) }}</div>
-                                    </div>
-                                    <table class="table table-sm table-bordered">
-                                        <tr class="class="">
-                                            <th class="stk">Sr.</th>
-                                            <th class="stk">Fields</th>
-                                            <th class="stk">Category</th>
-                                            <th class="stk">India Average</th>
-                                            <th class="stk">Rank out of 768</th>
-                                        </tr>
-                                        @foreach ($abPosData as $pdata)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td><x-elements.socure :value="$vertical[$pdata['e_id']]" /></td>
-                                                <td>{{ realName($pdata['e_table']) }}</td>
-                                                <td>{{ $pdata['avg'] }}</td>
-
-                                                <td class="text-end pe-4">{{ numFormat($pdata['rank'], true) }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <p class="pos-sub-title"> <i class="fa fa-arrow-circle-right"></i> Worse than India
-                                    Average-</p>
-                            </div>
-                            <div>
-                                @if ($bePosDataCount >= 1)
+                                @if ($beNegDataCount >= 1)
                                     <ul class="pos-data">
-                                        <li>1.</li>
-                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numformat($bePosData[0]['rank'], true) }}</strong> worst
+                                        <li>4.</li>
+                                        <li> Out of 768 District Capitals/Districts of India
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
+                                            best ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong>.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($beNegDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>5.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
+                                            <strong>{{ numFormat($beNegData[1]['rank'], true) }}</strong> best
                                             ranked
                                             in
-                                            <strong> <x-elements.socure :value="$vertical[$bePosData[0]['e_id']]" /></strong> out of 768
-                                            city/districts of
-                                            India.
+                                            <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong> out of
+                                            768
+                                            City/Districts of
+                                            India
                                         </li>
                                     </ul>
                                 @endif
-                                @if ($bePosDataCount >= 2)
+                                @if ($beNegDataCount >= 3)
                                     <ul class="pos-data">
-                                        <li>2.</li>
-                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[1]['e_id']]" /></strong>
+                                        <li>6.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong>
                                             of
-                                            Indian City(District Capitals)/Districts is
-                                            {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
+                                            Indian City(District Capitals)/Districts is "
+                                            <strong>{{ $beNegData[2]['avg'] }}</strong> .
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numformat($bePosData[1]['rank'], true) }}</strong> worst
+                                            <strong>{{ numFormat($beNegData[2]['rank'], true) }}</strong> best
                                             ranked
-                                            City
-                                            out of 768
-                                            City/Districts.
+                                            City out
+                                            of 768 City/Districts.
                                         </li>
                                     </ul>
                                 @endif
-                                @if ($bePosDataCount >= 3)
-                                    <ul class="pos-data">
-                                        <li>3.</li>
-                                        <li> Out of 768 District Capitals/Districts of India,
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
-                                            worst ranked
-                                            in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong> .
-                                        </li>
-                                    </ul>
-                                @endif
-                                <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                        id="be-pos-data-btn">
-                                        <i class="fa fa-plus">
-                                            More</i></button></p>
-                                <div class="mt-3 collapse data-table-div" id="be-pos-data-div">
-                                    <div class="row">
-                                        <div class="col-sm-6 text-center h6 list-heading">Population:
-                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
-                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
-                                        </div>
-                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
-                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
-                                            {{ numFormat($cityData['area_rank'], true) }}</div>
-                                    </div>
-                                    <table class="table table-sm table-bordered">
-                                        <tr class="class="">
-                                            <th class="stk">Sr.</th>
-                                            <th class="stk">Fields</th>
-                                            <th class="stk">Category</th>
-                                            <th class="stk">India Average</th>
-                                            <th class="stk">Rank out of 768</th>
-                                        </tr>
-                                        @foreach ($bePosData as $bpdata)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td><x-elements.socure :value="$vertical[$bpdata['e_id']]" /></td>
-                                                <td>{{ realName($bpdata['e_table']) }}</td>
-                                                <td>{{ $bpdata['avg'] }}</td>
 
-                                                <td class="text-end pe-4">{{ numFormat($bpdata['rank'], true) }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
                             </div>
+
                         </div> <br>
                         <div class="ps-4">
                             <div>
-                                <p class="neg-title">
-                                    <i class="fa fa-area-chart"></i> Negative Matrix:
-                                </p>
+                                {{-- <p class="neg-title">
+                                     <i class="fa fa-area-chart"></i> Negative Matrix: 
+                                Worse than India Average-
+                                </p> --}}
                                 <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
                                     Worse
                                     than India
@@ -435,126 +386,202 @@
                                         </li>
                                     </ul>
                                 @endif
-                                <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                        id="ab-neg-data-btn">
-                                        <i class="fa fa-plus">
-                                            More</i></button></p>
-                                <div class="mt-3 collapse data-table-div" id="ab-neg-data-div">
-                                    <div class="row">
-                                        <div class="col-sm-6 text-center h6 list-heading">Population:
-                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
-                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
-                                        </div>
-                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
-                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
-                                            {{ numFormat($cityData['area_rank'], true) }}</div>
-                                    </div>
-                                    <table class="table table-sm table-bordered">
-                                        <tr class="class="">
-                                            <th class="stk">Sr.</th>
-                                            <th class="stk">Fields</th>
-                                            <th class="stk">Category</th>
-                                            <th class="stk">India Average</th>
-                                            <th class="stk">Rank out of 768</th>
-                                        </tr>
-                                        @foreach ($abNegData as $andata)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td><x-elements.socure :value="$vertical[$andata['e_id']]" /></td>
-                                                <td>{{ realName($andata['e_table']) }}</td>
-                                                <td>{{ $andata['avg'] }}</td>
+                                @if ($bePosDataCount >= 1)
+                                    <ul class="pos-data">
+                                        <li>4.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[0]['rank'], true) }}</strong> worst
+                                            ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$bePosData[0]['e_id']]" /></strong> out of 768
+                                            city/districts of
+                                            India.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($bePosDataCount >= 2)
+                                    <ul class="pos-data">
+                                        <li>5.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[1]['e_id']]" /></strong>
+                                            of
+                                            Indian City(District Capitals)/Districts is
+                                            {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[1]['rank'], true) }}</strong> worst
+                                            ranked
+                                            City
+                                            out of 768
+                                            City/Districts.
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($bePosDataCount >= 3)
+                                    <ul class="pos-data">
+                                        <li>6.</li>
+                                        <li> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
+                                            worst ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong> .
+                                        </li>
+                                    </ul>
+                                @endif
 
-                                                <td class="text-end pe-4">{{ numFormat($andata['rank'], true) }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-
-                                <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
-                                    Better
-                                    than India
-                                    Average-</p>
                             </div>
 
                             <div>
-
-                                @if ($beNegDataCount >= 1)
-                                    <ul class="pos-data">
-                                        <li>1.</li>
-                                        <li> Out of 768 District Capitals/Districts of India
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
-                                            best ranked
-                                            in <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong>.
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if ($beNegDataCount >= 2)
-                                    <ul class="pos-data">
-                                        <li>2.</li>
-                                        <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
-                                            <strong>{{ numFormat($beNegData[1]['rank'], true) }}</strong> best
-                                            ranked
-                                            in
-                                            <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong> out of
-                                            768
-                                            City/Districts of
-                                            India
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if ($beNegDataCount >= 3)
-                                    <ul class="pos-data">
-                                        <li>3.</li>
-                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong>
-                                            of
-                                            Indian City(District Capitals)/Districts is "
-                                            <strong>{{ $beNegData[2]['avg'] }}</strong> .
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numFormat($beNegData[2]['rank'], true) }}</strong> best
-                                            ranked
-                                            City out
-                                            of 768 City/Districts.
-                                        </li>
-                                    </ul>
-                                @endif
                                 <p class="text-end"> <button class="btn btn-sm btn-info" href=""
-                                        id="be-neg-data-btn">
+                                        id="show-pos-neg-btn">
                                         <i class="fa fa-plus">
                                             More</i></button></p>
-                                <div class="mt-3 collapse data-table-div" id="be-neg-data-div">
-                                    <div class="row">
-                                        <div class="col-sm-6 text-center h6 list-heading">Population:
-                                            {{ numFormat($cityData['city_population']) }} | Population Rank:
-                                            {{ numFormat($cityData['dist_pop_rank'], true) }}
-                                        </div>
-                                        <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>) :
-                                            {{ numFormat($cityData['district_area']) }} | Area Rank:
-                                            {{ numFormat($cityData['area_rank'], true) }}</div>
-                                    </div>
-                                    <table class="table table-sm table-bordered">
-                                        <tr class="class="">
-                                            <th class="stk">Sr.</th>
-                                            <th class="stk">Fields</th>
-                                            <th class="stk">Category</th>
-                                            <th class="stk">India Average</th>
-                                            <th class="stk">Rank out of 768</th>
-                                        </tr>
-                                        @foreach ($beNegData as $bndata)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td><x-elements.socure :value="$vertical[$bndata['e_id']]" /></td>
-                                                <td>{{ realName($bndata['e_table']) }}</td>
-                                                <td>{{ $bndata['avg'] }}</td>
+                                <div class="mt-3 collapse data-table-div" id="show-pos-neg-div">
+                                    <ul class="nav nav-pills mb-3 ms-4 text-center" id="pills-tab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active pos-neg-nav" id="pills-home-tab"
+                                                data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+                                                role="tab" aria-controls="pills-home" aria-selected="true"><i
+                                                    class="fa fa-area-chart"></i> Positve Metrics:</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link pos-neg-nav" id="pills-profile-tab"
+                                                data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
+                                                role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                                                    class="fa fa-area-chart"></i> Negative Metrics:</button>
+                                        </li>
 
-                                                <td class="text-end pe-4">{{ numFormat($bndata['rank'], true) }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="pills-home-tab" tabindex="0">
+                                            {{-- Positive --}}
+                                            <div class="row">
+                                                <div class="col-sm-6 text-center h6 list-heading">Population:
+                                                    {{ numFormat($cityData['city_population']) }} | Population Rank:
+                                                    {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                                </div>
+                                                <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>)
+                                                    :
+                                                    {{ numFormat($cityData['district_area']) }} | Area Rank:
+                                                    {{ numFormat($cityData['area_rank'], true) }}</div>
+                                            </div>
+                                            <div class="data-table-list">
+                                                <table class="table table-sm table-bordered">
+                                                    <tr class="class="">
+                                                        <th class="stk">Sr.</th>
+                                                        <th class="stk">Fields</th>
+                                                        <th class="stk">Category</th>
+                                                        <th class="stk">India Average</th>
+                                                        <th class="stk">Rank out of 768</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <p class="pos-sub-title  pos-sub-title pt-2"> <i
+                                                                    class="fa fa-arrow-circle-right"></i>
+                                                                Better than India Average-</p>
+                                                        </td>
+                                                    </tr>
+                                                    @foreach ($abPosData as $apdata)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td><x-elements.socure :value="$vertical[$apdata['e_id']]" /></td>
+                                                            <td>{{ realName($apdata['e_table']) }}</td>
+                                                            <td>{{ $apdata['avg'] }}</td>
+
+                                                            <td class="text-end pe-4">
+                                                                {{ numFormat($apdata['rank'], true) }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <p class="pos-sub-title p2 neg-sub-title pt-2"> <i
+                                                                    class="fa fa-arrow-circle-right"></i>
+                                                                Worse than India Average-</p>
+                                                        </td>
+                                                    </tr>
+                                                    @foreach ($bePosData as $bpdata)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td><x-elements.socure :value="$vertical[$bpdata['e_id']]" /></td>
+                                                            <td>{{ realName($bpdata['e_table']) }}</td>
+                                                            <td>{{ $bpdata['avg'] }}</td>
+
+                                                            <td class="text-end pe-4">
+                                                                {{ numFormat($bpdata['rank'], true) }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                            aria-labelledby="pills-profile-tab" tabindex="0">
+                                            <div class="row">
+                                                <div class="col-sm-6 text-center h6 list-heading">Population:
+                                                    {{ numFormat($cityData['city_population']) }} | Population
+                                                    Rank:
+                                                    {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                                </div>
+                                                <div class="col-sm-6 text-center h6 list-heading">Area
+                                                    (KM<sup>2</sup>)
+                                                    :
+                                                    {{ numFormat($cityData['district_area']) }} | Area Rank:
+                                                    {{ numFormat($cityData['area_rank'], true) }}</div>
+                                            </div>
+                                            <div class="data-table-list">
+                                                <table class="table table-sm table-bordered ">
+                                                    <tr class="class="">
+                                                        <th class="stk">Sr.</th>
+                                                        <th class="stk">Fields</th>
+                                                        <th class="stk">Category</th>
+                                                        <th class="stk">India Average</th>
+                                                        <th class="stk">Rank out of 768</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <p class="pos-sub-title p2 neg-sub-title pt-2"> <i
+                                                                    class="fa fa-arrow-circle-right"></i>
+                                                                Better than India Average-</p>
+                                                        </td>
+                                                    </tr>
+                                                    @foreach ($beNegData as $bndata)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td><x-elements.socure :value="$vertical[$bndata['e_id']]" /></td>
+                                                            <td>{{ realName($bndata['e_table']) }}</td>
+                                                            <td>{{ $bndata['avg'] }}</td>
+
+                                                            <td class="text-end pe-4">
+                                                                {{ numFormat($bndata['rank'], true) }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <p class="pos-sub-title p2 neg-sub-title pt-2"> <i
+                                                                    class="fa fa-arrow-circle-right"></i>
+                                                                Worse
+                                                                than India
+                                                                Average-</p>
+                                                        </td>
+                                                    </tr>
+                                                    @foreach ($abNegData as $andata)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td><x-elements.socure :value="$vertical[$andata['e_id']]" /></td>
+                                                            <td>{{ realName($andata['e_table']) }}</td>
+                                                            <td>{{ $andata['avg'] }}</td>
+
+                                                            <td class="text-end pe-4">
+                                                                {{ numFormat($andata['rank'], true) }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
