@@ -183,23 +183,27 @@
                             <div class="col-sm-6">
                                 <table class="table table-sm">
                                     <tr>
-                                        <th> Population:<x-elements.socure :value="$vertical['MSTR5']" :showTitle="false" /> :</th>
+                                        <th><small>City(District Capitals)/Districts</small>
+                                            <br> Population:<x-elements.socure :value="$vertical['MSTR3']" :showTitle="false" /> :
+                                        </th>
                                         <td>:</td>
-                                        <td>{{ numFormat($cityData['city_population']) }}
+                                        <td><br>{{ numFormat($cityData['city_population']) }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th> Population (Rank) <x-elements.socure :value="$vertical['DEVL1']" :showTitle="false" />
+                                        <th> Population (Rank) <x-elements.socure :value="$vertical['DEVL2']" :showTitle="false" />
                                             :</th>
                                         <td>:</td>
-                                        <td>{{ numFormat($cityData['dist_pop_rank'], true) }}
+                                        <td>
+                                            {{ numFormat($cityData['dhq_pop_rank'], true) }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th> Area (km<sup>2</sup>) <x-elements.socure :value="$vertical['MSTR23']"
-                                                :showTitle="false" />:</th>
+                                        <th><small>District</small><br> Area (km<sup>2</sup>)
+                                            <x-elements.socure :value="$vertical['MSTR23']" :showTitle="false" />:
+                                        </th>
                                         <td>:</td>
-                                        <td>{{ numFormat($cityData['district_area']) }}</td>
+                                        <td><br>{{ numFormat($cityData['district_area']) }}</td>
                                     </tr>
                                     <tr>
                                         <th> Area (Rank)</th>
@@ -236,13 +240,26 @@
                                 City/Districts
                                 Comparison</span></p>
                         <p class="hig-top-line">
-                            {{ $cityInfo['city'] }} is the {{ numFormat($cityData['city_population']) }} ranked in
+                            <strong> {{ $cityInfo['city'] }}</strong> is the
+                            <strong>{{ numFormat($cityData['dhq_pop_rank'], true) }}</strong>
+                            ranked in
                             population, out of
                             768
                             District Capitals
                             (DHQs) of India. It
-                            is the capital of XYZ District in KLM State. XYZ District is ### highest ranked in
-                            population & ### largest ranked in area, in India. Please keep the DHQ rank in perspective,
+                            is the capital of <strong>{{ $cityInfo['city'] }}</strong> District in
+                            <strong>{{ $cityData['state_name'] }}</strong>
+                            State.
+                            <strong>{{ $cityData['district'] }}</strong> District is
+                            <strong>{{ numFormat($cityData['dist_pop_rank'], true) }}</strong>
+                            highest
+                            ranked in
+                            population & <strong>{{ numFormat($cityData['area_rank'], true) }}</strong> ranked in
+                            area, in
+                            India.
+                            Please keep the
+                            DHQ rank
+                            in perspective,
                             for the highlights below.
                         </p>
                         <div class="ps-4">
@@ -455,7 +472,7 @@
                                             aria-labelledby="pills-home-tab" tabindex="0">
                                             {{-- Positive --}}
                                             <div class="row">
-                                                <div class="col-sm-6 text-center h6 list-heading">Population:
+                                                <div class="col-sm-6 text-center h6 list-heading"> Population:
                                                     {{ numFormat($cityData['city_population']) }} | Population Rank:
                                                     {{ numFormat($cityData['dist_pop_rank'], true) }}
                                                 </div>
