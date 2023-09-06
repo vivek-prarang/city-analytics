@@ -185,7 +185,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <div class="basic-d p-2 ps-3 shadow  rounded">
+                    <div class="basic-d p-2 ps-3 shadow  rounded" style="background-image: url()">
                         <p class="text-center basic-d-headig">Basic Details</p>
                         <div class="row">
                             <div class="col-sm-6">
@@ -251,7 +251,7 @@
                         <p class="hig-top-line">
                             <strong> {{ $cityInfo['city'] }}</strong> is the
                             <strong>{{ numFormat($cityData['dhq_pop_rank'], true) }}</strong>
-                            ranked in
+                            ranked city in
                             population, out of
                             768
                             District Capitals
@@ -402,7 +402,7 @@
                                     <ul class="pos-data">
                                         <li>{{ $countx }}.</li>
                                         <li> Out of 768 District Capitals/Districts of India,
-                                            <strong>{{ $cityInfo['city'] }}</strong>is the
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($abNegData[0]['rank'], true) }}</strong>
                                             worst ranked
                                             in <strong> <x-elements.socure :value="$vertical[$abNegData[0]['e_id']]" /></strong>.
@@ -508,7 +508,7 @@
                                             <button class="nav-link active pos-neg-nav" id="pills-home-tab"
                                                 data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
                                                 role="tab" aria-controls="pills-home" aria-selected="true"><i
-                                                    class="fa fa-area-chart"></i> Positve Metrics:</button>
+                                                    class="fa fa-area-chart"></i> Positive Metrics:</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link pos-neg-nav" id="pills-profile-tab"
