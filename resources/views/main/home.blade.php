@@ -71,4 +71,18 @@
         </div>
     </section>
 
+
+    <section class="container">
+        <table class="table">
+            <tr>
+                <td> ID.</td>
+                <th>City</th>
+                <th>GIS Code</th>
+                <td>GIS</td>
+
+            </tr>
+
+        </table>
+    </section>
+
 </x-layout.base>

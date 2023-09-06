@@ -95,10 +95,6 @@
 
             }
 
-
-
-
-
             /* Disrict rank */
             #mid-section .disrict-rank {
                 padding-top: 15px !important;
@@ -120,6 +116,18 @@
                 padding-top: 3px;
                 padding-bottom: 3px;
             }
+
+            /* Image */
+            .basic-d img {
+                height: 100%;
+            }
+
+            /* Image */
+            .container .static-top-section .row .col-sm-8 .basic-d .row .col-sm-6 img {
+                width: 100% !important;
+            }
+
+
 
             @media (min-width:768px) {
 
@@ -224,7 +232,8 @@
                                 </table>
                             </div>
                             <div class="col-sm-6">
-                                <img class="gis-image" src="{{ asset('assets/image/luc_gis.jpg') }}" alt="">
+                                <img class="gis-image" src="{{ asset('assets/image/dhq-map/' . $cityData['gis']) }}"
+                                    alt="">
                             </div>
                         </div>
                     </div>

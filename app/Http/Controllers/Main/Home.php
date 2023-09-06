@@ -16,6 +16,7 @@ class Home extends Controller
         $cities = $cities['data'];
         $liveCities = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn']);
         $liveCities = $liveCities['data'];
+
         return view('main.home', compact('liveCities', 'cities'));
     }
 
