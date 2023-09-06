@@ -282,9 +282,15 @@
                                     Average-</p>
                             </div>
                             <div>
+                                @php
+                                    $countx = 0;
+                                @endphp
                                 @if ($abPosDataCount >= 1)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>1.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numformat($abPosData[0]['rank'], true) }}</strong> highest
                                             ranked in <strong> <x-elements.socure :value="$vertical[$abPosData[0]['e_id']]" /></strong> out of
@@ -293,8 +299,11 @@
                                     </ul>
                                 @endif
                                 @if ($abPosDataCount >= 2)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>2.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> The average <strong> <x-elements.socure :value="$vertical[$abPosData[1]['e_id']]" /></strong> of
                                             Indian city(district capitals)/districts is
                                             <strong> {{ $abPosData[1]['avg'] }}</strong>.
@@ -305,8 +314,11 @@
                                     </ul>
                                 @endif
                                 @if ($abPosDataCount >= 3)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>3.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li>Out of 768 District Capitals/Districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong> is
                                             the<strong>{{ numformat($abPosData[2]['rank'], true) }}</strong>
@@ -316,8 +328,11 @@
                                     </ul>
                                 @endif
                                 @if ($beNegDataCount >= 1)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>4.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> Out of 768 District Capitals/Districts of India
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
@@ -327,8 +342,11 @@
                                     </ul>
                                 @endif
                                 @if ($beNegDataCount >= 2)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>5.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
                                             <strong>{{ numFormat($beNegData[1]['rank'], true) }}</strong> best
                                             ranked
@@ -341,8 +359,11 @@
                                     </ul>
                                 @endif
                                 @if ($beNegDataCount >= 3)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>6.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong>
                                             of
                                             Indian City(District Capitals)/Districts is "
@@ -371,9 +392,15 @@
                                     Average-</p>
                             </div>
                             <div>
+                                @php
+                                    $countx = 0;
+                                @endphp
                                 @if ($abNegDataCount >= 1)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>1.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> Out of 768 District Capitals/Districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong>is the
                                             <strong>{{ numFormat($abNegData[0]['rank'], true) }}</strong>
@@ -383,8 +410,11 @@
                                     </ul>
                                 @endif
                                 @if ($abNegDataCount >= 2)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>2.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li><strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($abNegData[1]['rank'], true) }}</strong>
                                             highest
@@ -398,8 +428,11 @@
                                     </ul>
                                 @endif
                                 @if ($abNegDataCount >= 3)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>3.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> The Average <strong> <x-elements.socure :value="$vertical[$abNegData[2]['e_id']]" /></strong>
                                             of
                                             Indian City(District Capitals)/Districts is
@@ -413,8 +446,11 @@
                                     </ul>
                                 @endif
                                 @if ($bePosDataCount >= 1)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>4.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numformat($bePosData[0]['rank'], true) }}</strong> worst
                                             ranked
@@ -426,8 +462,11 @@
                                     </ul>
                                 @endif
                                 @if ($bePosDataCount >= 2)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>5.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[1]['e_id']]" /></strong>
                                             of
                                             Indian City(District Capitals)/Districts is
@@ -442,8 +481,11 @@
                                     </ul>
                                 @endif
                                 @if ($bePosDataCount >= 3)
+                                    @php
+                                        $countx++;
+                                    @endphp
                                     <ul class="pos-data">
-                                        <li>6.</li>
+                                        <li>{{ $countx }}.</li>
                                         <li> Out of 768 District Capitals/Districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
@@ -483,7 +525,7 @@
                                             <div class="row">
                                                 <div class="col-sm-6 text-center h6 list-heading"> Population:
                                                     {{ numFormat($cityData['city_population']) }} | Population Rank:
-                                                    {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                                    {{ numFormat($cityData['dhq_pop_rank'], true) }}
                                                 </div>
                                                 <div class="col-sm-6 text-center h6 list-heading">Area (KM<sup>2</sup>)
                                                     :
@@ -546,7 +588,7 @@
                                                 <div class="col-sm-6 text-center h6 list-heading">Population:
                                                     {{ numFormat($cityData['city_population']) }} | Population
                                                     Rank:
-                                                    {{ numFormat($cityData['dist_pop_rank'], true) }}
+                                                    {{ numFormat($cityData['dhq_pop_rank'], true) }}
                                                 </div>
                                                 <div class="col-sm-6 text-center h6 list-heading">Area
                                                     (KM<sup>2</sup>)
