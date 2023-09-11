@@ -21,6 +21,11 @@
 
             }
 
+            .cn-img {
+                max-width: 200px;
+                height: 200px;
+            }
+
             .shadow {
                 background-color: rgba(255, 255, 255, 0.6);
             }
@@ -803,15 +808,16 @@
         <section class="mt-3 shadow p-2 ps-3 rounded" id="bottom-sec">
             <div class="row">
                 <div class="col-sm-6 border-end">
-                    <p class="text-center live-heading ">{{ $cityInfo['city'] }} Culture </p>
+                    <p class="text-center live-heading ">{{ $cityInfo['city'] }} Culture Highlights </p>
                     <div class="cultur-table">
                         <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th>Sr.No</th>
-                                    <th>Fields</th>
-                                    <th>Numbers</th>
+                                    <th>Culture Metrics</th>
+                                    <th>Counts</th>
                                     <th>Name</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -827,6 +833,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN1']" /></td>
                                         <td>{{ $cData['CBIN1'] }}</td>
                                         <td>{{ $cData['CBIN2'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN19'] != 0)
@@ -933,7 +941,7 @@
                         </table>
 
                         @if ($cData['CBIN37'] != 0)
-                            <h5>Airpoarts</h5>
+                            <h5>Airports</h5>
                             <table class="table table-sm">
                                 <tr>
                                     <th>Name</th>
@@ -954,14 +962,14 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <p class="text-center live-heading ">{{ $cityInfo['city'] }} Nature</p>
+                    <p class="text-center live-heading ">{{ $cityInfo['city'] }} Nature Highlights</p>
                     <div class="nature-table">
                         <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th>Sr.No</th>
-                                    <th>Fields</th>
-                                    <th>Numbers</th>
+                                    <th>Nature Metrics</th>
+                                    <th>Counts</th>
                                     <th>Name</th>
                                 </tr>
                             </thead>
@@ -973,5 +981,9 @@
                 </div>
             </div>
         </section>
+        <div id="imageContainer"></div>
     </main>
+
+
+
 </x-layout.base>

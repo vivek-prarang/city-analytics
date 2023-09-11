@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
@@ -33,5 +34,10 @@ class Home extends Controller
         $bePosData = $posNegData['bePosData'];
         $beNegData = $posNegData['beNegData'];
         return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData'));
+    }
+
+    function cnImages(Request $request, $code)
+    {
+        return DB::table('cn_images')->select('img_url as image')->where('L3C', $code)->inRandomOrder()->limit(3)->get();
     }
 }
