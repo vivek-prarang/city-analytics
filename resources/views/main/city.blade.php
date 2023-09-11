@@ -1,6 +1,5 @@
 @php
     $vertical = vertical();
-    // dd($abPosData);
     $abPosDataCount = count($abPosData);
     $abNegDataCount = count($abNegData);
     $bePosDataCount = count($bePosData);
@@ -9,6 +8,23 @@
 <x-layout.base>
     @section('css')
         <style>
+            /* Body */
+            body {
+                background-color: rgba(255, 255, 255, 0.89);
+                background-image: url({{ asset('assets/image/dhq-map/' . $cityData['gis']) }});
+                background-size: cover;
+                background-blend-mode: screen;
+                background-attachment: fixed;
+                color: rgb(3, 3, 44);
+                background-position-y: 30%;
+                backdrop-filter: blur(0.92px);
+
+            }
+
+            .shadow {
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+
             /* Import Google Fonts */
             @import url("//fonts.googleapis.com/css2?family=Alike:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
@@ -169,7 +185,9 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="language p-2 rounded shadow  rounded">
-                        <p class="text-center language-heading">languages</p>
+                        <p class="text-center language-heading">languages <br> <small>City (district
+                                capitals)/DHQ</small></p>
+
                         <ul>
                             @forelse ($top3Languages as $key=> $lang)
                                 <li class="lang-li">
@@ -191,40 +209,45 @@
                             <div class="col-sm-6">
                                 <table class="table table-sm">
                                     <tr>
-                                        <th><small>City(District Capitals)/Districts</small>
-                                            <br> Population:<x-elements.socure :value="$vertical['MSTR3']" :showTitle="false" /> :
+                                        <th><small>City (District Capitals)/DHQ</small>
+                                            <br> Population<x-elements.socure :value="$vertical['MSTR3']" :showTitle="false" /> :
                                         </th>
                                         <td>:</td>
                                         <td><br>{{ numFormat($cityData['city_population']) }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th> Population (Rank) <x-elements.socure :value="$vertical['DEVL2']" :showTitle="false" />
-                                            :</th>
+                                        <th> <small>City(District Capitals)/DHQ</small> <br>Population (Rank)
+                                            <x-elements.socure :value="$vertical['DEVL2']" :showTitle="false" />
+
+                                        </th>
                                         <td>:</td>
-                                        <td>
+                                        <td><br>
                                             {{ numFormat($cityData['dhq_pop_rank'], true) }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <th><small>District</small><br> Area (km<sup>2</sup>)
-                                            <x-elements.socure :value="$vertical['MSTR23']" :showTitle="false" />:
+                                            <x-elements.socure :value="$vertical['MSTR23']" :showTitle="false" />
                                         </th>
                                         <td>:</td>
                                         <td><br>{{ numFormat($cityData['district_area']) }}</td>
                                     </tr>
                                     <tr>
-                                        <th> Area (Rank)</th>
+                                        <th><small>District</small><br> Area (Rank)</th>
                                         <td>:</td>
-                                        <td>{{ numFormat($cityData['area_rank'], true) }}</td>
+                                        <td><br>{{ numFormat($cityData['area_rank'], true) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>No.of Towns <x-elements.socure :value="$vertical['DEVL10']" :showTitle="false" />:</th>
+                                        <th>No.of Towns <x-elements.socure :value="$vertical['DEVL10']" :showTitle="false" /> <br>
+                                            in <small>District</small></th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['towns']) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>No. of Villages <x-elements.socure :value="$vertical['DEVL11']" :showTitle="false" />:
+                                        <th>No. of Villages <x-elements.socure :value="$vertical['DEVL11']"
+                                                :showTitle="false" /><br>
+                                            in <small>District</small>
                                         </th>
                                         <td>:</td>
                                         <td>{{ numFormat($cityData['villages']) }}</td>
@@ -243,7 +266,7 @@
         <br>
         <section id="mid-section">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <div class="disrict-rank shadow p-2 rounded">
                         <p class="text-center live-heading">{{ $cityInfo['city'] }} Highlights: <span>India
                                 City/Districts
@@ -554,7 +577,6 @@
                                                             <td><x-elements.socure :value="$vertical[$apdata['e_id']]" /></td>
                                                             <td>{{ realName($apdata['e_table']) }}</td>
                                                             <td>{{ $apdata['avg'] }}</td>
-
                                                             <td class="text-end pe-4">
                                                                 {{ numFormat($apdata['rank'], true) }}
                                                             </td>
@@ -573,7 +595,6 @@
                                                             <td><x-elements.socure :value="$vertical[$bpdata['e_id']]" /></td>
                                                             <td>{{ realName($bpdata['e_table']) }}</td>
                                                             <td>{{ $bpdata['avg'] }}</td>
-
                                                             <td class="text-end pe-4">
                                                                 {{ numFormat($bpdata['rank'], true) }}
                                                             </td>
@@ -585,6 +606,9 @@
                                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                             aria-labelledby="pills-profile-tab" tabindex="0">
                                             <div class="row">
+
+
+
                                                 <div class="col-sm-6 text-center h6 list-heading">Population:
                                                     {{ numFormat($cityData['city_population']) }} | Population
                                                     Rank:
@@ -656,11 +680,10 @@
                     </div>
                     <br>
                     <div class="disrict-rank shadow p-2 rounded">
-                        <p class="text-center live-heading ">City / District Ranks</p>
+                        <p class="text-center live-heading ">{{ $cityInfo['city'] }} City / District Ranks</p>
                         <div class="row">
                             <div class="col-sm-4 border-end">
                                 <h6 class="text-center border-bottom pb-1">Work</h6>
-
                                 <div class="accordion accordion-flush" id="accordionFlushExample">
                                     @foreach ($wpp['wverticalData'] as $wkey => $wvertical)
                                         <div class="accordion-item static-page-accordion-item ">
@@ -731,7 +754,6 @@
                                     @endforeach
                                 </div>
                             </div>
-
                             <div class="col-sm-4">
                                 <h6 class="text-center border-bottom pb-1">People</h6>
                                 <div>
@@ -774,16 +796,182 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-3">
-                    <div class="information shadow p-2 rounded">
-                        <p class="text-center live-heading">Information</p>
-
-                    </div><br>
-                    <div class="live-cities-list shadow p-2 rounded"> </div>
                 </div>
             </div>
+        </section>
+        <section class="mt-3 shadow p-2 ps-3 rounded" id="bottom-sec">
+            <div class="row">
+                <div class="col-sm-6 border-end">
+                    <p class="text-center live-heading ">{{ $cityInfo['city'] }} Culture </p>
+                    <div class="cultur-table">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Sr.No</th>
+                                    <th>Fields</th>
+                                    <th>Numbers</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $cCount = 0;
+                                @endphp
+                                @if ($cData['CBIN1'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN1']" /></td>
+                                        <td>{{ $cData['CBIN1'] }}</td>
+                                        <td>{{ $cData['CBIN2'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN19'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN18']" /></td>
+                                        <td>{{ $cData['CBIN19'] }}</td>
+                                        <td>{{ $cData['CBIN18'] }}</td>
+                                    </tr>
+                                @endif
 
+                                @if ($cData['CBIN21'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN20']" /></td>
+                                        <td>{{ $cData['CBIN21'] }}</td>
+                                        <td>{{ $cData['CBIN20'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN24'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN22']" /></td>
+                                        <td>{{ $cData['CBIN24'] }}</td>
+                                        <td>{{ $cData['CBIN22'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN26'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN25']" /></td>
+                                        <td>{{ $cData['CBIN26'] }}</td>
+                                        <td>{{ $cData['CBIN25'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN28'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN27']" /></td>
+                                        <td>{{ $cData['CBIN28'] }}</td>
+                                        <td>{{ $cData['CBIN27'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN30'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN29']" /></td>
+                                        <td>{{ $cData['CBIN30'] }}</td>
+                                        <td>{{ $cData['CBIN29'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN32'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN31']" /></td>
+                                        <td>{{ $cData['CBIN32'] }}</td>
+                                        <td>{{ $cData['CBIN31'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN33'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN34']" /></td>
+                                        <td>{{ $cData['CBIN33'] }}</td>
+                                        <td>{{ $cData['CBIN34'] }}</td>
+                                    </tr>
+                                @endif
+                                @if ($cData['CBIN36'] != 0)
+                                    @php
+                                        $cCount++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $cCount }}.</td>
+                                        <td><x-elements.socure :value="$vertical['CBIN35']" /></td>
+                                        <td>{{ $cData['CBIN36'] }}</td>
+                                        <td>{{ $cData['CBIN35'] }}</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+
+                        @if ($cData['CBIN37'] != 0)
+                            <h5>Airpoarts</h5>
+                            <table class="table table-sm">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>IATA Code</th>
+                                    <th>City</th>
+                                    <th>Distance</th>
+                                </tr>
+                                <tr>
+                                    <td>{{ $cData['CBIN37'] }}</td>
+                                    <td>{{ $cData['CBIN38'] }}</td>
+                                    <td>{{ $cData['CBIN39'] }}</td>
+                                    <td>{{ $cData['CBIN40'] }}</td>
+                                </tr>
+
+                            </table>
+                        @endif
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-center live-heading ">{{ $cityInfo['city'] }} Nature</p>
+                    <div class="nature-table">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Sr.No</th>
+                                    <th>Fields</th>
+                                    <th>Numbers</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </x-layout.base>
