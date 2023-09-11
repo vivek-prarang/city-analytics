@@ -19,9 +19,11 @@ function getImage(code, id) {
                 img.src = '/storage/' + element.image
                 imgCont.appendChild(img)
                 img.classList = 'img-fluid cn-img'
-                // console.log(element.image)
             });
         }
     };
     xhttp.send();
 }
+
+alert(Hello
+)
