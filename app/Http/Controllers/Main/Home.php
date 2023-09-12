@@ -38,6 +38,12 @@ class Home extends Controller
 
     function cnImages(Request $request, $code)
     {
-        return DB::table('cn_images')->select('img_url as image')->where('L3C', $code)->inRandomOrder()->limit(3)->get();
+        return DB::table('cn_images')
+            ->select('img_url as image')
+            ->where('L3C', $code)
+            ->where('img_url', 'NOT LIKE', '%.tif')
+            ->inRandomOrder()
+            ->limit(6)
+            ->get();
     }
 }

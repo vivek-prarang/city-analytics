@@ -7,177 +7,13 @@
 @endphp
 <x-layout.base>
     @section('css')
+        <link rel="stylesheet" href="{{ asset('assets/css/static-page.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/pop-slider.css') }}">
         <style>
-            /* Body */
-            body {
-                background-color: rgba(255, 255, 255, 0.89);
-                background-image: url({{ asset('assets/image/dhq-map/' . $cityData['gis']) }});
-                background-size: cover;
-                background-blend-mode: screen;
-                background-attachment: fixed;
-                color: rgb(3, 3, 44);
-                background-position-y: 30%;
-                backdrop-filter: blur(0.92px);
-
-            }
-
-            .cn-img {
-                max-width: 200px;
-                height: 200px;
-            }
-
-            .shadow {
-                background-color: rgba(255, 255, 255, 0.6);
-            }
-
-            /* Import Google Fonts */
-            @import url("//fonts.googleapis.com/css2?family=Alike:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-
-            /* Table Data */
-            .ps-4 tr .ps-2 {
-                font-weight: 500;
-                font-family: 'Alike', serif;
-                letter-spacing: 0.2px;
-                word-spacing: 1px;
-            }
-
-            .basic-d img {
-                width: 162px;
-                height: 154px;
-            }
-
-            .basic-d .col-sm-6 {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transform: translatex(0px) translatey(0px);
-            }
-
-            /* Division */
-            #mid-section .disrict-rank .row .col-sm-4>div {
-                max-height: 560px;
-                overflow-y: scroll;
-            }
-
-            /* Table Data */
-            .ps-4 tr .ps-2 {
-                font-weight: 500;
-                font-size: 14px;
-                /* text-transform: capitalize; */
-                text-align: justify;
-            }
-
-            tr td {
-                font-size: 13px;
-            }
-
-            /* List Item */
-            .container .static-top-section .row .col-sm-4 .language ul li {
-                font-size: 14px !important;
-            }
-
-
-            .data-divx tr .stk {
-                position: sticky;
-                top: -1px;
-                z-index: 11;
-                background-color: #F7E3E3;
-            }
-
-            .data-divx {
-                overflow-y: scroll;
-                height: 68vh;
-            }
-
-            .data-divx .row {
-                position: sticky;
-                top: 0px;
-                padding-top: 3px;
-                background-color: #f4f4f4;
-                transform: translatex(0px) translatey(0px);
-                z-index: 5;
-            }
-
-            .data-divx tbody .stk {
-                top: 26px;
-            }
-
-            /* List Item */
-            #mid-section div li {
-                text-align: left;
-            }
-
-            @media (min-width:576px) {
-
-                /* List Item */
-                #mid-section div li {
-                    font-size: 14px;
-                }
-
-            }
-
-            /* Disrict rank */
-            #mid-section .disrict-rank {
-                padding-top: 15px !important;
-            }
-
-            /* Pos title */
-            .ps-4 div .pos-title {
-                padding-top: 3px;
-                padding-bottom: 3px;
-                background-color: #b2daf9;
-                /* color: #0808b4; */
-                padding-left: 12px;
-            }
-
-            /* Neg title */
-            .ps-4 div .neg-title {
-                background-color: #f7e3e3;
-                padding-left: 12px;
-                padding-top: 3px;
-                padding-bottom: 3px;
-            }
-
-            /* Image */
-            .basic-d img {
-                height: 100%;
-            }
-
-            /* Image */
-            .container .static-top-section .row .col-sm-8 .basic-d .row .col-sm-6 img {
-                width: 100% !important;
-            }
-
-
-
-            @media (min-width:768px) {
-
-                /* Pos title */
-                .ps-4 div .pos-title {
-                    font-size: 18px;
-                }
-
-                /* Neg title */
-                .ps-4 div .neg-title {
-                    font-size: 18px;
-                }
-
-            }
-
-            /* Table Data */
-            .ps-4 tr .ps-2 {
-                padding-bottom: 7px;
-            }
-
-            /* Row */
-
-            th {
-                font-size: 13px;
-            }
-
-            .list-heading {
-                font-size: 13px !important;
-            }
+            /* body {
+                                                                                                                                                                                                background-color: rgba(255, 255, 255, 0.89);
+                                                                                                                                                                                                background-image: url({{ asset('assets/image/dhq-map/' . $cityData['gis']) }});
+                                                                                                                                                                                            } */
         </style>
     @endsection
     <main class="container">
@@ -834,7 +670,7 @@
                                         <td>{{ $cData['CBIN1'] }}</td>
                                         <td>{{ $cData['CBIN2'] }}</td>
                                         <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
+                                                onclick="getImage('HI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN19'] != 0)
@@ -846,6 +682,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN18']" /></td>
                                         <td>{{ $cData['CBIN19'] }}</td>
                                         <td>{{ $cData['CBIN18'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('SF','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
 
@@ -858,6 +696,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN20']" /></td>
                                         <td>{{ $cData['CBIN21'] }}</td>
                                         <td>{{ $cData['CBIN20'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN24'] != 0)
@@ -869,6 +709,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN22']" /></td>
                                         <td>{{ $cData['CBIN24'] }}</td>
                                         <td>{{ $cData['CBIN22'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN26'] != 0)
@@ -880,6 +722,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN25']" /></td>
                                         <td>{{ $cData['CBIN26'] }}</td>
                                         <td>{{ $cData['CBIN25'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN28'] != 0)
@@ -891,6 +735,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN27']" /></td>
                                         <td>{{ $cData['CBIN28'] }}</td>
                                         <td>{{ $cData['CBIN27'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN30'] != 0)
@@ -902,6 +748,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN29']" /></td>
                                         <td>{{ $cData['CBIN30'] }}</td>
                                         <td>{{ $cData['CBIN29'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AH','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN32'] != 0)
@@ -913,6 +761,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN31']" /></td>
                                         <td>{{ $cData['CBIN32'] }}</td>
                                         <td>{{ $cData['CBIN31'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('HI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN33'] != 0)
@@ -924,6 +774,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN34']" /></td>
                                         <td>{{ $cData['CBIN33'] }}</td>
                                         <td>{{ $cData['CBIN34'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN36'] != 0)
@@ -935,6 +787,8 @@
                                         <td><x-elements.socure :value="$vertical['CBIN35']" /></td>
                                         <td>{{ $cData['CBIN36'] }}</td>
                                         <td>{{ $cData['CBIN35'] }}</td>
+                                        <td><i class="fa fa-picture-o"
+                                                onclick="getImage('FA','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                             </tbody>
@@ -954,8 +808,9 @@
                                     <td>{{ $cData['CBIN38'] }}</td>
                                     <td>{{ $cData['CBIN39'] }}</td>
                                     <td>{{ $cData['CBIN40'] }}</td>
+                                    <td><i class="fa fa-picture-o"
+                                            onclick="getImage('SC','{{ $cData['id'] }}')"></i></td>
                                 </tr>
-
                             </table>
                         @endif
                     </div>
@@ -981,9 +836,45 @@
                 </div>
             </div>
         </section>
-        <div id="imageContainer"></div>
+
+        <hr>
+
+        <div id="gallery" class="container-fluid">
+
+            <div id="imageContainer">
+                <div class="banter-loader">
+                    <div class="banter-loader__box bg-success"></div>
+                    <div class="banter-loader__box bg-info"></div>
+                    <div class="banter-loader__box bg-primary"></div>
+                    <div class="banter-loader__box bg-dark"></div>
+                    <div class="banter-loader__box bg-success"></div>
+                    <div class="banter-loader__box bg-primary"></div>
+                    <div class="banter-loader__box bg-warning"></div>
+                    <div class="banter-loader__box bg-success"></div>
+                    <div class="banter-loader__box bg-info"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
     </main>
 
-
+    @section('script')
+        getImage('FA','10')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{{ asset('assets/js/pop-slider.js') }}"></script>
+    @endsection
 
 </x-layout.base>
