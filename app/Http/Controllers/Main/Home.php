@@ -43,7 +43,7 @@ class Home extends Controller
             ->where('L3C', $code)
             ->where('img_url', 'NOT LIKE', '%.tif')
             ->inRandomOrder()
-            ->limit(6)
+            ->limit(12)
             ->get();
     }
 }

@@ -10,10 +10,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/static-page.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/pop-slider.css') }}">
         <style>
-            /* body {
-                                                                                                                                                                                                background-color: rgba(255, 255, 255, 0.89);
-                                                                                                                                                                                                background-image: url({{ asset('assets/image/dhq-map/' . $cityData['gis']) }});
-                                                                                                                                                                                            } */
+
         </style>
     @endsection
     <main class="container">
@@ -837,9 +834,38 @@
             </div>
         </section>
 
-        <hr>
+        <section class="image-modal">
+            <div class="modal fade" id="imageModel" tabindex="-1" aria-labelledby="imageModelLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div id="gallery" class="container-fluid">
+                            <div class="banter-loader">
+                                <div class="banter-loader__box bg-success"></div>
+                                <div class="banter-loader__box bg-info"></div>
+                                <div class="banter-loader__box bg-primary"></div>
+                                <div class="banter-loader__box bg-dark"></div>
+                                <div class="banter-loader__box bg-success"></div>
+                                <div class="banter-loader__box bg-primary"></div>
+                                <div class="banter-loader__box bg-warning"></div>
+                                <div class="banter-loader__box bg-success"></div>
+                                <div class="banter-loader__box bg-info"></div>
+                            </div>
+                            <div id="imageContainer">
 
-        <div id="gallery" class="container-fluid">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary imgFooter"
+                                data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        {{-- <div id="gallery" class="container-fluid">
 
             <div id="imageContainer">
                 <div class="banter-loader">
@@ -854,23 +880,18 @@
                     <div class="banter-loader__box bg-info"></div>
                 </div>
             </div>
-        </div>
-
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-body">
-                    </div>
+        </div> --}}
+    </main>
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Image that will be displayed in fullscreen -->
+                    <img id="fullImage" class="img-fluid">
                 </div>
-
             </div>
         </div>
-
-
-    </main>
-
+    </div>
     @section('script')
         getImage('FA','10')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

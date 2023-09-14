@@ -5,28 +5,45 @@ document.getElementById('show-pos-neg-btn').addEventListener('click', function (
     });
 });
 
-function getImage(code, id) {
-
-    var xhttp = new XMLHttpRequest();
+async function getImage(code, id) {
     const imgCont = document.getElementById('imageContainer');
-    imgCont.innerHTML = ""
-    xhttp.open("GET", "/cn-images/" + code, true);
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 1) {
-            // document.querySelector('.banter-loader').classList = 'd-block';
-        }
-        if (this.readyState == 4 && this.status == 200) {
-            var data = JSON.parse(this.responseText);
+    const loader = document.querySelector('.banter-loader');
+
+    imgCont.innerHTML = "";  // Clear previous images
+    loader.style.display = 'block';  // Show loader
+
+    try {
+        const response = await fetch(`/cn-images/${code}`);
+
+        if (response.ok) {
+            const data = await response.json();
+
             data.forEach(element => {
                 const img = document.createElement('img');
-                img.classList = 'img-responsive'
-                imgUrl = element.image.replace(/\\/g, "/")
+                img.classList = 'img-responsive viewableImage';
+                const imgUrl = element.image.replace(/\\/g, "/");
                 img.src = `/storage/${imgUrl}`;
-                imgCont.appendChild(img)
-                // document.querySelector('.banter-loader').classList = 'd-none';
+                imgCont.appendChild(img);
             });
-            // document.querySelector('.slider-modal').classList = 'slider-modal modal-active';
+
+            const myModal = new bootstrap.Modal(document.getElementById('imageModel'));
+            myModal.show();  // Display modal after successfully receiving images
+
+        } else {
+            console.error('Failed to fetch images:', response.statusText);
         }
-    };
-    xhttp.send();
+    } catch (error) {
+        console.error('Error fetching images:', error);
+    } finally {
+        loader.style.display = 'none';  // Hide loader
+    }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const closeModalBtn = document.querySelector('.modal-footer .btn-secondary');
+    closeModalBtn.addEventListener('click', () => {
+        myModal.hide();
+    });
+});

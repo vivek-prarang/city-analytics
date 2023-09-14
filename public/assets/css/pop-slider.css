@@ -71,13 +71,13 @@ h1 {
 
 
 .banter-loader {
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 50%;
     width: 72px;
     height: 72px;
     margin-left: -36px;
-    margin-top: 36px;
+    margin-top: -36px;
 }
 
 .banter-loader__box {
@@ -564,4 +564,70 @@ h1 {
 
 .banter-loader__box:nth-child(9) {
     animation: moveBox-9 4s infinite;
+}
+
+/* Button */
+.imgFooter {
+    background-color: #2f97f2;
+    text-align: left;
+    border-bottom-width: 3px;
+    border-bottom-color: #54fe2d;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /* border-style: none; */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Modal content */
+#imageModel .modal-dialog .modal-content {
+    background-color: rgba(255, 255, 255, 1);
+    border-top-color: #3fd902;
+    border-top-width: 6px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    overflow-y: scroll;
+    min-height: 90vh;
+}
+
+/* Modal footer */
+.modal-dialog .modal-footer {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    position: sticky;
+    top: 3px;
+    right: 10px;
+}
+
+/* Gallery */
+#gallery {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+
+
+
+
+/* Modal content */
+#imageModel .modal-dialog .modal-content {
+    overflow: scroll;
+    min-height: 90px;
+}
+
+/* Modal content */
+.container .image-modal #imageModel .modal-dialog .modal-content {
+    height: 95vh !important;
+}
+
+/* Button */
+.imgFooter {
+    position: fixed;
+    top: 30px;
 }
