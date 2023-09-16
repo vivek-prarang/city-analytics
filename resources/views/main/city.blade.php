@@ -9,9 +9,6 @@
     @section('css')
         <link rel="stylesheet" href="{{ asset('assets/css/static-page.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/pop-slider.css') }}">
-        <style>
-
-        </style>
     @endsection
     <main class="container">
         <section class="city-heading-section">
@@ -666,8 +663,9 @@
                                         <td><x-elements.socure :value="$vertical['CBIN1']" /></td>
                                         <td>{{ $cData['CBIN1'] }}</td>
                                         <td>{{ $cData['CBIN2'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('HI','{{ $cData['id'] }}')"></i></td>
+                                        <td>
+                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
+                                        </td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN19'] != 0)
@@ -679,8 +677,9 @@
                                         <td><x-elements.socure :value="$vertical['CBIN18']" /></td>
                                         <td>{{ $cData['CBIN19'] }}</td>
                                         <td>{{ $cData['CBIN18'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('SF','{{ $cData['id'] }}')"></i></td>
+                                        <td>
+                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
+                                        </td>
                                     </tr>
                                 @endif
 
@@ -693,8 +692,9 @@
                                         <td><x-elements.socure :value="$vertical['CBIN20']" /></td>
                                         <td>{{ $cData['CBIN21'] }}</td>
                                         <td>{{ $cData['CBIN20'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
+                                        <td>
+                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
+                                        </td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN24'] != 0)
@@ -706,9 +706,9 @@
                                         <td><x-elements.socure :value="$vertical['CBIN22']" /></td>
                                         <td>{{ $cData['CBIN24'] }}</td>
                                         <td>{{ $cData['CBIN22'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
-                                    </tr>
+                                        <td>
+                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
+                                        </td>
                                 @endif
                                 @if ($cData['CBIN26'] != 0)
                                     @php
@@ -852,7 +852,6 @@
                                 <div class="banter-loader__box bg-info"></div>
                             </div>
                             <div id="imageContainer">
-
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -864,23 +863,6 @@
             </div>
 
         </section>
-
-        {{-- <div id="gallery" class="container-fluid">
-
-            <div id="imageContainer">
-                <div class="banter-loader">
-                    <div class="banter-loader__box bg-success"></div>
-                    <div class="banter-loader__box bg-info"></div>
-                    <div class="banter-loader__box bg-primary"></div>
-                    <div class="banter-loader__box bg-dark"></div>
-                    <div class="banter-loader__box bg-success"></div>
-                    <div class="banter-loader__box bg-primary"></div>
-                    <div class="banter-loader__box bg-warning"></div>
-                    <div class="banter-loader__box bg-success"></div>
-                    <div class="banter-loader__box bg-info"></div>
-                </div>
-            </div>
-        </div> --}}
     </main>
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">

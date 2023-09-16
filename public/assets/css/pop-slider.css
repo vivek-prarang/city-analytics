@@ -631,3 +631,13 @@ h1 {
     position: fixed;
     top: 30px;
 }
+
+/* Image */
+.cultur-table tr img {
+    width: 90px;
+    height: 90px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
