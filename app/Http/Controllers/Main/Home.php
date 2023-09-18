@@ -21,7 +21,12 @@ class Home extends Controller
     }
     public function staticCity(Request $request, $id, $city)
     {
-        $cData = httpGet('get-culture-data', ['city_id' => $id])['data'];
+        if ($id > 768) {
+            return redirect()->back();
+        }
+        $data = httpGet('get-culture-data', ['city_id' => $id]);
+        $cData = $data['data'];
+        $ndata = $data['ndata'];
         $cityInfo = httpGet('city-info', ['id' => $id])['data'];
         $data = httpGet('district-info', ['id' => $id]);
         $cityData = $data['data'];
@@ -33,7 +38,7 @@ class Home extends Controller
         $abNegData = $posNegData['abNegData'];
         $bePosData = $posNegData['bePosData'];
         $beNegData = $posNegData['beNegData'];
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData'));
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata'));
     }
 
     function cnImages(Request $request, $code)

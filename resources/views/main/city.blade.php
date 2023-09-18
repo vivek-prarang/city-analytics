@@ -153,6 +153,8 @@
                                             <strong>{{ numformat($abPosData[0]['rank'], true) }}</strong> highest
                                             ranked in <strong> <x-elements.socure :value="$vertical[$abPosData[0]['e_id']]" /></strong> out of
                                             768 city/districts of India.
+                                            {{ str_replace('"', '', $abPosData[0]['statement']) }}
+                                            </b>
                                         </li>
                                     </ul>
                                 @endif
@@ -168,6 +170,7 @@
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             {{ numformat($abPosData[1]['rank'], true) }} highest ranked
                                             city out of 768 city/districts.
+                                            {{ str_replace('"', '', $abPosData[1]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -182,6 +185,7 @@
                                             the<strong>{{ numformat($abPosData[2]['rank'], true) }}</strong>
                                             highest
                                             ranked in <strong> <x-elements.socure :value="$vertical[$abPosData[2]['e_id']]" /></strong> .
+                                            {{ str_replace('"', '', $abPosData[2]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -196,6 +200,7 @@
                                             <strong>{{ numFormat($beNegData[0]['rank'], true) }}</strong>
                                             best ranked
                                             in <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong>.
+                                            {{ str_replace('"', '', $beNegData[0]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -212,7 +217,7 @@
                                             <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong> out of
                                             768
                                             City/Districts of
-                                            India
+                                            India. {{ str_replace('"', '', $beNegData[1]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -231,12 +236,11 @@
                                             ranked
                                             City out
                                             of 768 City/Districts.
+                                            {{ str_replace('"', '', $beNegData[2]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
-
                             </div>
-
                         </div> <br>
                         <div class="ps-4">
                             <div>
@@ -263,7 +267,8 @@
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($abNegData[0]['rank'], true) }}</strong>
                                             worst ranked
-                                            in <strong> <x-elements.socure :value="$vertical[$abNegData[0]['e_id']]" /></strong>.
+                                            in <strong> <x-elements.socure
+                                                    :value="$vertical[$abNegData[0]['e_id']]" /></strong>.{{ str_replace('"', '', $abNegData[0]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -281,7 +286,7 @@
                                             <strong> <x-elements.socure :value="$vertical[$abNegData[1]['e_id']]" /></strong> out of
                                             768
                                             City/Districts of
-                                            India .
+                                            India.{{ str_replace('"', '', $abNegData[1]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -299,7 +304,8 @@
                                             <strong>{{ numFormat($abNegData[2]['rank'], true) }}</strong>
                                             highest
                                             ranked
-                                            City out of 768 City/Districts.
+                                            City out of 768
+                                            City/Districts.{{ str_replace('"', '', $abNegData[2]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -315,7 +321,7 @@
                                             in
                                             <strong> <x-elements.socure :value="$vertical[$bePosData[0]['e_id']]" /></strong> out of 768
                                             city/districts of
-                                            India.
+                                            India. {{ str_replace('"', '', $bePosData[0]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -334,7 +340,7 @@
                                             ranked
                                             City
                                             out of 768
-                                            City/Districts.
+                                            City/Districts.{{ str_replace('"', '', $bePosData[1]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -348,7 +354,8 @@
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numformat($bePosData[2]['rank'], true) }}</strong>
                                             worst ranked
-                                            in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong> .
+                                            in <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong>
+                                            .{{ str_replace('"', '', $bePosData[2]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
@@ -541,7 +548,7 @@
                                                                 <td> <small><x-elements.socure
                                                                             :value="$vertical[$work['id']]" /></small>
                                                                 </td>
-                                                                <td><small>{{ numFormat($wpp['work'][$work['id']]) }}</small>
+                                                                <td><small>{{ numFormat($wpp['work'][0][$work['id']]) }}</small>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -577,7 +584,7 @@
                                                                 <td> <small><x-elements.socure
                                                                             :value="$vertical[$place['id']]" /></small>
                                                                 </td>
-                                                                <td><small>{{ numFormat($wpp['place'][$place['id']]) }}</small>
+                                                                <td><small>{{ numFormat($wpp['place'][0][$place['id']]) }}</small>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -615,7 +622,7 @@
                                                                     <td> <small><x-elements.socure
                                                                                 :value="$vertical[$people['id']]" /></small>
                                                                     </td>
-                                                                    <td><small>{{ numFormat($wpp['people'][$people['id']]) }}</small>
+                                                                    <td><small>{{ numFormat($wpp['people'][0][$people['id']]) }}</small>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -640,14 +647,14 @@
                 <div class="col-sm-6 border-end">
                     <p class="text-center live-heading ">{{ $cityInfo['city'] }} Culture Highlights </p>
                     <div class="cultur-table">
-                        <table class="table table-sm">
+                        <table class="table table">
                             <thead>
                                 <tr>
                                     <th>Sr.No</th>
                                     <th>Culture Metrics</th>
                                     <th>Counts</th>
                                     <th>Name</th>
-                                    <th></th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -659,13 +666,17 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN1']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN1']" /></td>
                                         <td>{{ $cData['CBIN1'] }}</td>
                                         <td>{{ $cData['CBIN2'] }}</td>
-                                        <td>
-                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
-                                        </td>
+
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN19'] != 0)
@@ -673,13 +684,17 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN18']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN18']" /></td>
                                         <td>{{ $cData['CBIN19'] }}</td>
                                         <td>{{ $cData['CBIN18'] }}</td>
-                                        <td>
-                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
-                                        </td>
+
                                     </tr>
                                 @endif
 
@@ -688,13 +703,17 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN20']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN20']" /></td>
                                         <td>{{ $cData['CBIN21'] }}</td>
                                         <td>{{ $cData['CBIN20'] }}</td>
-                                        <td>
-                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
-                                        </td>
+
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN24'] != 0)
@@ -702,25 +721,33 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN22']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
+
                                         <td><x-elements.socure :value="$vertical['CBIN22']" /></td>
                                         <td>{{ $cData['CBIN24'] }}</td>
                                         <td>{{ $cData['CBIN22'] }}</td>
-                                        <td>
-                                            <img src="{{ asset('assets/image/democn.jpg') }}" alt="">
-                                        </td>
                                 @endif
                                 @if ($cData['CBIN26'] != 0)
                                     @php
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN25']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN25']" /></td>
                                         <td>{{ $cData['CBIN26'] }}</td>
                                         <td>{{ $cData['CBIN25'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN28'] != 0)
@@ -728,12 +755,16 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN27']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN27']" /></td>
                                         <td>{{ $cData['CBIN28'] }}</td>
                                         <td>{{ $cData['CBIN27'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN30'] != 0)
@@ -741,12 +772,16 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN29']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN29']" /></td>
                                         <td>{{ $cData['CBIN30'] }}</td>
                                         <td>{{ $cData['CBIN29'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AH','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN32'] != 0)
@@ -754,12 +789,16 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN31']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN31']" /></td>
                                         <td>{{ $cData['CBIN32'] }}</td>
                                         <td>{{ $cData['CBIN31'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('HI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN33'] != 0)
@@ -767,12 +806,16 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN34']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN34']" /></td>
                                         <td>{{ $cData['CBIN33'] }}</td>
                                         <td>{{ $cData['CBIN34'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('AI','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                                 @if ($cData['CBIN36'] != 0)
@@ -780,12 +823,16 @@
                                         $cCount++;
                                     @endphp
                                     <tr>
-                                        <td>{{ $cCount }}.</td>
+                                        <td>
+                                            <div class="cm-main-img"
+                                                style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                <p><x-elements.socure :value="$vertical['CBIN35']" :showSource="false" /></p>
+                                            </div>
+                                        </td>
+                                        {{-- <td>{{ $cCount }}.</td> --}}
                                         <td><x-elements.socure :value="$vertical['CBIN35']" /></td>
                                         <td>{{ $cData['CBIN36'] }}</td>
                                         <td>{{ $cData['CBIN35'] }}</td>
-                                        <td><i class="fa fa-picture-o"
-                                                onclick="getImage('FA','{{ $cData['id'] }}')"></i></td>
                                     </tr>
                                 @endif
                             </tbody>
@@ -795,18 +842,23 @@
                             <h5>Airports</h5>
                             <table class="table table-sm">
                                 <tr>
+                                    <th></th>
                                     <th>Name</th>
                                     <th>IATA Code</th>
                                     <th>City</th>
                                     <th>Distance</th>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <div class="cm-main-img"
+                                            style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                            <p><x-elements.socure :value="$vertical['CBIN37']" :showSource="false" /></p>
+                                        </div>
+                                    </td>
                                     <td>{{ $cData['CBIN37'] }}</td>
                                     <td>{{ $cData['CBIN38'] }}</td>
                                     <td>{{ $cData['CBIN39'] }}</td>
                                     <td>{{ $cData['CBIN40'] }}</td>
-                                    <td><i class="fa fa-picture-o"
-                                            onclick="getImage('SC','{{ $cData['id'] }}')"></i></td>
                                 </tr>
                             </table>
                         @endif
@@ -819,14 +871,36 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <th>Sr.No</th>
+                                    {{-- <th>Sr.No</th> --}}
+                                    <th></th>
                                     <th>Nature Metrics</th>
-                                    <th>Counts</th>
-                                    <th>Name</th>
+                                    <th>Data</th>
+
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $countn = 0;
+                                @endphp
+                                @foreach ($ndata as $nkey => $nvalue)
+                                    @if ($nvalue != 0 && $nkey != 'id' && $nkey != 'city')
+                                        @php
+                                            $countn++;
+                                        @endphp
+                                        <tr>
+                                            <td>
+                                                <div class="cm-main-img"
+                                                    style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
+                                                    <p><x-elements.socure :value="$vertical[$nkey]" :showSource="false" /></p>
+                                                </div>
+                                            </td>
+                                            {{-- <td>{{ $countn }}.</td> --}}
+                                            <td><x-elements.socure :value="$vertical[$nkey]" /></td>
+                                            <td>{{ $nvalue }}</td>
 
+                                        </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

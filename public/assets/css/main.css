@@ -704,74 +704,150 @@ body {
         font-size: 17px;
     }
 
-    /* List */
+
     #mid-section div ul {
         padding-left: 10px;
     }
 
-    /* List Item */
+
     #mid-section div li {
         font-size: 14px;
     }
 
-    /* Neg title */
+
     #mid-section div .neg-title {
         font-size: 18px;
     }
 
-    /* Heading */
+
     #mid-section .disrict-rank .row .border-end h6 {
         font-weight: 400;
         font-size: 14px;
     }
 
-    /* Work acc */
+
     #flush-headingOne .work-acc-btn {
         font-weight: 400;
         font-size: 14px;
     }
 
-    /* Acc */
+
     #flush-headingOne .pls-acc-btn {
         font-size: 14px;
     }
 
-    /* Pop acc */
+
     #flush-headingOne .pop-acc-btn {
         font-size: 14px;
     }
 
-    /* Heading */
+
     #mid-section .disrict-rank h6 {
         font-weight: 400;
         font-size: 15px !important;
         margin-top: 15px;
     }
 
-    /* Information */
+
     #mid-section .information {
         margin-top: 12px;
     }
 
-    /* Col 4 */
+
     #mid-section .disrict-rank .col-sm-4 {
         transform: translatex(0px) translatey(0px);
     }
 
-    /* List heading */
+
     #ab-neg-data-div .list-heading {
         margin-bottom: 3px;
     }
 
-    /* Division */
+
     #mid-section .disrict-rank .ps-4 {
         padding-left: 1px !important;
     }
 
-    /* Th */
+
     #ab-neg-data-div tbody .stk {
         font-weight: 400;
         font-size: 10px;
+    }
+
+}
+
+.cultur-table tr .cm-main-img {
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-blend-mode: lighten;
+    background-position-x: 0%;
+    width: 90px;
+    height: 90px;
+    transform: translatex(0px) translatey(0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cultur-table tr .cm-main-img p {
+    font-weight: 700;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4px;
+    text-align: center;
+}
+
+@media (min-width:768px) {
+    .cultur-table tr .cm-main-img p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* List Item */
+#mid-section .pos-data li {
+    margin-bottom: 9px;
+    display: inline-block;
+    transform: translatex(0px) translatey(0px) !important;
+}
+
+/* Border end */
+#bottom-sec .border-end {
+    overflow: scroll;
+    height: 500px;
+}
+
+/* Col 6 */
+#bottom-sec .col-sm-6 {
+    overflow: scroll;
+}
+
+/* Paragraph */
+.nature-table tr p {
+    width: 90px;
+    height: 90px;
+    font-weight: 700;
+    padding-top: 16px;
+    padding-left: 7px;
+}
+
+/* Main img */
+.nature-table tr .cm-main-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+}
+
+@media (min-width:768px) {
+
+    /* Paragraph */
+    .nature-table tr p {
+        font-size: 14px;
     }
 
 }
