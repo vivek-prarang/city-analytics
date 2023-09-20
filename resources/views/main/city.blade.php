@@ -4,6 +4,7 @@
     $abNegDataCount = count($abNegData);
     $bePosDataCount = count($bePosData);
     $beNegDataCount = count($beNegData);
+    
 @endphp
 <x-layout.base>
     @section('css')
@@ -405,6 +406,7 @@
                                                         <th class="stk">Category</th>
                                                         <th class="stk">India Average</th>
                                                         <th class="stk">Rank out of 768</th>
+                                                        <th class="stk">City / District Data</th>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="5">
@@ -422,6 +424,8 @@
                                                             <td class="text-end pe-4">
                                                                 {{ numFormat($apdata['rank'], true) }}
                                                             </td>
+                                                            <td class="blurData" onclick="blurData()">
+                                                                {{ rand(1125, 11254) }} </td>
                                                         </tr>
                                                     @endforeach
                                                     <tr>
@@ -440,6 +444,8 @@
                                                             <td class="text-end pe-4">
                                                                 {{ numFormat($bpdata['rank'], true) }}
                                                             </td>
+                                                            <td class="blurData" onclick="blurData()">
+                                                                {{ rand(1125, 11254) }} </td>
                                                         </tr>
                                                     @endforeach
                                                 </table>
@@ -470,6 +476,7 @@
                                                         <th class="stk">Category</th>
                                                         <th class="stk">India Average</th>
                                                         <th class="stk">Rank out of 768</th>
+                                                        <th class="stk">City / District Data</th>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="5">
@@ -488,6 +495,8 @@
                                                             <td class="text-end pe-4">
                                                                 {{ numFormat($bndata['rank'], true) }}
                                                             </td>
+                                                            <td class="blurData" onclick="blurData()">
+                                                                {{ rand(1125, 11254) }} </td>
                                                         </tr>
                                                     @endforeach
                                                     <tr>
@@ -509,6 +518,8 @@
                                                             <td class="text-end pe-4">
                                                                 {{ numFormat($andata['rank'], true) }}
                                                             </td>
+                                                            <td class="blurData" onclick="blurData()">
+                                                                {{ rand(1125, 11254) }} </td>
                                                         </tr>
                                                     @endforeach
                                                 </table>
@@ -544,13 +555,15 @@
                                                 <div class="accordion-body work-accordion-body">
                                                     <table class="table table-sm">
                                                         @foreach ($wvertical as $work)
-                                                            <tr>
-                                                                <td> <small><x-elements.socure
-                                                                            :value="$vertical[$work['id']]" /></small>
-                                                                </td>
-                                                                <td><small>{{ numFormat($wpp['work'][0][$work['id']]) }}</small>
-                                                                </td>
-                                                            </tr>
+                                                            @if ($wpp['work'][$work['id']])
+                                                                <tr>
+                                                                    <td> <small><x-elements.socure
+                                                                                :value="$vertical[$work['id']]" /></small>
+                                                                    </td>
+                                                                    <td><small>{{ numFormat($wpp['work'][$work['id']], true) }}</small>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
                                                         @endforeach
                                                     </table>
 
@@ -580,13 +593,15 @@
                                                 <div class="accordion-body pls-accordion-body">
                                                     <table class="table table-sm">
                                                         @foreach ($pvertical as $place)
-                                                            <tr>
-                                                                <td> <small><x-elements.socure
-                                                                            :value="$vertical[$place['id']]" /></small>
-                                                                </td>
-                                                                <td><small>{{ numFormat($wpp['place'][0][$place['id']]) }}</small>
-                                                                </td>
-                                                            </tr>
+                                                            @if ($wpp['place'][$place['id']] != 0)
+                                                                <tr>
+                                                                    <td> <small><x-elements.socure
+                                                                                :value="$vertical[$place['id']]" /></small>
+                                                                    </td>
+                                                                    <td><small>{{ numFormat($wpp['place'][$place['id']], true) }}</small>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
                                                         @endforeach
                                                     </table>
 
@@ -618,13 +633,15 @@
                                                     <div class="accordion-body pop-accordion-body">
                                                         <table class="table table-sm">
                                                             @foreach ($overtical as $people)
-                                                                <tr>
-                                                                    <td> <small><x-elements.socure
-                                                                                :value="$vertical[$people['id']]" /></small>
-                                                                    </td>
-                                                                    <td><small>{{ numFormat($wpp['people'][0][$people['id']]) }}</small>
-                                                                    </td>
-                                                                </tr>
+                                                                @if ($wpp['people'][$people['id']] != 0)
+                                                                    <tr>
+                                                                        <td> <small><x-elements.socure
+                                                                                    :value="$vertical[$people['id']]" /></small>
+                                                                        </td>
+                                                                        <td><small>{{ numFormat($wpp['people'][$people['id']], true) }}</small>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endif
                                                             @endforeach
                                                         </table>
 
@@ -874,7 +891,9 @@
                                     {{-- <th>Sr.No</th> --}}
                                     <th></th>
                                     <th>Nature Metrics</th>
-                                    <th>Data</th>
+                                    <th>% of India</th>
+                                    <th>Rank <small>Out of 768</small></th>
+                                    <th>City / Districts <small>Data</small></th>
 
                                 </tr>
                             </thead>
@@ -882,8 +901,8 @@
                                 @php
                                     $countn = 0;
                                 @endphp
-                                @foreach ($ndata as $nkey => $nvalue)
-                                    @if ($nvalue != 0 && $nkey != 'id' && $nkey != 'city')
+                                @foreach ($ndata as $nvalue)
+                                    @if ($nvalue['value'] != 0)
                                         @php
                                             $countn++;
                                         @endphp
@@ -891,12 +910,14 @@
                                             <td>
                                                 <div class="cm-main-img"
                                                     style="background-image:url({{ asset('assets/image/raw_img/main.png') }});">
-                                                    <p><x-elements.socure :value="$vertical[$nkey]" :showSource="false" /></p>
+                                                    <p><x-elements.socure :value="$vertical[$nvalue['id']]" :showSource="false" /></p>
                                                 </div>
                                             </td>
                                             {{-- <td>{{ $countn }}.</td> --}}
-                                            <td><x-elements.socure :value="$vertical[$nkey]" /></td>
-                                            <td>{{ $nvalue }}</td>
+                                            <td><x-elements.socure :value="$vertical[$nvalue['id']]" /></td>
+                                            <td>{{ $nvalue['pre'] }}%</td>
+                                            <td>{{ numFormat($nvalue['rank'], true) }}</td>
+                                            <td class="blurData" onclick="blurData()"> {{ rand(1125, 11254) }} </td>
 
                                         </tr>
                                     @endif

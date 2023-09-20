@@ -47,3 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         myModal.hide();
     });
 });
+
+
+function blurData() {
+    Toast.fire({
+        icon: 'warning',
+        title: 'City data is available on our City AD Planner.'
+    })
+}

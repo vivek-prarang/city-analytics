@@ -851,3 +851,54 @@ body {
     }
 
 }
+
+@media (min-width:768px) {
+
+    /* Paragraph */
+    .nature-table tr p {
+        font-size: 12px;
+    }
+
+}
+
+/* Main img */
+.cultur-table tr .cm-main-img {
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
+}
+
+/* Main img */
+.nature-table tr .cm-main-img {
+    width: 70px;
+    height: 70px;
+}
+
+/* Paragraph */
+.nature-table tr p {
+    padding-top: 26px;
+}
+
+@media (min-width:768px) {
+
+    /* Paragraph */
+    .cultur-table .table-sm p {
+        font-size: 12px !important;
+    }
+
+    /* Paragraph */
+    .nature-table tr p {
+        font-size: 9px;
+    }
+
+}
+
+/* Blur data */
+.blurData {
+    cursor: pointer;
+}
+
+/* Blur data */
+.blurData {
+    filter: blur(2px);
+}

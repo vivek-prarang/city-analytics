@@ -136,7 +136,7 @@ if (!function_exists('realName')) {
                 return "Language";
                 break;
             case 'city_masters':
-                return "Demography";
+                return "City (District Capitals)/DHQ";
                 break;
 
             default:
