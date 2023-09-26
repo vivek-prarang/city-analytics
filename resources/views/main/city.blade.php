@@ -257,6 +257,57 @@
                                 @php
                                     $countx = 0;
                                 @endphp
+                                @if ($beNegDataCount >= 1)
+                                    @php
+                                        $countx++;
+                                    @endphp
+                                    <ul class="pos-data">
+                                        <li>{{ $countx }}.</li>
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($beNegData[0]['rank'], true) }}</strong> worst
+                                            ranked
+                                            in
+                                            <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong> out of 768
+                                            city/districts of
+                                            India. {{ str_replace('"', '', $beNegData[0]['statement']) }}
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($beNegDataCount >= 2)
+                                    @php
+                                        $countx++;
+                                    @endphp
+                                    <ul class="pos-data">
+                                        <li>{{ $countx }}.</li>
+                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong>
+                                            of
+                                            Indian City(District Capitals)/Districts is
+                                            {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($beNegData[1]['rank'], true) }}</strong> worst
+                                            ranked
+                                            City
+                                            out of 768
+                                            City/Districts.{{ str_replace('"', '', $beNegData[1]['statement']) }}
+                                        </li>
+                                    </ul>
+                                @endif
+                                @if ($beNegDataCount >= 3)
+                                    @php
+                                        $countx++;
+                                    @endphp
+                                    <ul class="pos-data">
+                                        <li>{{ $countx }}.</li>
+                                        <li> Out of 768 District Capitals/Districts of India,
+                                            <strong>{{ $cityInfo['city'] }}</strong> is the
+                                            <strong>{{ numformat($beNegData[2]['rank'], true) }}</strong>
+                                            worst ranked
+                                            in <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong>
+                                            .{{ str_replace('"', '', $beNegData[2]['statement']) }}
+                                        </li>
+                                    </ul>
+                                @endif
+
                                 @if ($abNegDataCount >= 1)
                                     @php
                                         $countx++;
@@ -306,56 +357,6 @@
                                             ranked
                                             City out of 768
                                             City/Districts.{{ str_replace('"', '', $abNegData[2]['statement']) }}
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if ($beNegDataCount >= 1)
-                                    @php
-                                        $countx++;
-                                    @endphp
-                                    <ul class="pos-data">
-                                        <li>{{ $countx }}.</li>
-                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numformat($beNegData[0]['rank'], true) }}</strong> worst
-                                            ranked
-                                            in
-                                            <strong> <x-elements.socure :value="$vertical[$beNegData[0]['e_id']]" /></strong> out of 768
-                                            city/districts of
-                                            India. {{ str_replace('"', '', $beNegData[0]['statement']) }}
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if ($beNegDataCount >= 2)
-                                    @php
-                                        $countx++;
-                                    @endphp
-                                    <ul class="pos-data">
-                                        <li>{{ $countx }}.</li>
-                                        <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong>
-                                            of
-                                            Indian City(District Capitals)/Districts is
-                                            {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numformat($beNegData[1]['rank'], true) }}</strong> worst
-                                            ranked
-                                            City
-                                            out of 768
-                                            City/Districts.{{ str_replace('"', '', $beNegData[1]['statement']) }}
-                                        </li>
-                                    </ul>
-                                @endif
-                                @if ($beNegDataCount >= 3)
-                                    @php
-                                        $countx++;
-                                    @endphp
-                                    <ul class="pos-data">
-                                        <li>{{ $countx }}.</li>
-                                        <li> Out of 768 District Capitals/Districts of India,
-                                            <strong>{{ $cityInfo['city'] }}</strong> is the
-                                            <strong>{{ numformat($beNegData[2]['rank'], true) }}</strong>
-                                            worst ranked
-                                            in <strong> <x-elements.socure :value="$vertical[$beNegData[2]['e_id']]" /></strong>
-                                            .{{ str_replace('"', '', $beNegData[2]['statement']) }}
                                         </li>
                                     </ul>
                                 @endif
