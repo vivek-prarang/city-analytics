@@ -4,6 +4,28 @@ body {
     color: rgb(3, 3, 44) !important;
 }
 
+/* Home Pages */
+/* Non live cities heading */
+.container .non-live-cities-heading {
+    line-height: 1.1em;
+    font-style: italic;
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: left;
+    white-space: normal;
+    text-shadow: rgb(255, 255, 255) 0px 1px 1px, rgb(0, 0, 0) 0px -1px 1px;
+    letter-spacing: 5px;
+    word-spacing: 4.4px;
+}
+
+@media (min-width:1200px) {
+
+    /* Non live cities heading */
+    .container .non-live-cities-heading {
+        font-size: 44px;
+    }
+}
+
 /* Define the scrollbar track */
 ::-webkit-scrollbar-track {
     background-color: #f1f1f1;
@@ -72,6 +94,13 @@ body {
     font-size: 35px;
     letter-spacing: 1.8px;
     margin-left: 22px;
+}
+
+.item-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Paragraph */

@@ -19,8 +19,8 @@
         </section>
         <section class="static-top-section mt-3">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="language p-2 rounded shadow  rounded">
+                <div class="col-sm-4 item-center rounded shadow">
+                    <div class="language p-2   rounded">
                         <p class="text-center language-heading">languages <br> <small>City (district
                                 capitals)/DHQ</small></p>
 
