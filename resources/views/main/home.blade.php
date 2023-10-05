@@ -1,8 +1,7 @@
 <x-layout.base>
-    <br>
+    <br>  
     <section class="container">
         <x-elements.citybanner />
-        {{-- <livewire:pages.city-top-rank /> --}}
         <div class="accordion non-live-cities-accordion" id="non-liveCityAccordion">
             @foreach ($cities as $state => $nonLiveCities)
                 <div class="accordion-item">
@@ -33,8 +32,6 @@
             @endforeach
         </div>
     </section>
-
-
 </x-layout.base>
 
 

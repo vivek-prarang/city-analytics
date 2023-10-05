@@ -27,10 +27,11 @@
     @livewireStyles
     @yield('css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <!-- header -->
     <div class="header1 text-center d-none d-sm-none d-md-none d-lg-block">
         <div class="row header2">
             <div class="col-4 text-start">
@@ -44,18 +45,16 @@
             </div>
             <div class="col-sm-3 text-start">
                 <p class="sub-logo-title">Knowledge Webs <br>
-                    <span>for</span> <br>Smarter
-                    Citizenship
+                    <span>for</span> <br>Smarter Citizenship
+
                 </p>
             </div>
         </div>
     </div>
     <!-- NavBar -->
     <header class="d-block d-sm-block d-md-block d-lg-none">
-
         <div class="text-left" id="logo-titlex"><a href="https://prarang.in/"><img class="imgx"
                     src="{{ asset('assets/image/logo.png') }}" alt="Prarang"></a>
-
         </div>
         <p class="text-left ps-2 pt-1"><b>Knowledge Webs for Smarter Citizenship</b>
         </p>

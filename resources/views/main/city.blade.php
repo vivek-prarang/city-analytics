@@ -99,6 +99,7 @@
             </div>
         </section>
         <br>
+
         <section id="mid-section">
             <div class="row">
                 <div class="col-sm-12">
@@ -140,6 +141,18 @@
                                     Average-</p>
                             </div>
                             <div>
+                                <div role="status" class="max-w-sm animate-pulse">
+                                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5">
+                                    </div>
+                                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5">
+                                    </div>
+                                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5">
+                                    </div>
+                                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                                    <span class="sr-only">Loading...</span>
+                                </div>
                                 @php
                                     $countx = 0;
                                 @endphp
@@ -969,10 +982,13 @@
             </div>
         </div>
     </div>
+
+    <section>
+        <livewire:pages.city-top-rank :id="$cityInfo['id']" />
+    </section>
     @section('script')
         getImage('FA','10')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="{{ asset('assets/js/pop-slider.js') }}"></script>
     @endsection
-
 </x-layout.base>

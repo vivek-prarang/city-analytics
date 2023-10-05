@@ -6,10 +6,10 @@ use Livewire\Component;
 
 class CityTopRank extends Component
 {
-    public $data;
+    public $data = [];
+
     public function mount()
     {
-        $this->data = [2, 3, 4, 5, 56];
     }
 
     public function render()

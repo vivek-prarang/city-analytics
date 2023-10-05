@@ -39,6 +39,8 @@ class Home extends Controller
         $bePosData = $posNegData['bePosData'];
 
         $beNegData = $posNegData['beNegData'];
+
+        // return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp'));
         return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata'));
     }
 
