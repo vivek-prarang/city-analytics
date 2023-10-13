@@ -1,40 +1,225 @@
 <x-layout.base>
+    <style>
+        /* Col state */
+        .col-state {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        /* Col 4 */
+        .container .col-sm-4 {
+
+            border-top-left-radius: 10px;
+            border-top-right-radius: 1px;
+            border-bottom-left-radius: 10px;
+        }
+
+        /* Col 8 */
+        .container .col-sm-8 {
+            background-color: #e3e2e2;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Col 4 */
+        .container .mt-2 .col-sm-4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Heading */
+        .container .mt-2 h3 {
+            font-weight: 700;
+        }
+
+        /* Col 3 */
+        .container .mt-2 .col-sm-3 {
+            padding-left: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-right: 0px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* Col 8 */
+        .container .mt-2 .col-sm-8 {
+            padding-left: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        @media (min-width:1200px) {
+
+            /* Heading */
+            .container .mt-2 h3 {
+                font-size: 30px;
+            }
+
+        }
+
+        a {
+            text-decoration: none;
+            /* Remove default underline */
+            transition: all 0.3s;
+            /* Add transition for smooth effect */
+            border-bottom: 2px solid transparent;
+
+            /* Transparent border so layout doesn't shift on hover */
+        }
+
+        a:hover {
+            font-weight: bold;
+
+        }
+
+        /* Heading */
+        .container .city-main h3 {
+            font-weight: 400 !important;
+        }
+
+        @media (max-width:767px) {
+
+            /* Container */
+            .container p.container {
+                font-weight: 500 !important;
+                font-size: 16px !important;
+            }
+
+            /* Col 3 */
+            .container>.row .col-sm-3 {
+                visibility: hidden;
+            }
+
+            /* Heading */
+            .banner-city .headline h2 {
+                font-weight: 600;
+                font-size: 26px;
+            }
+
+        }
+    </style>
+
     <br>
     <section class="container">
         <x-elements.citybanner />
 
-        <div class="accordion non-live-cities-accordion" id="non-liveCityAccordion">
+        <section id="desktop-screen" class="d-none d-sm-none d-md-block container-md">
             @foreach ($cities as $state => $nonLiveCities)
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button non-live-city-accordion-button" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapse{{ str_replace(' ', '', $state) }}"
-                            aria-expanded="true" aria-controls="collapse{{ str_replace(' ', '', $state) }}">
-                            {{ $state }}
-                        </button>
-                    </h2>
-                    <div id="collapse{{ str_replace(' ', '', $state) }}" class="accordion-collapse collapse"
-                        data-bs-parent="#non-liveCityAccordion">
-                        <div class="accordion-body">
+                <div class="mt-2 m-4 city-main">
+                    <div class="row">
+                        <div class="col-sm-4 city-color">
+                            <div class="col-state">
+                                <h3>{{ $state }}</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
                             <div class="row">
                                 @foreach ($nonLiveCities as $city)
-                                    <div class="col-sm-3  text-center">
+                                    <div class="col-sm-3">
                                         <a href="/{{ $city['id'] }}/{{ Str::slug($city['city']) }}">
-                                            <p class="non-live-city-heading">{{ $loop->iteration }}.
-                                                {{ $city['city'] }}
-                                            </p>
+                                            <span class="non-live-city-headings">{{ $loop->iteration }}.
+                                                {{ $city['city'] }}</span>
+
                                         </a>
                                     </div>
                                 @endforeach
                             </div>
+
                         </div>
                     </div>
                 </div>
             @endforeach
-        </div>
-    </section>
+        </section>
+        <section id="mobile-screen" class="d-block d-md-none">
+            <div class="accordion non-live-cities-accordion" id="non-liveCityAccordion">
+                @foreach ($cities as $state => $nonLiveCities)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button non-live-city-accordion-button" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse{{ str_replace(' ', '', $state) }}"
+                                aria-expanded="true" aria-controls="collapse{{ str_replace(' ', '', $state) }}">
+                                {{ $state }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ str_replace(' ', '', $state) }}" class="accordion-collapse collapse"
+                            data-bs-parent="#non-liveCityAccordion">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    @foreach ($nonLiveCities as $city)
+                                        <div class="col-sm-3  text-center">
+                                            <a href="/{{ $city['id'] }}/{{ Str::slug($city['city']) }}">
+                                                <p class="non-live-city-heading">{{ $loop->iteration }}.
+                                                    {{ $city['city'] }}
+                                                </p>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </section>
 
+        <script>
+            const light_sad_colors = [
+                "#ccfff5", "#ffcccc", "#ffd9cc", "#fff2cc", "#ffffcc",
+                "#f2ffcc", "#e6ffcc", "#d9ffcc", "#ccffcc", "#ccffd9",
+                "#ccffe6", "#ccfff2", "#ccfff5", "#ccffff", "#ccf2ff",
+                "#cce6ff", "#ccd9ff", "#ccccff", "#d9ccff", "#e6ccff",
+                "#ccffff", "#ccf2ff", "#cce6ff", "#ccd9ff", "#ccccff",
+                "#d9ccff", "#e6ccff", "#f2ccff"
+            ];
 
+            document.addEventListener('DOMContentLoaded', function() {
+                let cityColorElements = document.querySelectorAll(
+                    '.city-color'); // added a dot before city-color to target class
+
+                cityColorElements.forEach((element, index) => {
+                    element.style.background = light_sad_colors[index % light_sad_colors.length];
+                });
+            });
+
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+                // Get the query from the input
+                var query = this.value.toLowerCase().trim();
+
+                // Loop through all sections having the class 'city-main'
+                var citySections = document.querySelectorAll('.city-main');
+
+                citySections.forEach(function(section) {
+                    var cities = section.querySelectorAll('.non-live-city-headings');
+                    var hasVisibleCity =
+                        false; // A flag to track if the section has any city that matches the query
+
+                    // Check each city under the current section
+                    cities.forEach(function(city) {
+                        var cityName = city.textContent || city.innerText;
+
+                        // If the city matches the query
+                        if (cityName.toLowerCase().indexOf(query) !== -1) {
+                            city.parentElement.parentElement.style.display = 'block';
+                            hasVisibleCity = true;
+                        } else {
+                            city.parentElement.parentElement.style.display = 'none';
+                        }
+                    });
+
+                    // If the section doesn't have any city that matches the query, hide the whole section
+                    if (!hasVisibleCity) {
+                        section.style.display = 'none';
+                    } else {
+                        section.style.display = 'block';
+                    }
+                });
+            });
+        </script>
 </x-layout.base>
 
 

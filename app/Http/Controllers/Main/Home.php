@@ -17,6 +17,8 @@ class Home extends Controller
         $cities = $cities['data'];
         $liveCities = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn']);
         $liveCities = $liveCities['data'];
+        // $data = httpGet('district-info', ['id' => $id]);
+        // $cityData = $data['data'];
         return view('main.home', compact('liveCities', 'cities'));
     }
     public function staticCity(Request $request, $id, $city)
@@ -24,6 +26,7 @@ class Home extends Controller
         if ($id > 768) {
             return redirect()->back();
         }
+
         $data = httpGet('get-culture-data', ['city_id' => $id]);
         $cData = $data['data'];
         $ndata = $data['ndata'];

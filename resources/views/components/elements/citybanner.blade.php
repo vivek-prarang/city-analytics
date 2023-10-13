@@ -111,6 +111,189 @@
     .banner-city .headline h2 {
         text-decoration: none;
     }
+
+    /* Heading */
+    .banner-city .headline h2 {
+        margin-left: 2px;
+    }
+
+    /* Content city wrapper */
+    .banner-city .content-city-wrapper {
+        padding-left: 14px !important;
+        filter: brightness(3.53) contrast(1.9) invert(1) hue-rotate(229deg) saturate(0.26) sepia(0.77);
+        color: #c8c8d4;
+        background-color: rgba(92, 25, 25, 0.45);
+    }
+
+    @media (min-width:1000px) {
+
+        /* Headline */
+        .banner-city .headline {
+            padding-left: 1px !important;
+        }
+
+    }
+
+    .searchbar {
+        font-size: 14px;
+        font-family: arial, sans-serif;
+        color: #202124;
+        display: flex;
+        z-index: 3;
+        height: 44px;
+        background: white;
+        border: 1px solid #dfe1e5;
+        box-shadow: none;
+        border-radius: 24px;
+        margin: 0 auto;
+        width: auto;
+        max-width: 224px;
+    }
+
+    .searchbar:hover {
+        box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+        border-color: rgba(223, 225, 229, 0);
+    }
+
+    .searchbar-wrapper {
+        flex: 1;
+        display: flex;
+        padding: 5px 8px 0 14px;
+    }
+
+    .searchbar-left {
+        font-size: 14px;
+        font-family: arial, sans-serif;
+        color: #202124;
+        display: flex;
+        align-items: center;
+        padding-right: 13px;
+        margin-top: -5px;
+    }
+
+    .search-icon-wrapper {
+        margin: auto;
+    }
+
+    .search-icon {
+        margin-top: 3px;
+        color: #9aa0a6;
+        height: 20px;
+        line-height: 20px;
+        width: 20px;
+    }
+
+    .searchbar-icon {
+        display: inline-block;
+        fill: currentColor;
+        height: 24px;
+        line-height: 24px;
+        position: relative;
+        width: 24px;
+    }
+
+    .searchbar-center {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+    }
+
+    .searchbar-input-spacer {
+        color: transparent;
+        flex: 100%;
+        white-space: pre;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    .searchbar-input {
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, .87);
+        word-wrap: break-word;
+        outline: none;
+        display: flex;
+        flex: 100%;
+        margin-top: -37px;
+        height: 34px;
+        font-size: 16px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .searchbar-right {
+        display: flex;
+        flex: 0 0 auto;
+        margin-top: -5px;
+        align-items: stretch;
+        flex-direction: row
+    }
+
+    .searchbar-clear-icon {
+        margin-right: 12px
+    }
+
+    .voice-search {
+        flex: 1 0 auto;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        border: 0;
+        background: transparent;
+        outline: none;
+        padding: 0 8px;
+        width: 2.8em;
+    }
+
+    /* Searchbar wrapper */
+    .container .searchbar .searchbar-wrapper {
+        justify-content: flex-end;
+        width: 100% !important;
+    }
+
+    /* Searchbar */
+    .searchbar {
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    /* Searchbar */
+    .container .searchbar {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Content city wrapper */
+    .banner-city .content-city-wrapper {
+        width: 100%;
+    }
+
+    @media (min-width:939px) {
+
+        /* Container */
+        .container {
+            transform: translatex(0px) translatey(0px);
+        }
+
+    }
+
+    /* Searchbar input spacer */
+    .searchbar-wrapper .searchbar-center .searchbar-input-spacer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .searchbar-wrapper .searchbar-center input[type=text] {
+        margin-bottom: 0px;
+    }
+
+    /* Container */
+    .container p.container {
+        font-weight: 700;
+    }
 </style>
 
 <div class="container">
@@ -118,21 +301,17 @@
         <div class="content-city">
             <div class="content-city-wrapper">
                 <div class="headline">
-                    <h2 class="non-live-cities-heading text-white"> City Analytics</h2>
-                    <p class="comming-soon"> Please choose city from below.</span>
-                    </p>
+                    <h2 class="non-live-cities-heading text-white"> City Analytics With Semiotic webs</h2>
+                    {{-- <p class="comming-soon"> Please choose city from below.</span> --}}
+                    {{-- </p> --}}
                 </div>
-
-
                 <a href="#" class="button-city">
-
-
-
                 </a>
             </div>
 
 
         </div>
+
         <div class="illo">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1261"
                 height="198" viewBox="0 0 1261 198">
@@ -234,56 +413,56 @@
                             d="M471.996053,399.336189 C468.290654,401.45356 449.551919,412.241566 429.076941,424.120017 L425.212739,426.364431 L424.249335,426.925534 C423.931729,427.116098 423.582363,427.317248 423.338865,427.433703 C422.794359,427.675982 422.193718,427.76388 421.602621,427.687788 C421.013554,427.613777 420.458419,427.371136 420.004006,426.989055 C419.520358,426.5499 419.13131,426.016761 418.860625,425.422201 C418.108959,424.130604 417.357292,422.849595 416.616212,421.557998 L407.945577,406.67288 L394.828463,384.302854 L394.976679,384.207572 C398.703252,382.016093 402.461586,379.697572 406.135225,377.611961 C418.839452,370.4129 431.416636,363.277359 443.909125,355.771278 C445.804173,354.712593 449.01199,352.891654 452.855018,350.668414 L465.019315,343.585808 L476.897767,363.817289 L487.315233,381.666727 L489.358496,385.096868 C490.090727,386.089106 490.306936,387.370633 489.940773,388.548183 C489.626607,389.375604 489.139328,390.126376 488.511548,390.750249 C488.426853,390.887878 488.511548,390.940812 488.691524,390.866704 C489.102659,390.710369 489.467065,390.451641 489.75021,390.115038 C490.43024,389.388105 490.84117,388.450439 490.914764,387.457737 C490.960214,386.911247 490.89909,386.361132 490.734787,385.837948 C490.649116,385.569065 490.542935,385.307154 490.417182,385.054521 L490.057228,384.398136 C488.511548,381.62438 486.881172,378.744755 485.208449,375.928651 L465.47455,341.743695 L406.188159,375.960412 L392.689919,383.762924 L407.882056,409.986565 C409.734756,413.162622 412.053277,417.132693 414.477667,421.303914 L416.31978,424.479971 L417.240836,426.067999 L417.706658,426.862013 C417.881263,427.168964 418.083234,427.459518 418.310109,427.730135 C419.756246,429.438723 422.19684,429.910102 424.175227,428.862929 C424.746917,428.545323 425.233912,428.270065 425.710321,427.973633 L440.023749,419.641778 L464.130019,405.720063 C471.117344,401.633536 478.072908,397.472902 484.869669,393.375789 C486.116131,392.648551 487.283454,391.79346 488.352745,390.824357 C488.4692,390.686728 485.515467,392.190061 482.000631,394.053348 C478.485795,395.916634 474.303987,398.065766 471.996053,399.336189 Z" />
                         <rect width="6.426" height="6.426" x="411.278" y="394.632" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 414.491 397.845)" />
-                        <rect width="6.426" height="6.426" x="411.268" y="394.621" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 414.48 397.834)" />
+                        <rect width="6.426" height="6.426" x="411.268" y="394.621" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 414.48 397.834)" />
                         <rect width="6.426" height="6.426" x="420.878" y="389.064" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 424.09 392.277)" />
                         <path fill="#C9F5F2" fill-rule="nonzero"
                             d="M425.869124,394.116869 C425.67856,394.190977 425.159804,394.466235 424.450485,394.868536 L423.307105,395.514334 C423.287451,395.525681 423.263237,395.525681 423.243583,395.514334 L423.148302,395.366118 C422.587198,394.434475 422.015508,393.481658 421.496752,392.634709 L420.82978,391.576024 C420.786284,391.500685 420.786284,391.407864 420.82978,391.332526 L420.82978,391.247831 L421.062691,391.067855 C421.211313,390.939374 421.374814,390.82919 421.549687,390.739662 C422.142551,390.464404 422.746001,390.189146 423.317691,389.882127 C423.609396,389.732791 423.892188,389.566651 424.16464,389.384545 L424.577527,389.109286 L424.768091,388.96107 L424.842199,388.886962 C424.950559,388.905487 425.050464,388.95729 425.128044,389.035178 L425.816189,390.093864 L426.927809,391.756 L427.414805,392.539428 L427.615955,392.83586 C427.694493,392.927567 427.739319,393.043367 427.742997,393.164052 C427.77856,393.313713 427.77856,393.469625 427.742997,393.619287 C427.679476,393.788677 427.742997,394.233324 428.07119,394.190977 C428.342614,394.140072 428.576266,393.968728 428.706401,393.725155 C428.926849,393.274569 428.898822,392.74206 428.632293,392.317104 L427.467739,390.199733 L426.885462,389.141047 L426.58903,388.622291 L426.440814,388.35762 C426.355528,388.205317 426.248539,388.066231 426.123208,387.944732 C425.579584,387.427398 424.759164,387.332402 424.111706,387.711821 L423.05302,388.294099 L420.935649,389.469239 L420.046353,389.966822 C419.496223,390.311723 419.176129,390.9276 419.209992,391.576024 C419.228314,391.872293 419.319206,392.159513 419.474663,392.412385 L419.728747,392.846446 L420.236917,393.703982 L421.549687,395.821353 L421.877879,396.350696 C422.039999,396.584657 422.258462,396.773991 422.51309,396.901212 C422.684134,396.982968 422.865928,397.040002 423.05302,397.070602 L423.264757,397.070602 C423.45172,397.073537 423.637838,397.044903 423.815274,396.985907 C423.903498,396.959769 423.988676,396.924278 424.069358,396.880038 L424.228161,396.795343 L424.778678,396.498912 C425.149217,396.308348 425.509171,396.096611 425.837363,395.874287 C426.450205,395.471958 427.030716,395.022416 427.573607,394.529756 C427.69936,394.363489 427.738654,394.147371 427.679476,393.947479 C427.070819,393.876776 426.4541,393.93448 425.869124,394.116869 Z" />
                         <rect width="6.426" height="6.426" x="430.477" y="383.507" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 433.69 386.72)" />
-                        <rect width="6.426" height="6.426" x="430.488" y="383.518" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 433.7 386.731)" />
+                        <rect width="6.426" height="6.426" x="430.488" y="383.518" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 433.7 386.731)" />
                         <rect width="6.426" height="6.426" x="440.081" y="377.941" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 443.295 381.154)" />
-                        <rect width="6.426" height="6.426" x="440.081" y="377.931" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 443.295 381.144)" />
+                        <rect width="6.426" height="6.426" x="440.081" y="377.931" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 443.295 381.144)" />
                         <rect width="22.819" height="6.448" x="460.366" y="373.198" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-29.887 471.776 376.422)" />
                         <rect width="22.819" height="6.448" x="460.366" y="373.198" stroke="#C9F5F2"
                             stroke-width="1.003" rx=".88" transform="rotate(-29.887 471.776 376.422)" />
                         <rect width="6.426" height="6.426" x="412.172" y="379.903" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 415.385 383.116)" />
-                        <rect width="6.426" height="6.426" x="412.172" y="379.892" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 415.385 383.105)" />
+                        <rect width="6.426" height="6.426" x="412.172" y="379.892" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 415.385 383.105)" />
                         <rect width="6.426" height="6.426" x="421.776" y="374.326" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 424.99 377.54)" />
-                        <rect width="6.426" height="6.426" x="421.776" y="374.337" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 424.99 377.55)" />
+                        <rect width="6.426" height="6.426" x="421.776" y="374.337" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 424.99 377.55)" />
                         <rect width="6.426" height="6.426" x="402.62" y="385.441" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 405.833 388.654)" />
-                        <rect width="6.426" height="6.426" x="402.609" y="385.431" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 405.822 388.644)" />
+                        <rect width="6.426" height="6.426" x="402.609" y="385.431" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 405.822 388.644)" />
                         <rect width="6.426" height="6.426" x="431.366" y="368.774" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 434.58 371.987)" />
-                        <rect width="6.426" height="6.426" x="431.366" y="368.774" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 434.58 371.987)" />
+                        <rect width="6.426" height="6.426" x="431.366" y="368.774" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 434.58 371.987)" />
                         <rect width="6.426" height="6.426" x="440.966" y="363.217" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 444.179 366.43)" />
-                        <rect width="6.426" height="6.426" x="440.966" y="363.207" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 444.179 366.42)" />
+                        <rect width="6.426" height="6.426" x="440.966" y="363.207" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 444.179 366.42)" />
                         <rect width="29.643" height="9.878" x="432.962" y="389.826" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 447.784 394.764)" />
-                        <rect width="29.643" height="9.878" x="432.962" y="389.826" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 447.784 394.764)" />
+                        <rect width="29.643" height="9.878" x="432.962" y="389.826" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 447.784 394.764)" />
                         <rect width="6.426" height="6.426" x="450.575" y="357.66" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 453.789 360.874)" />
-                        <rect width="6.426" height="6.426" x="450.575" y="357.671" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 453.789 360.884)" />
+                        <rect width="6.426" height="6.426" x="450.575" y="357.671" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 453.789 360.884)" />
                         <rect width="6.426" height="6.426" x="460.175" y="352.103" fill="#C9F5F2"
                             fill-rule="nonzero" rx=".88" transform="rotate(-30.08 463.388 355.317)" />
-                        <rect width="6.426" height="6.426" x="460.175" y="352.093" stroke="#C9F5F2"
-                            rx=".88" transform="rotate(-30.08 463.388 355.306)" />
+                        <rect width="6.426" height="6.426" x="460.175" y="352.093" stroke="#C9F5F2" rx=".88"
+                            transform="rotate(-30.08 463.388 355.306)" />
                         <path fill="#00506B" fill-rule="nonzero"
                             d="M518.461762,416.97389 C521.309626,421.886191 520.579133,439.650934 519.520447,444.902015 C518.461762,450.153095 515.3704,456.854575 493.932018,469.251782 C472.493635,481.64899 465.199292,480.897323 460.05408,479.330469 C454.908868,477.763614 440.309595,469.040045 437.46173,464.127744 L518.461762,416.97389 Z" />
                         <path stroke="#00506B" stroke-width="2"
@@ -469,6 +648,59 @@
                     </g>
                 </g>
             </svg>
+        </div>
+    </div>
+</div>
+
+
+<p class="container ps-3">
+    Select any from India's 768 District Capitals of 28 States, and 8
+    Union
+    Territories , for relative comparison & identifying unique socio-economic as well as culture &
+    nature metrics
+</p>
+
+
+<div class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-3">
+        <div class="searchbar">
+            <div class="searchbar-wrapper">
+                <div class="searchbar-left">
+                    <div class="search-icon-wrapper">
+                        <span class="search-icon searchbar-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="searchbar-center">
+                    <div class="searchbar-input-spacer"></div>
+
+                    <input type="text" id="searchInput" class="searchbar-input" maxlength="2048" name="q"
+                        autocapitalize="off" autocomplete="off" title="Search" role="combobox"
+                        placeholder="Search City">
+                </div>
+
+                <div class="searchbar-right">
+                    {{-- <svg class="voice-search" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="#4285f4"
+                            d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z">
+                        </path>
+                        <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                        <path fill="#fbbc05"
+                            d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z">
+                        </path>
+                        <path fill="#ea4335"
+                            d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z">
+                        </path>
+                    </svg> --}}
+                </div>
+            </div>
         </div>
     </div>
 </div>
