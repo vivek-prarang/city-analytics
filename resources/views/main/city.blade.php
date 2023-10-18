@@ -350,7 +350,7 @@
                                         <li>{{ $countx }}.</li>
                                         <li>The Average <strong> <x-elements.socure :value="$vertical[$beNegData[1]['e_id']]" /></strong>
                                             of
-                                            Indian City(District Capitals)/Districts is
+                                            Indian City (District Capitals)/Districts is
                                             {{-- <strong>{{ $bePosData['avg'] }}</strong> . --}}
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numformat($beNegData[1]['rank'], true) }}</strong> worst
