@@ -4,13 +4,85 @@
     $abNegDataCount = count($abNegData);
     $bePosDataCount = count($bePosData);
     $beNegDataCount = count($beNegData);
-    
+
 @endphp
 <x-layout.base>
     @section('css')
         <link rel="stylesheet" href="{{ asset('assets/css/static-page.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/pop-slider.css') }}">
     @endsection
+    <style>
+        /* Small Tag */
+        .language small {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Small Tag */
+        .basic-d tr small {
+            font-size: 12px;
+        }
+
+        /* Table Data */
+        .basic-d tr td {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Hig top line */
+        #mid-section .disrict-rank .hig-top-line {
+            font-weight: 500 !important;
+        }
+
+        /* Button */
+        #show-pos-neg-btn {
+            background-color: #2b2f30;
+            color: #ffffff;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-bottom-width: 5px;
+            border-bottom-color: #a1c1fb;
+            border-bottom-style: solid;
+            margin-bottom: 7px;
+            margin-right: 10px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        @media (min-width:768px) {
+
+            /* Hig top line */
+            #mid-section .disrict-rank .hig-top-line {
+                font-size: 14px;
+            }
+
+            /* Pos sub title */
+            #mid-section .disrict-rank .ps-4 div>.pos-sub-title {
+                font-size: 16px;
+            }
+
+        }
+
+        @media (max-width:575px) {
+
+            /* Hig top line */
+            #mid-section .disrict-rank .hig-top-line {
+                font-weight: 500 !important;
+                font-size: 14px;
+                text-align: justify;
+            }
+
+            /* List Item */
+            #mid-section .pos-data li {
+                text-align: justify;
+            }
+
+        }
+    </style>
     <main class="container">
         <section class="city-heading-section">
             <h2 class="city-heading text-center">
@@ -165,8 +237,8 @@
                                     <ul class="pos-data">
                                         <li>{{ $countx }}.</li>
                                         <li> The average <strong> <x-elements.socure :value="$vertical[$abPosData[1]['e_id']]" /></strong> of
-                                            Indian city(district capitals)/districts is
-                                            <strong> {{ $abPosData[1]['avg'] }}</strong>.
+                                            Indian city (district capitals)/districts is
+                                            <strong> {{ numFormat($abPosData[1]['avg']) }}</strong>.
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             {{ numformat($abPosData[1]['rank'], true) }} highest ranked
                                             city out of 768 city/districts.
@@ -182,7 +254,7 @@
                                         <li>{{ $countx }}.</li>
                                         <li>Out of 768 District Capitals/Districts of India,
                                             <strong>{{ $cityInfo['city'] }}</strong> is
-                                            the<strong>{{ numformat($abPosData[2]['rank'], true) }}</strong>
+                                            the <strong>{{ numformat($abPosData[2]['rank'], true) }}</strong>
                                             highest
                                             ranked in <strong> <x-elements.socure :value="$vertical[$abPosData[2]['e_id']]" /></strong> .
                                             {{ str_replace('"', '', $abPosData[2]['statement']) }}
@@ -210,7 +282,7 @@
                                     @endphp
                                     <ul class="pos-data">
                                         <li>{{ $countx }}.</li>
-                                        <li> <strong>{{ $cityInfo['city'] }}</strong>" is the
+                                        <li> <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($bePosData[1]['rank'], true) }}</strong> best
                                             ranked
                                             in
@@ -229,7 +301,7 @@
                                         <li>{{ $countx }}.</li>
                                         <li>The Average <strong> <x-elements.socure :value="$vertical[$bePosData[2]['e_id']]" /></strong>
                                             of
-                                            Indian City(District Capitals)/Districts is "
+                                            Indian City(District Capitals)/Districts is
                                             <strong>{{ $bePosData[2]['avg'] }}</strong> .
                                             <strong>{{ $cityInfo['city'] }}</strong> is the
                                             <strong>{{ numFormat($bePosData[2]['rank'], true) }}</strong> best
@@ -244,10 +316,7 @@
                         </div> <br>
                         <div class="ps-4">
                             <div>
-                                {{-- <p class="neg-title">
-                                     <i class="fa fa-area-chart"></i> Negative Matrix: 
-                                Worse than India Average-
-                                </p> --}}
+
                                 <p class="pos-sub-title neg-sub-title"> <i class="fa fa-arrow-circle-right"></i>
                                     Worse
                                     than India

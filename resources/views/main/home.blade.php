@@ -102,6 +102,25 @@
             }
 
         }
+
+        @media (max-width:575px) {
+
+            /* Container */
+            .container p.container {
+                margin-bottom: -28px;
+                margin-top: -10px;
+                transform: translatex(0px) translatey(0px);
+                height: 100% !important;
+                min-height: 1px;
+            }
+
+            /* Container */
+            .container .container {
+                min-height: 100px !important;
+                height: 100% !important;
+            }
+
+        }
     </style>
 
     <br>

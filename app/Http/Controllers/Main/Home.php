@@ -28,10 +28,13 @@ class Home extends Controller
         }
 
         $data = httpGet('get-culture-data', ['city_id' => $id]);
+
         $cData = $data['data'];
         $ndata = $data['ndata'];
         $cityInfo = httpGet('city-info', ['id' => $id])['data'];
+
         $data = httpGet('district-info', ['id' => $id]);
+
         $cityData = $data['data'];
         $top3Languages = $data['language'];
         $liveCities  = httpGet('cities', ['group' => 'MSTR1', 'id' => [675, 667, 651, 661], 'condition' => 'whereIn'])['data'];
@@ -40,7 +43,6 @@ class Home extends Controller
         $abPosData = $posNegData['abPosData'];
         $abNegData = $posNegData['abNegData'];
         $bePosData = $posNegData['bePosData'];
-
         $beNegData = $posNegData['beNegData'];
         return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata'));
     }
