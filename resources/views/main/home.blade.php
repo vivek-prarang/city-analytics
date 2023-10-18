@@ -69,7 +69,7 @@
             /* Add transition for smooth effect */
             border-bottom: 2px solid transparent;
 
-            /* Transparent border so layout doesn't shift on hover */
+
         }
 
         a:hover {
@@ -118,6 +118,17 @@
             .container .container {
                 min-height: 100px !important;
                 height: 100% !important;
+            }
+
+        }
+
+        @media (max-width:575px) {
+
+            /* Paragraph */
+            .mobile-screen a p {
+                font-size: 14px;
+                font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                font-weight: 500 !important;
             }
 
         }
@@ -170,7 +181,7 @@
                             <div class="accordion-body">
                                 <div class="row">
                                     @foreach ($nonLiveCities as $city)
-                                        <div class="col-sm-3  text-center">
+                                        <div class="col-6 col-lg-4  text-center">
                                             <a href="/{{ $city['id'] }}/{{ Str::slug($city['city']) }}">
                                                 <p class="non-live-city-heading">{{ $loop->iteration }}.
                                                     {{ $city['city'] }}

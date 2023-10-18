@@ -743,7 +743,7 @@
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="cn-scroll">
                                 @php
                                     $cCount = 0;
                                 @endphp
@@ -966,7 +966,7 @@
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="cn-scroll">
                                 @php
                                     $countn = 0;
                                 @endphp
