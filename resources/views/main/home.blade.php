@@ -139,6 +139,8 @@
         <x-elements.citybanner />
 
         <section id="desktop-screen" class="d-none d-sm-none d-md-block container-md">
+            <!-- Place this div where you want the message to appear -->
+            <div id="notFoundMessage" class="h3" style="display:none; text-align: center;">City not found!</div>
             @foreach ($cities as $state => $nonLiveCities)
                 <div class="mt-2 m-4 city-main">
                     <div class="row">
@@ -222,11 +224,11 @@
 
                 // Loop through all sections having the class 'city-main'
                 var citySections = document.querySelectorAll('.city-main');
+                var totalVisibleCities = 0; // Keep a count of all cities that are visible
 
                 citySections.forEach(function(section) {
                     var cities = section.querySelectorAll('.non-live-city-headings');
-                    var hasVisibleCity =
-                        false; // A flag to track if the section has any city that matches the query
+                    var hasVisibleCity = false; // To check if any city in this section is visible
 
                     // Check each city under the current section
                     cities.forEach(function(city) {
@@ -236,6 +238,7 @@
                         if (cityName.toLowerCase().indexOf(query) !== -1) {
                             city.parentElement.parentElement.style.display = 'block';
                             hasVisibleCity = true;
+                            totalVisibleCities++; // Increment the visible cities count
                         } else {
                             city.parentElement.parentElement.style.display = 'none';
                         }
@@ -248,6 +251,13 @@
                         section.style.display = 'block';
                     }
                 });
+
+                // Check the total visible cities and display the not found message if none are visible
+                if (totalVisibleCities === 0) {
+                    document.getElementById('notFoundMessage').style.display = 'block';
+                } else {
+                    document.getElementById('notFoundMessage').style.display = 'none';
+                }
             });
         </script>
 </x-layout.base>

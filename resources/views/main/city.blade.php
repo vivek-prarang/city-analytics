@@ -4,7 +4,6 @@
     $abNegDataCount = count($abNegData);
     $bePosDataCount = count($bePosData);
     $beNegDataCount = count($beNegData);
-
 @endphp
 <x-layout.base>
     @section('css')
@@ -12,29 +11,24 @@
         <link rel="stylesheet" href="{{ asset('assets/css/pop-slider.css') }}">
     @endsection
     <style>
-        /* Small Tag */
         .language small {
             font-weight: 700;
             font-size: 14px;
         }
 
-        /* Small Tag */
         .basic-d tr small {
             font-size: 12px;
         }
 
-        /* Table Data */
         .basic-d tr td {
             font-weight: 600;
             font-size: 14px;
         }
 
-        /* Hig top line */
         #mid-section .disrict-rank .hig-top-line {
             font-weight: 500 !important;
         }
 
-        /* Button */
         #show-pos-neg-btn {
             background-color: #2b2f30;
             color: #ffffff;
@@ -55,12 +49,10 @@
 
         @media (min-width:768px) {
 
-            /* Hig top line */
             #mid-section .disrict-rank .hig-top-line {
                 font-size: 14px;
             }
 
-            /* Pos sub title */
             #mid-section .disrict-rank .ps-4 div>.pos-sub-title {
                 font-size: 16px;
             }
@@ -69,14 +61,12 @@
 
         @media (max-width:575px) {
 
-            /* Hig top line */
             #mid-section .disrict-rank .hig-top-line {
                 font-weight: 500 !important;
                 font-size: 14px;
                 text-align: justify;
             }
 
-            /* List Item */
             #mid-section .pos-data li {
                 text-align: justify;
             }
@@ -1039,9 +1029,8 @@
         </div>
     </div>
     @section('script')
-        getImage('FA','10')
+        {{-- getImage('FA','10') --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="{{ asset('assets/js/pop-slider.js') }}"></script>
     @endsection
-
 </x-layout.base>

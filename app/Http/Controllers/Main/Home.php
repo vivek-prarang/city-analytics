@@ -47,6 +47,19 @@ class Home extends Controller
         return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata'));
     }
 
+    public function redirectToPage(Request $request, $cityName)
+    {
+
+        $city = httpGet('like-cities', ['id' => $cityName]);
+        $data = $city['data'];
+        if ($data != null) {
+            $url = "/" . $data['id'] . "/" . $data['city'];
+            return redirect($url);
+        } else {
+            return redirect('/');
+        }
+    }
+
     function cnImages(Request $request, $code)
     {
         return DB::table('cn_images')
