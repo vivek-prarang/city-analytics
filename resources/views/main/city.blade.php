@@ -1,4 +1,5 @@
 @php
+    // dd($cityData);
     $vertical = vertical();
     $abPosDataCount = count($abPosData);
     $abNegDataCount = count($abNegData);
@@ -76,7 +77,7 @@
     <main class="container">
         <section class="city-heading-section">
             <h2 class="city-heading text-center">
-                {{ $cityInfo['city'] }} Analytics
+                {{ $cityData['title'] }} Analytics
             </h2>
         </section>
         <section class="static-top-section mt-3">
