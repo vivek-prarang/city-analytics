@@ -1,5 +1,5 @@
 @php
-    // dd($cityData);
+
     $vertical = vertical();
     $abPosDataCount = count($abPosData);
     $abNegDataCount = count($abNegData);
@@ -76,6 +76,20 @@
     </style>
     <main class="container">
         <section class="city-heading-section">
+            <p class="text-center">
+                @if (array_key_exists($id, $uaGroupData))
+                    {{ $cityData['title'] }} is UA includes
+
+                    @foreach ($uaGroupData[$id] as $udata)
+                        <a class="text-primary" href="/{{ $udata['dhq_id'] }}/{{ $udata['dhq'] }} ">
+                            {{ $loop->iteration }}.<u>{{ $udata['dhq'] }}</u>
+                        </a>
+                    @endforeach
+                @elseif (array_key_exists($id, $uaData))
+                    This is a part of {{ $uaData[$id][0]['ua'] }}. <a class="text-primary"
+                        href="/{{ $uaData[$id][0]['gid'] }}/{{ $uaData[$id][0]['ua'] }}"><u>Here is link to UA. </u></a>
+                @endif
+            </p>
             <h2 class="city-heading text-center">
                 {{ $cityData['title'] }} Analytics
             </h2>

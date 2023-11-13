@@ -44,7 +44,10 @@ class Home extends Controller
         $abNegData = $posNegData['abNegData'];
         $bePosData = $posNegData['bePosData'];
         $beNegData = $posNegData['beNegData'];
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata'));
+        $ua=httpGet('get-ua-data',[]);
+        $uaGroupData=$ua['group-data'];
+        $uaData=$ua['data'];
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata','id','uaGroupData','uaData'));
     }
 
     public function redirectToPage(Request $request, $cityName)
