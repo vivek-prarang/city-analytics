@@ -113,6 +113,11 @@
                         </ul>
                         <p class="lang-num">Number Of Languages spoken by more then 30K Population :
                             {{ $cityData['no_of_30k'] }}</p>
+                        <p class="text-center">
+                            <a class="reacho-meter" target="_blank" href="https://planner.prarang.in/reacho-o-meter">
+                                Reach-o-Meter <img src="https://planner.prarang.in/assets/img/reachometer.png"
+                                    alt=""></a>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-8">

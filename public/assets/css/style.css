@@ -1870,3 +1870,48 @@ input[type="submit"] {
     }
 
 }
+
+
+/* reacho meter */
+.reacho-meter {
+    background-color: #ffffff;
+    padding-left: 9px;
+    padding-top: 4px;
+    padding-bottom: -4px;
+    margin-left: 0px;
+    width: 149px !important;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    min-height: 28px;
+}
+
+/* Image */
+.language .reacho-meter img {
+    position: relative;
+    top: -4px;
+    left: -4px;
+}
+
+/* Image */
+.container .static-top-section .row .item-center .language .text-center .reacho-meter img {
+    width: 7% !important;
+}
+
+/* Link */
+.language a {
+    background-color: #69bee2;
+    padding-left: 13px;
+    padding-right: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: 700;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+/* Link */
+.language a:hover {
+    background-color: #5c879d;
+    color: #ffffff;
+}
