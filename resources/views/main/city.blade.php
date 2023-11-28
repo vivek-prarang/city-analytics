@@ -73,10 +73,27 @@
             }
 
         }
+
+        /* Underline text tag */
+        .city-heading-section p u {
+            color: #1657a0;
+        }
+
+
+        /* Span Tag */
+        .city-heading-section p span {
+            text-align: justify;
+            display: inline-block;
+            transform: translatex(0px) translatey(0px) !important;
+            /* font-weight: 600; */
+        }
     </style>
     <main class="container">
         <section class="city-heading-section">
-            <p class="text-center">
+            <h2 class="city-heading text-center">
+                {{ $cityData['title'] }} Analytics
+            </h2>
+            <p class="ps-3">
                 @if (array_key_exists($id, $uaGroupData))
                     {{ $cityData['title'] }} is UA includes
 
@@ -87,12 +104,43 @@
                     @endforeach
                 @elseif (array_key_exists($id, $uaData))
                     This is a part of {{ $uaData[$id][0]['ua'] }}. <a class="text-primary"
-                        href="/{{ $uaData[$id][0]['gid'] }}/{{ $uaData[$id][0]['ua'] }}"><u>Here is link to UA. </u></a>
+                        href="/{{ $uaData[$id][0]['gid'] }}/{{ $uaData[$id][0]['ua'] }}"><u>Here is link to UA.
+                        </u></a>
+                    <br>
                 @endif
+                @if ($urduHeader)
+                    @if ($urduHeader['is_mt'])
+                        <span class="text-success">Please note that the Mother Tongue ( highest number) of this City/DHQ
+                            (District
+                            Headquarter) in
+                            Census 2011 is URDU. The Census did NOT distinguish between literacy in Urdu vs merely
+                            speaking
+                            in Urdu language. As such, it is recommended to consider all URDU and
+                            <b>{{ $urduHeader['i_lang'] }}</b> data
+                            consolidated together for this City/DHQ, for any linguistic digital market/advertising size
+                            calculations. Applying this district's census 2011 literacy rate to the Urdu speaking
+                            population
+                            indicates more than 30K Urdu population but this may not necessarily be the case.</span>
+                    @else
+                        <span class="text-primary">
+                            Please note that the Mother Tongue ( highest number) of this City/DHQ ( District
+                            Headquarter) in Census 2011 is <b>{{ $urduHeader['mt_lang'] }}</b> Additionally, there is a
+                            possibility that
+                            there is more than 30K literate Urdu language population too in this City. The Census did
+                            NOT distinguish between literacy in Urdu vs merely speaking in Urdu language- as such, we
+                            can't be sure. It is therefore recommended to consider all URDU and
+                            {{ $urduHeader['i_lang'] }} data
+                            consolidated together for this City/DHQ, for any linguistic Digital market/advertising
+                            size
+                            calculations.
+
+                        </span><br>
+                    @endif
+
+                @endif
+
             </p>
-            <h2 class="city-heading text-center">
-                {{ $cityData['title'] }} Analytics
-            </h2>
+
         </section>
         <section class="static-top-section mt-3">
             <div class="row">

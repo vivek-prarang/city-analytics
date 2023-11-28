@@ -47,7 +47,8 @@ class Home extends Controller
         $ua = httpGet('get-ua-data', []);
         $uaGroupData = $ua['group-data'];
         $uaData = $ua['data'];
-        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata', 'id', 'uaGroupData', 'uaData'));
+        $urduHeader = httpGet('get-urdu-headers', ['city_id' => $id])['data'];
+        return view('main.city', compact('cityData', 'cityInfo', 'top3Languages', 'liveCities', 'wpp', 'abPosData', 'abNegData', 'bePosData', 'beNegData', 'cData', 'ndata', 'id', 'uaGroupData', 'uaData', 'urduHeader'));
     }
 
     public function redirectToPage(Request $request, $cityName)
