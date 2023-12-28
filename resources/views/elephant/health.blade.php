@@ -1,5 +1,6 @@
 @php
     $vertical = vertical(['e_healths']);
+    $table_name = realName('e_healths');
     $i=0;
     $j=0;
 @endphp
@@ -13,7 +14,7 @@
     <main class="container">
         <section class="city-heading-section">
         <div class="text-center">
-            <h3 style="background-color: darkgrey; padding: 10px;border-radius: 10px;">Healths</h3>
+            <h3 style="background-color: darkgrey; padding: 10px;border-radius: 10px;">{{$table_name}}</h3>
         </div>
         <table class="table">
           <thead class="thead-dark">
@@ -31,10 +32,10 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($healths['data']['state'] as $data)
+            @foreach($healths['data']['state'] as $key => $data)
                 <tr>
                   <td><b>{{$i++ == 28 ? $j=1 : ++$j }}</b></th>
-                  <td scope="row"><b>{{$data['state']}}</b></th>
+                  <td scope="row"><b>{{$key}}</b></th>
                   <td>{{$data['HLT1']}}</td>
                   <td>{{$data['HLT2']}}</td>
                   <td>{{$data['HLT3']}}</td>
