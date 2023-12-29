@@ -16,6 +16,7 @@
         <div class="text-center">
             <h3 style="background-color: darkgrey; padding: 10px;border-radius: 10px;">{{$table_name}}</h3>
         </div>
+        <div class="overflow-auto">
         <table class="table">
           <thead class="thead-dark">
             <tr style="background-color:rgb(208, 206, 206);">
@@ -45,6 +46,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
         </section>
     </main>
 </x-layout.base>

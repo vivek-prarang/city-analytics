@@ -13,6 +13,10 @@ Route::get('/india/govs', [ElephantController::class, 'stateWiseElephant'])->nam
 Route::get('/india/ints', [ElephantController::class, 'stateWiseElephant'])->name('e-ints');
 Route::get('/india/langs', [ElephantController::class, 'stateWiseElephant'])->name('e-langs');
 Route::get('/india/medias', [ElephantController::class, 'stateWiseElephant'])->name('e-medias');
+Route::get('/india/urbs', [ElephantController::class, 'stateWiseElephant'])->name('e-urbs');
+Route::get('/india/works', [ElephantController::class, 'stateWiseElephant'])->name('e-works');
+Route::get('/india/nature', [ElephantController::class, 'stateWiseElephant'])->name('nature');
+Route::get('/india/culture', [ElephantController::class, 'stateWiseElephant'])->name('culture');
 
 // Vivake
 Route::get('/', [Home::class, 'home']);

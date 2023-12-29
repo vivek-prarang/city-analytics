@@ -139,6 +139,14 @@ if (!function_exists('realName')) {
                 return "City (District Capitals)/DHQ";
                 break;
 
+            case 'n_data':
+                return "Nature";
+                break;
+
+            case 'c_data':
+                return "Culture";
+                break;
+
             default:
                 return "---";
                 break;
