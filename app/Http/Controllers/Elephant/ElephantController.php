@@ -47,7 +47,7 @@ class ElephantController extends Controller
             $culture = httpGet('e-culture');
             return view('elephant.culture', compact('culture'));
         }else{
-            return withError('something went wrong');
+            return redirect()->back();
         }
     }
 }
