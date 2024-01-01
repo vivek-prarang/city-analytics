@@ -25,7 +25,6 @@
               <th scope="col"><strong> <x-elements.socure :value="$vertical['URB1']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['URB2']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['URB3']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['URB4']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['URB5']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['URB6']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['URB7']" /></strong></th>
@@ -67,7 +66,6 @@
                   <td>{{$data['URB1']}}</td>
                   <td>{{$data['URB2']}}</td>
                   <td>{{$data['URB3']}}</td>
-                  <td>{{$data['URB4']}}</td>
                   <td>{{$data['URB5']}}</td>
                   <td>{{$data['URB6']}}</td>
                   <td>{{$data['URB7']}}</td>
@@ -107,7 +105,6 @@
                 <td><b>{{$urbs['data']['india']['URB1']}}</b></td>
                 <td><b>{{$urbs['data']['india']['URB2']}}</b></td>
                 <td><b>{{$urbs['data']['india']['URB3']}}</b></td>
-                <td><b>{{$urbs['data']['india']['URB4']}}</b></td>
                 <td><b>{{$urbs['data']['india']['URB5']}}</b></td>
                 <td><b>{{$urbs['data']['india']['URB6']}}</b></td>
                 <td><b>{{$urbs['data']['india']['URB7']}}</b></td>

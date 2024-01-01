@@ -36,7 +36,6 @@
               <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU12']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU13']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU14']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU15']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU16']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU17']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['EDU18']" /></strong></th>
@@ -71,7 +70,6 @@
                   <td>{{$data['EDU12']}}</td>
                   <td>{{$data['EDU13']}}</td>
                   <td>{{$data['EDU14']}}</td>
-                  <td>{{$data['EDU15']}}</td>
                   <td>{{$data['EDU16']}}</td>
                   <td>{{$data['EDU17']}}</td>
                   <td>{{$data['EDU18']}}</td>
@@ -104,7 +102,6 @@
                 <td><b>{{$edus['data']['india']['EDU12']}}</b></td>
                 <td><b>{{$edus['data']['india']['EDU13']}}</b></td>
                 <td><b>{{$edus['data']['india']['EDU14']}}</b></td>
-                <td><b>{{$edus['data']['india']['EDU15']}}</b></td>
                 <td><b>{{$edus['data']['india']['EDU16']}}</b></td>
                 <td><b>{{$edus['data']['india']['EDU17']}}</b></td>
                 <td><b>{{$edus['data']['india']['EDU18']}}</b></td>
