@@ -99,7 +99,7 @@
                   <td>{{$data['URB40']}}</td>
                 </tr>
             @endforeach
-            <tr>
+            <tr> 
                 <td style="font-size:15px"><b>India</b></td>
                 <td style="font-size:15px"><b>Total</b></td>
                 <td><b>{{$urbs['data']['india']['URB1']}}</b></td>
