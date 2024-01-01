@@ -24,10 +24,8 @@
               <th scope="col">States/UT</th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['INT1']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['INT2']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['INT3']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['INT4']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['INT5']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['INT6']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['INT10']" /></strong></th>
             </tr>
           </thead>
@@ -38,10 +36,8 @@
                   <td scope="row"><b>{{$key}}</b></th>
                   <td>{{$data['INT1']}}</td>
                   <td>{{$data['INT2']}}</td>
-                  <td>{{$data['INT3']}}</td>
                   <td>{{$data['INT4']}}</td>
                   <td>{{$data['INT5']}}</td>
-                  <td>{{$data['INT6']}}</td>
                   <td>{{$data['INT10']}}</td>
                 </tr>
             @endforeach
@@ -50,10 +46,8 @@
                 <td style="font-size:15px"><b>Total</b></td>
                 <td><b>{{$ints['data']['india']['INT1']}}</b></td>
                 <td><b>{{$ints['data']['india']['INT2']}}</b></td>
-                <td><b>{{$ints['data']['india']['INT3']}}</b></td>
                 <td><b>{{$ints['data']['india']['INT4']}}</b></td>
                 <td><b>{{$ints['data']['india']['INT5']}}</b></td>
-                <td><b>{{$ints['data']['india']['INT6']}}</b></td>
                 <td><b>{{$ints['data']['india']['INT10']}}</b></td>
             </tr>
           </tbody>

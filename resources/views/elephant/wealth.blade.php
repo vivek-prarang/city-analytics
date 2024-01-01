@@ -51,9 +51,6 @@
               <th scope="col"><strong> <x-elements.socure :value="$vertical['WLT27']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['WLT28']" /></strong></th>
               <th scope="col"><strong> <x-elements.socure :value="$vertical['WLT29']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['WLT30']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['WLT31']" /></strong></th>
-              <th scope="col"><strong> <x-elements.socure :value="$vertical['WLT32']" /></strong></th>
             </tr>
           </thead>
           <tbody>
@@ -90,9 +87,6 @@
                   <td>{{$data['WLT27']}}</td>
                   <td>{{$data['WLT28']}}</td>
                   <td>{{$data['WLT29']}}</td>
-                  <td>{{$data['WLT30']}}</td>
-                  <td>{{$data['WLT31']}}</td>
-                  <td>{{$data['WLT32']}}</td>
                 </tr>
             @endforeach
             <tr>
@@ -127,9 +121,6 @@
                 <td><b>{{$wealths['data']['india']['WLT27']}}</b></td>
                 <td><b>{{$wealths['data']['india']['WLT28']}}</b></td>
                 <td><b>{{$wealths['data']['india']['WLT29']}}</b></td>
-                <td><b>{{$wealths['data']['india']['WLT30']}}</b></td>
-                <td><b>{{$wealths['data']['india']['WLT31']}}</b></td>
-                <td><b>{{$wealths['data']['india']['WLT32']}}</b></td>
             </tr>
           </tbody>
         </table>

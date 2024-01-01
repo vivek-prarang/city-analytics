@@ -24,7 +24,9 @@
               <th scope="col">#</th>
               <th scope="col">States/UT</th>
               @foreach ($vertical as $key_v => $value)
-                  <th scope="col"><strong> <x-elements.socure :value="$vertical[$key_v]" /></strong></th>
+                @if($key_v != 'LAN1')
+                    <th scope="col"><strong> <x-elements.socure :value="$vertical[$key_v]" /></strong></th>
+                @endif
               @endforeach
             </tr>
           </thead>
@@ -34,7 +36,9 @@
                   <td><b>{{$i++ == 28 ? $j=1 : ++$j }}</b></th>
                   <td scope="row"><b>{{$key}}</b></th>
                   @foreach ($vertical as $key_v => $value)
-                      <td>{{ $data[$key_v] }}</td>
+                    @if($key_v != 'LAN1')
+                        <td>{{ $data[$key_v] }}</td>
+                    @endif
                   @endforeach
                 </tr>
             @endforeach
@@ -42,7 +46,9 @@
                 <td style="font-size:15px"><b>India</b></td>
                 <td style="font-size:15px"><b>Total</b></td>
                 @foreach ($vertical as $key_v => $value)
-                    <td><b>{{$langs['data']['india'][$key_v]}}</b></td>
+                  @if($key_v != 'LAN1')
+                      <td><b>{{$langs['data']['india'][$key_v]}}</b></td>
+                  @endif
                 @endforeach
             </tr>
           </tbody>
